@@ -12,16 +12,16 @@ Example Streem SDK project for IOS
 | Pro CallKit integration                           | ✅ 				| ✅                |
 | Customer CallKit integration                      | ❌ 				| ✅                |
 | Laser tool                                        | ✅ 				| ✅                |
-| Landscape Support                                 | ❌ 				|                   |
-| iPad Support                            		 	| ✅ 				|                   |
+| Landscape Support                                 | ❌ 				| ✅                |
+| iPad Support                                      | ✅ 				| ✅                |
 | API Access (GET /streems)                         | ❌ 				|                   |
 | AR Remote Streem                                  | ✅ 				|                   |
 | AR Onsite Streem                                  | ✅ 				|                   |
-| AR Arrow Tool 	                                | ✅ 				|                   |
-| Remote Streemshot                           	 	| ✅ 				|                   |
-| Onsite Streemshot                           	 	| ✅ 				|                   |
-| Streemshot Measure tool 							| ✅				|					|
-| Onsite Recording                           		| ✅ 				|                   |
+| AR Arrow Tool                                     | ✅ 				|                   |
+| Remote Streemshot                                 | ✅ 				|                   |
+| Onsite Streemshot                           	    | ✅ 				|                   |
+| Streemshot Measure tool                           | ✅					|                   |
+| Onsite Recording                           	    | ✅ 				|                   |
 | Remote Recording                                  | ✅ 				|                   |
 
 
