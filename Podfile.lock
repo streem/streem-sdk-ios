@@ -47,7 +47,7 @@ PODS:
     - SnapKit (~> 4.0.0)
     - TwilioSyncClient (~> 0.7.4)
     - TwilioVideo (= 2.3.0)
-  - StreemShared (0.1.0):
+  - StreemShared (0.1.1):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - TwilioSyncClient (0.7.5)
@@ -60,6 +60,7 @@ DEPENDENCIES:
   - Quick (~> 1.2.0)
   - Streem (~> 0.1.0)
   - StreemCalls (~> 0.1.0)
+  - StreemShared (= 0.1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -96,10 +97,10 @@ SPEC CHECKSUMS:
   Streem: 01504de51c79e2f09452361d5268fa3f8f859050
   StreemCalls: c2bbab428c63b6e34eee24934b381266d13477a2
   StreemJob: 1d0ebba605fee21f3fcd61d8480310a7453ef566
-  StreemShared: 3ff64038e1fe9b79c88f3a257c914f4550cc9cd0
+  StreemShared: 36bd3ab7bb546e98ebb6d254bd41fa17ccc1d8ab
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: 901134d5b99f0657b850fbf7a56ebddacda558c3
 
-PODFILE CHECKSUM: d6db86be323eea7af1672541843b1a187009381c
+PODFILE CHECKSUM: 552bedb082c09cb272c7099415e84a7c3d0a510b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2
