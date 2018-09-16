@@ -22,12 +22,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let userId = defaults.string(forKey: "userId") {
-            let name = defaults.string(forKey: "name") ?? "User"
-            let avatarUrl = defaults.string(forKey: "avatarUrl")
-            Streem.identify(userId: userId, name: name, avatarUrl: avatarUrl)
-        }
-
         StreemSession.shared.currentUser
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { user in
@@ -35,10 +29,6 @@ class ViewController: UIViewController {
                 self.identifyButton.title = user?.name ?? "Identify"
             })
             .disposed(by: disposeBag)
-
-//        if let nav = self.navigationController {
-//            Streem.setRootController(nav)
-//        }
     }
 
     override func didReceiveMemoryWarning() {

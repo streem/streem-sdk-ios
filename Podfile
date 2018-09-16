@@ -7,9 +7,8 @@ use_frameworks!
 platform :ios, '10.3'
 
 target 'StreemNow' do
-  pod 'Streem', '~> 0.1.0'
-  pod 'StreemShared', '= 0.1.1'
-  pod 'StreemCalls', '~> 0.1.0'
+  pod 'Streem', '~> 0.2.4'
+  pod 'StreemCalls', '~> 0.2.4'
 
   target 'StreemNow_Tests' do
     inherit! :search_paths
