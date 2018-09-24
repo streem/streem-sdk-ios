@@ -28,18 +28,18 @@ PODS:
   - RxAnimated/Core (0.4.1):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxCocoa (4.3.0):
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.0)
+  - RxSwift (4.3.1)
   - SnapKit (4.0.1)
-  - Streem (0.2.6):
+  - Streem (0.2.7):
     - RxAnimated
     - StreemJob
     - StreemShared
     - TwilioVideo (= 2.3.0)
-  - StreemCalls (0.2.6):
+  - StreemCalls (0.2.7):
     - Streem
-  - StreemJob (0.2.6):
+  - StreemJob (0.2.7):
     - PromiseKit (~> 6.2.8)
     - RateLimit (~> 2.1.1)
     - RxCocoa (~> 4.0)
@@ -47,7 +47,7 @@ PODS:
     - SnapKit (~> 4.0.0)
     - TwilioSyncClient (~> 0.7.2)
     - TwilioVideo (= 2.3.0)
-  - StreemShared (0.2.6):
+  - StreemShared (0.2.7):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - TwilioSyncClient (0.7.5)
@@ -58,8 +58,8 @@ DEPENDENCIES:
   - Nimble (~> 7.0.2)
   - Nimble-Snapshots (~> 6.3.0)
   - Quick (~> 1.2.0)
-  - Streem (~> 0.2.6)
-  - StreemCalls (~> 0.2.6)
+  - Streem (~> 0.2.7)
+  - StreemCalls (~> 0.2.7)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -90,16 +90,16 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RateLimit: 3652039be00c614d0f6e468026edd6760463a425
   RxAnimated: 8b3142830a60840ebed5755d33b9c88ad5a1647c
-  RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
-  RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  Streem: a14ff5a1ea29f78004befec124ae91b3b80eb410
-  StreemCalls: cfb435c4b5ec3e722f94c82e16838213e4e03bb6
-  StreemJob: f7d99097e8ade57da8c17258cf74ecc97af3b034
-  StreemShared: f0fd6495f3215c5cab36c2d14c289187568b3102
+  Streem: 7d64521edacb2f0b1e05e3d76b045ae21b11c955
+  StreemCalls: 0d8e23eb550047e89576c2a438ded30c326a8e6d
+  StreemJob: d3cf00bf31972531c3717d18560356c2db8190ee
+  StreemShared: 6cacce31abcbc284984a435a348383f95a660cf6
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: 901134d5b99f0657b850fbf7a56ebddacda558c3
 
-PODFILE CHECKSUM: 1b54206bd8d4bc74b35b6d4c366874b3d0c72f98
+PODFILE CHECKSUM: 40acf3b467ff29dd493bad608a6f5eaa91ea082a
 
 COCOAPODS: 1.5.2
