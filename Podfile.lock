@@ -32,24 +32,23 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - SnapKit (4.0.1)
-  - Streem (0.2.7):
-    - RxAnimated
+  - Streem (0.3.1):
+    - RxAnimated (~> 0.4.1)
     - StreemJob
     - StreemShared
-    - TwilioVideo (= 2.3.0)
-  - StreemCalls (0.2.7):
+  - StreemCalls (0.3.1):
     - Streem
-  - StreemJob (0.2.7):
+  - StreemJob (0.3.1):
     - PromiseKit (~> 6.2.8)
     - RateLimit (~> 2.1.1)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
     - SnapKit (~> 4.0.0)
     - TwilioSyncClient (~> 0.7.2)
     - TwilioVideo (= 2.3.0)
-  - StreemShared (0.2.7):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
+  - StreemShared (0.3.1):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
   - TwilioSyncClient (0.7.5)
   - TwilioVideo (2.3.0)
 
@@ -58,8 +57,8 @@ DEPENDENCIES:
   - Nimble (~> 7.0.2)
   - Nimble-Snapshots (~> 6.3.0)
   - Quick (~> 1.2.0)
-  - Streem (~> 0.2.7)
-  - StreemCalls (~> 0.2.7)
+  - Streem (~> 0.3.1)
+  - StreemCalls (~> 0.3.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -93,13 +92,13 @@ SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  Streem: 7d64521edacb2f0b1e05e3d76b045ae21b11c955
-  StreemCalls: 0d8e23eb550047e89576c2a438ded30c326a8e6d
-  StreemJob: d3cf00bf31972531c3717d18560356c2db8190ee
-  StreemShared: 6cacce31abcbc284984a435a348383f95a660cf6
+  Streem: d30547139b0beb74b454aa2790daab1691afdac4
+  StreemCalls: 173cd11ed498a28534352f66fbf7f40ce95772c9
+  StreemJob: 77cc116227f20490f266a13558092058aa1a981e
+  StreemShared: 061ce2623c5a622ae786c9a83f2b506ce0b7d183
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: 901134d5b99f0657b850fbf7a56ebddacda558c3
 
-PODFILE CHECKSUM: 40acf3b467ff29dd493bad608a6f5eaa91ea082a
+PODFILE CHECKSUM: 9bc50eda2e6f953695c4d9e2a9b915b0d38852c3
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

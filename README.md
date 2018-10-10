@@ -44,10 +44,10 @@ Then simply import the frameworks where they are used:
 
 ### Logging In
 
-Before identifying the currently logged in user, initialize the SDK with your API token:
+Before identifying the currently logged in user, initialize the SDK with your App ID and secret:
 
 ```swift
-    Streem.initialize(apiToken: "abc-123")
+    Streem.initialize(appId: "APP_ID", appSecret: "APP_SECRET")
 ```
 
 If you are using CallKit, you should also initialize `StreemCalls` as well, so that you can make and receive phone calls:
@@ -59,11 +59,11 @@ If you are using CallKit, you should also initialize `StreemCalls` as well, so t
 Next, once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
-    Streem.identify(userId: "mike", traits: [
-    	"firstName": "Mike",
-    	"lastName": "Jones",
-    	"avatarUrl": "http://..."
-    ])
+    Streem.identify(
+        userId: "john", 
+        name: "John Smith", 
+        avatarUrl: "http://..."
+    )
 ```
 
 

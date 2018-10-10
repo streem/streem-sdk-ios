@@ -44,13 +44,13 @@ class ViewController: UIViewController {
         }
 
         Streem.getRecentlyIdentifiedUsers() { users in
-            let users = users.filter { $0.userId != currentUser.userId }
+            let users = users.filter { $0.id != currentUser.id }
             let optionMenu = UIAlertController(title: nil, message: "Call Who?", preferredStyle: .actionSheet)
             users.forEach() { user in
                 optionMenu.addAction(UIAlertAction(title: "\(user.name!)", style: .default) { alert in
                     let index = optionMenu.actions.index(of: alert)
                     let user = users[index!]
-                    print("Calling user: \(user.userId)")
+                    print("Calling user: \(user.externalUserId)")
 
                     let state = try? StreemStateBuilder()
                         .with(myRole: .LOCAL_CUSTOMER)

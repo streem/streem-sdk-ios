@@ -14,11 +14,12 @@ import StreemCalls
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let apiToken = "YOUR_STREEM_API_TOKEN_GOES_HERE"
+    let appId = "YOUR_STREEM_APP_ID"
+    let appSecret = "YOUR_STREEM_APP_SECRET"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         NSLog(#function)
-        Streem.initialize(apiToken: apiToken)
+        Streem.initialize(appId: appId, appSecret: appSecret)
         StreemCalls.initialize()
         return true
     }
