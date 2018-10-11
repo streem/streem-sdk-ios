@@ -5,7 +5,7 @@ Follow these instructions to setup your app with CallKit push notifications, whi
 
 ### Configure your App to use VOIP and Push Notifications in Xcode
 * Open your app in Xcode
-* Select your App Target, open Capabilities, and enable Push notifications
+* Select your App Target, open Capabilities, and enable Push notifications ![Xcode Push](images/8_xcode_push.png)
 * Open your Info.plist file, and add `voip` to the list of required background modes
 ```
 	<key>UIBackgroundModes</key>
@@ -13,6 +13,7 @@ Follow these instructions to setup your app with CallKit push notifications, whi
 		<string>voip</string>
 	</array>
 ```
+![Xcode VOIP](images/9_xcode_voip_background.png)
 
 ### Get a VOIP Certificate from Apple
 
