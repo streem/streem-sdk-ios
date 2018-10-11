@@ -25,6 +25,13 @@ Example Streem SDK project for IOS
 | Remote Recording                                  | ✅ 				|                   |
 
 
+### Account/App Setup
+
+* Obtain your `account_id` from Streem
+* Provide your IOS bundle id for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
+* Streem will provide you with an `appId` and `appSecret` for each of your IOS apps
+* If you are going to use CallKit (recommended), refer to the [CallKit Setup Instructions](docs/callkit.md) now that you have your App IDs
+
 ### Installation
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)

@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-810" y="-306"/>
         </scene>
-        <!--Streem NOW-->
+        <!--Streem NOW Pro-->
         <scene sceneID="Xmj-Q2-5Bu">
             <objects>
-                <viewController id="wJM-tG-Yg8" customClass="ViewController" customModule="StreemNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wJM-tG-Yg8" customClass="ViewController" customModule="StreemNowPro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h6R-eV-cMv"/>
                         <viewControllerLayoutGuide type="bottom" id="esF-oU-2Gc"/>
@@ -98,7 +98,7 @@
                             <constraint firstItem="TJ1-wG-fPT" firstAttribute="top" secondItem="h6R-eV-cMv" secondAttribute="bottom" id="uCg-ox-icv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Streem NOW" id="sSd-Sk-jz8">
+                    <navigationItem key="navigationItem" title="Streem NOW Pro" id="sSd-Sk-jz8">
                         <barButtonItem key="rightBarButtonItem" title="Identify" id="bBW-4D-bcc" userLabel="Identify Button">
                             <connections>
                                 <segue destination="WDf-aL-gXj" kind="show" id="HIV-79-uFm"/>
@@ -116,7 +116,7 @@
         <!--Identify-->
         <scene sceneID="aQP-NU-txk">
             <objects>
-                <viewController id="WDf-aL-gXj" customClass="IdentifyViewController" customModule="StreemNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WDf-aL-gXj" customClass="IdentifyViewController" customModule="StreemNowPro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="08l-b9-ltT"/>
                         <viewControllerLayoutGuide type="bottom" id="aqg-HN-dMw"/>

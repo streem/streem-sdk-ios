@@ -15,6 +15,7 @@ target 'StreemNow' do
   #pod 'StreemCalls', :path => '../streem-app/streem-sdk/ios'
   #pod 'StreemJob', :path => '../streem-app/streem-sdk/ios'
 
+  target 'StreemNowPro'
 
   target 'StreemNow_Tests' do
     inherit! :search_paths
