@@ -75,7 +75,11 @@ SSL-Session:
 * Your private key and certificate are good to go!
 
 
-### Configure Streem with your Certificate and Private Key
+### Send Streem your Certificate and Private Key
 
-Streem needs these files so that we can send VOIP notifications on your behalf.  Until we have a self-service portal, you'll need to send us these files, and we'll upload them to our servers
+Streem needs these files so that we can send VOIP notifications on your behalf.  Until we have a self-service portal, you'll need to send us these files, and we'll upload them to our servers.
+
+You can email sdk-support@streem.pro, or work out another delivery mechanism.
+
+We do a PUT to our servers with these credentials, so if you want to try doing this yourself, please just hit us up on Slack and we can work with you on that.  Expect the self-serve portal to be available in 2019.
 
