@@ -19,13 +19,13 @@ Follow these instructions to setup your app with CallKit push notifications, whi
 
 * Login to the Apple Developer Portal, and go to Certificates, Identifiers & Profiles
 * Under Identifiers > App IDs, ensure the app exists that you are creating a certificate for (add the App if it does not exist)
-* Go to Certificates > All, and tap the Plus icon to add a new certificate
-* Select VoIP Services Certificate, and tap Continue
+* Go to Certificates > All, and tap the Plus icon to add a new certificate ![Add Cert](images/1_add_cert.png)
+* Select VoIP Services Certificate, and tap Continue ![Select VOIP](images/2_select_voip.png)
 * Select the App ID you are generating a certificate for
 * On the Create a CSR file screen, stop and open the Keychain Access app on your Mac
-* From the Mac toolbar, select Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority
+* From the Mac toolbar, select Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority ![Start CSR](images/3_start_csr.png)
 * Enter your email address in the first field, and in "Common Name", simply enter a descriptive name for your key (e.g. Streem VOIP Key)
-* Leave CA Email Address field blank, select Save to Disk, and Continue
+* Leave CA Email Address field blank, select Save to Disk, and Continue ![CSR Fields](images/4_csr_fields.png)
 * Save the file to disk in a place you can grab in a moment
 * Back in the Apple portal, select Continue.
 * On the next screen, select to upload the CSR you just generated, and click Continue
@@ -43,10 +43,10 @@ Follow these instructions to setup your app with CallKit push notifications, whi
 ### Extract Private Key
 
 * Import your `voip_services.cer` file into Keychain Access by double-clicking it from Finder
-* Select login for the keychain to import to
+* Select login for the keychain to import to ![Cert Import](images/5_cert_import.png)
 * Find the certificate under My Certificates
 * Extend the cert to expose the private key
-* Right click the private key and select "Export (key)..."
+* Right click the private key and select "Export (key)..." ![Export Key](images/7_export_key.png)
 * You can leave the password blank if you like
 * Save the `Certificates.p12` file to disk
 * Open terminal to the newly created p12 file
