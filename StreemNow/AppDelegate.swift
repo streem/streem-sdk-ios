@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Streem
+//  StreemNow
 //
 //  Created by Sean Adkinson on 07/17/2018.
 //  Copyright (c) 2018 Sean Adkinson. All rights reserved.

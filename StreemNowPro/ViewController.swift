@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Streem
+//  StreemNowPro
 //
 //  Created by Sean Adkinson on 07/17/2018.
 //  Copyright (c) 2018 Sean Adkinson. All rights reserved.
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             return
         }
 
-        Streem.getRecentlyIdentifiedUsers() { users in
+        Streem.getRecentlyIdentifiedUsers(onlyExperts: false) { users in
             let users = users.filter { $0.id != currentUser.id }
             let optionMenu = UIAlertController(title: nil, message: "Call Who?", preferredStyle: .actionSheet)
             users.forEach() { user in

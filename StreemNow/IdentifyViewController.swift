@@ -107,7 +107,7 @@ class IdentifyViewController : UIViewController {
         let name = try! viewModel.name.value()
         let avatarUrl = try! viewModel.avatarUrl.value()
 
-        Streem.identify(userId: userId, name: name, avatarUrl: avatarUrl) { user in
+        Streem.identify(userId: userId, expert: false, name: name, avatarUrl: avatarUrl) { user in
             self.defaults.set(userId, forKey: "userId")
             self.defaults.set(name, forKey: "name")
             self.defaults.set(avatarUrl, forKey: "avatarUrl")
