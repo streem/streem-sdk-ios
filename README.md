@@ -1,4 +1,4 @@
-# streem-now-ios
+# streem-sdk-ios
 Example Streem SDK project for IOS
 
 
