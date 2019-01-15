@@ -14,12 +14,12 @@ Example Streem SDK project for IOS
 | Laser tool                                        | ✅ 				| ✅                |
 | Landscape Support                                 | ❌ 				| ✅                |
 | iPad Support                                      | ✅ 				| ✅                |
-| API Access (GET /streems)                         | ❌ 				|                   |
+| API Access (GET /streems)                         | ❌ 				| ✅                |
 | AR Remote Streem                                  | ✅ 				|                   |
 | AR Onsite Streem                                  | ✅ 				|                   |
 | AR Arrow Tool                                     | ✅ 				|                   |
-| Remote Streemshot                                 | ✅ 				|                   |
-| Onsite Streemshot                           	    | ✅ 				|                   |
+| Remote Streemshot                                 | ✅ 				| ✅                |
+| Onsite Streemshot                           	    | ✅ 				| ✅                |
 | Streemshot Measure tool                           | ✅					|                   |
 | Onsite Recording                           	    | ✅ 				|                   |
 | Remote Recording                                  | ✅ 				|                   |
