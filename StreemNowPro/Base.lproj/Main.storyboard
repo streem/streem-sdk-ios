@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -107,6 +106,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="identifyButton" destination="bBW-4D-bcc" id="JfM-qT-HQQ"/>
+                        <outlet property="openOnsiteButton" destination="bqC-z7-n3q" id="bqh-RU-P9Q"/>
+                        <outlet property="startCallButton" destination="7fb-BJ-IdV" id="fc6-dn-s9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo1-6F-RZ0" sceneMemberID="firstResponder"/>
@@ -148,6 +149,9 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="M5C-Xe-IsH"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -165,6 +169,9 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="XRM-oR-cPI"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>

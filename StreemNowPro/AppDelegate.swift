@@ -14,15 +14,6 @@ import StreemCalls
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let appId = "YOUR_STREEM_APP_ID"
-    let appSecret = "YOUR_STREEM_APP_SECRET"
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        NSLog(#function)
-        Streem.initialize(appId: appId, appSecret: appSecret)
-        StreemCalls.initialize()
-        return true
-    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         NSLog(#function)

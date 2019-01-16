@@ -7,8 +7,8 @@ use_frameworks!
 platform :ios, '10.3'
 
 target 'StreemNow' do
-  pod 'Streem', '~> 0.4.0'
-  pod 'StreemCalls', '~> 0.4.0'
+  pod 'Streem', '~> 0.5.2'
+  pod 'StreemCalls', '~> 0.5.2'
 
   #pod 'Streem', :path => '../streem-app/streem-sdk/ios'
   #pod 'StreemShared', :path => '../streem-app/streem-sdk/ios'
