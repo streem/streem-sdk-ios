@@ -38,14 +38,12 @@ Currently Streem supports Cocoapods installation (Carthage, Swift Package Manage
 
 ```
     pod 'Streem'
-    pod 'StreemCalls'  // For CallKit, requires IOS 10+
 ```
 
-Then simply import the frameworks where they are used:
+Then simply import the framework where it is used:
 
 ```swift
     import Streem
-    import StreemCalls
 ```
 
 
@@ -54,23 +52,41 @@ Then simply import the frameworks where they are used:
 Before identifying the currently logged in user, initialize the SDK with your App ID and secret:
 
 ```swift
-    Streem.initialize(appId: "APP_ID", appSecret: "APP_SECRET")
+    Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET")
 ```
 
-If you are using CallKit, you should also initialize `StreemCalls` as well, so that you can make and receive phone calls:
+If you are using CallKit, you should also initialize `StreemCalls` , so that you can make and receive phone calls:
 
 ```swift
-    StreemCalls.initialize()
+    Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET") {
+        StreemCalls.initialize()
+    }
+```
+Implement the two required `StreemDelegate` methods:
+
+```swift
+    public func initializationDidFail() {
+        // present alert, etc. in the rare event that Streem initialization fails
+    }
+
+    public func currentUserDidChange(user: StreemUser?) {
+        // as necessary, update your stored and/or displayed `user.name` and `user.id`
+    }
 ```
 
 Next, once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
-    Streem.identify(
+    Streem.sharedInstance.identify(
         userId: "john", 
         name: "John Smith", 
         avatarUrl: "http://..."
-    )
+        ) { success in
+        if success {
+            // dismiss login screen, etc.
+        } else {
+            // present alert, etc.
+        }
 ```
 
 
@@ -81,12 +97,12 @@ Through some mechanism in your app, you determine what two users should be stree
 To make a call to user "tom", do the following:
 
 ```swift
-   let state = StreemStateBuilder()
-        .with(myRole: .LOCAL_CUSTOMER)
-        .with(remoteUserId: "tom", andRole: .REMOTE_PRO)
-        .build()
-
-    Streem.openStreem(state)
+    let user = StreemUser(name: "Tom Smith", id: "tom")
+    Streem.sharedInstance.startCustomerStreem(withPro: user) { success in
+        if !success {
+            // present alert, etc.
+        }
+    }
 ```
 
 If CallKit has been setup, this will make a phone call to Tom's device.
@@ -97,13 +113,15 @@ If CallKit has been setup, this will make a phone call to Tom's device.
 From the remote device, when the call is ready to be answered, you can join the streem with the following:
 
 ```swift
-    let state = StreemStateBuilder()
-        .with(myRole: .REMOTE_PRO)
-        .with(remoteUserId: fromUserId, andRole: .LOCAL_CUSTOMER)
-        .joining(streemId: streemId, fromCallId: callId)
-        .build()
-
-    Streem.openStreem(state)
+    let remoteUser = StreemUser(name: userName, id: userId)
+    Streem.sharedInstance.startRemoteStreem(
+        fromCustomer: remoteUser,
+        roomId: roomId,
+        fromInvitationId: invitationId) { success in
+        if !success {
+            // present alert, etc.
+        }
+    }
 ```
 
 Note that this part is not needed if using `StreemCalls`, as this is done for you using CallKit integration.
@@ -111,14 +129,14 @@ Note that this part is not needed if using `StreemCalls`, as this is done for yo
 
 ### Starting an Onsite Streem
 
-Similar to starting a remote Streem, but don't specify a remote user, and use the LOCAL_PRO role
+Similar to starting a remote Streem, but no need to specify a remote user:
 
 ```swift
-    let state = StreemStateBuilder()
-	    .with(myRole: .LOCAL_PRO)
-	    .build()
-
-    Streem.openStreem(state)
+    Streem.sharedInstance.startOnsiteStreem() { success in
+        if !success {
+            // present alert, etc.
+        }
+    }
 ```
 
 
