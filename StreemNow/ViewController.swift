@@ -11,8 +11,8 @@ import Streem
 
 class ViewController: UIViewController {
     
-    let appId = "*** YOUR APP-ID GOES HERE ***"
-    let appSecret = "*** YOUR APP-SECRET GOES HERE ***"
+    var appId = "*** YOUR APP-ID GOES HERE ***"
+    var appSecret = "*** YOUR APP-SECRET GOES HERE ***"
     
     private var currentUser: StreemUser?
     
