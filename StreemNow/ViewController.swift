@@ -8,7 +8,6 @@
 
 import UIKit
 import Streem
-import StreemCalls
 
 class ViewController: UIViewController {
     
@@ -42,7 +41,7 @@ class ViewController: UIViewController {
             return
         }
         
-        Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: true) { users in
+        Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: false) { users in
             let users = users.filter { $0.id != self.currentUser?.id }
             guard !users.isEmpty else {
                 let alert = UIAlertController(title: nil, message: "Nobody else has connected recently.", preferredStyle: .alert)

@@ -130,10 +130,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqW-bD-flT" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="326.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="387.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="udN-uT-svI">
-                                                <rect key="frame" x="20" y="20" width="335" height="286.5"/>
+                                                <rect key="frame" x="20" y="20" width="335" height="347.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q3B-yM-hzH">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="55.5"/>
@@ -192,8 +192,22 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-nQ-kvD">
+                                                        <rect key="frame" x="0.0" y="256.5" width="335" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-eu-2pg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="281" height="31"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEN-Z8-piL">
+                                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyI-Xv-Nls">
-                                                        <rect key="frame" x="0.0" y="256.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="317.5" width="335" height="30"/>
                                                         <state key="normal" title="Logout">
                                                             <color key="titleColor" red="1" green="0.059499482554000394" blue="0.092460356542865885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -235,6 +249,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatarUrlField" destination="gTP-xD-dcr" id="E9D-Pe-Kzh"/>
+                        <outlet property="expertSwitch" destination="LEN-Z8-piL" id="4CV-QV-Eh4"/>
                         <outlet property="logoutButton" destination="WyI-Xv-Nls" id="alX-Pl-jTo"/>
                         <outlet property="nameField" destination="dj7-N2-Ces" id="zqj-AI-6CE"/>
                         <outlet property="saveButton" destination="7mm-Wb-6TH" id="X3K-Rr-EHr"/>

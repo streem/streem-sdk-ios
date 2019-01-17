@@ -16,6 +16,7 @@ class IdentifyViewController : UIViewController {
     @IBOutlet weak var userIdField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var avatarUrlField: UITextField!
+    @IBOutlet weak var expertSwitch: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
 
     let defaults = UserDefaults.standard
@@ -29,6 +30,7 @@ class IdentifyViewController : UIViewController {
         userIdField.text = userId
         nameField.text = name
         avatarUrlField.text = avatarUrl
+        expertSwitch.setOn(defaults.bool(forKey: "expert"), animated: false)
         saveButton.isEnabled = bothNonEmpty(userId, name)
         
         let notificationCenter = NotificationCenter.default
@@ -61,6 +63,7 @@ class IdentifyViewController : UIViewController {
         defaults.removeObject(forKey: "userId")
         defaults.removeObject(forKey: "name")
         defaults.removeObject(forKey: "avatarUrl")
+        defaults.removeObject(forKey: "expert")
         
         Streem.sharedInstance.clearUser()
         
@@ -75,7 +78,7 @@ class IdentifyViewController : UIViewController {
         let userId = userIdField.text!
         let name = nameField.text
         let avatarUrl = avatarUrlField.text
-        let expert = false
+        let expert = expertSwitch.isOn
         
         Streem.sharedInstance.identify(userId: userId, expert: expert, name: name, avatarUrl: avatarUrl) { [weak self] success in
             guard let self = self else { return }
