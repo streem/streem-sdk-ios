@@ -55,7 +55,7 @@ Before identifying the currently logged in user, initialize the SDK with your Ap
     Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET")
 ```
 
-If you are using CallKit, you should also initialize `StreemCalls` , so that you can make and receive phone calls:
+If you are using CallKit, you should also initialize `StreemCalls`, so that you can make and receive phone calls:
 
 ```swift
     Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET") {
@@ -82,10 +82,11 @@ Next, once the user has logged into your app, inform Streem that they are logged
         name: "John Smith", 
         avatarUrl: "http://..."
         ) { success in
-        if success {
-            // dismiss login screen, etc.
-        } else {
-            // present alert, etc.
+            if success {
+                // dismiss login screen, etc.
+            } else {
+                // present alert, etc.
+            }
         }
 ```
 
