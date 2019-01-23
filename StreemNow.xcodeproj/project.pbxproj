@@ -12,7 +12,6 @@
 		2107C56B212F1F3500A7CA02 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2107C56A212F1F3500A7CA02 /* CoreMedia.framework */; };
 		2137218D2122584A00E35355 /* StreemSessionObservablesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137218C2122584A00E35355 /* StreemSessionObservablesSpec.swift */; };
 		2139519B210121A6001A8611 /* StreemStateCodableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2139519A210121A6001A8611 /* StreemStateCodableSpec.swift */; };
-		21C46538216E97A00075978A /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */; };
 		21C46559216FC3020075978A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C46548216FB6E40075978A /* ViewController.swift */; };
 		21FA74D4211103A40041ADD5 /* IdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA74D3211103A40041ADD5 /* IdentifyViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -20,7 +19,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		653E47A862CBB1B142715E1A /* Pods_StreemNow_StreemNowPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A799730FCAB38F838B85489 /* Pods_StreemNow_StreemNowPro.framework */; };
+		8A518E9AC63E19CFADF35B35 /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */; };
 		BAB77F646097909DC848D8DB /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,9 +65,7 @@
 		607FACE51AFB9204008FA782 /* StreemNow_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreemNow_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		72AAB7D3F04DD5830375EBB1 /* Pods-StreemNow-StreemNowPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow-StreemNowPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro.release.xcconfig"; sourceTree = "<group>"; };
 		8416872FD6755367D4F70FF8 /* Pods-StreemSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemSDK_Tests/Pods-StreemSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8BF3174707E001702B5C79E9 /* Pods-StreemNow-StreemNowPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow-StreemNowPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro.debug.xcconfig"; sourceTree = "<group>"; };
 		A10D93F46FDE93D4BD574A1B /* Pods-StreemNow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Example/Pods-StreemNow_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C578748752DCF51DB6EA7092 /* Pods-Streem_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streem_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Streem_Tests/Pods-Streem_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,8 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C46538216E97A00075978A /* Pods_StreemNow.framework in Frameworks */,
-				653E47A862CBB1B142715E1A /* Pods_StreemNow_StreemNowPro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB77F646097909DC848D8DB /* Pods_StreemNow.framework in Frameworks */,
+				8A518E9AC63E19CFADF35B35 /* Pods_StreemNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,8 +187,6 @@
 				1E036231D6DCE0B8B2A709D9 /* Pods-StreemNow_Tests.release.xcconfig */,
 				5573F8553234F268B106A2DD /* Pods-StreemNow.debug.xcconfig */,
 				0964A7A78B7E32B0439A752B /* Pods-StreemNow.release.xcconfig */,
-				8BF3174707E001702B5C79E9 /* Pods-StreemNow-StreemNowPro.debug.xcconfig */,
-				72AAB7D3F04DD5830375EBB1 /* Pods-StreemNow-StreemNowPro.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -220,12 +214,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21C4653F216E97A00075978A /* Build configuration list for PBXNativeTarget "StreemNowPro" */;
 			buildPhases = (
-				21C46532216E97A00075978A /* [CP] Check Pods Manifest.lock */,
 				21C46533216E97A00075978A /* Sources */,
 				21C46537216E97A00075978A /* Frameworks */,
 				21C46539216E97A00075978A /* Resources */,
-				21C4653D216E97A00075978A /* [CP] Embed Pods Frameworks */,
-				21C4653E216E97A00075978A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,7 +236,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				63119BAE37927DD67DC58A09 /* [CP] Embed Pods Frameworks */,
-				8199E4F1578110FF453FCD07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -373,88 +363,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		21C46532216E97A00075978A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StreemNow-StreemNowPro-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		21C4653D216E97A00075978A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RateLimit/RateLimit.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAnimated/RxAnimated.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${PODS_ROOT}/Streem/Build/iOS/Streem.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
-				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework",
-				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework.dSYM",
-				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
-				"${BUILT_PRODUCTS_DIR}/Willow/Willow.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RateLimit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Streem.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioSyncClient.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/TwilioSyncClient.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Willow.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		21C4653E216E97A00075978A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemRoom.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemCalls.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemShared.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemJob.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemRoom.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemCalls.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemShared.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemJob.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow-StreemNowPro/Pods-StreemNow-StreemNowPro-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		63119BAE37927DD67DC58A09 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,7 +376,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${PODS_ROOT}/Streem/Build/iOS/Streem.framework",
+				"${PODS_ROOT}/Streem/Streem.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework",
 				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework.dSYM",
@@ -517,30 +425,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8199E4F1578110FF453FCD07 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemRoom.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemCalls.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemShared.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Streem/StreemJob.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemRoom.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemCalls.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemShared.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreemJob.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B234CD8AD53E29C9A0AA5C7A /* [CP] Check Pods Manifest.lock */ = {
@@ -624,7 +508,6 @@
 /* Begin XCBuildConfiguration section */
 		21C46540216E97A00075978A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BF3174707E001702B5C79E9 /* Pods-StreemNow-StreemNowPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNowPro/StreemNowPro.entitlements;
@@ -642,7 +525,6 @@
 		};
 		21C46541216E97A00075978A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72AAB7D3F04DD5830375EBB1 /* Pods-StreemNow-StreemNowPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNowPro/StreemNowPro.entitlements;

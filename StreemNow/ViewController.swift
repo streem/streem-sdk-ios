@@ -24,9 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Streem.initialize(delegate: self, appId: appId, appSecret: appSecret) {
-            StreemCalls.initialize()
-        }
+        Streem.initialize(delegate: self, appId: appId, appSecret: appSecret)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +55,7 @@ class ViewController: UIViewController {
                     let user = users[index!]
                     print("Calling user: \(user.id)")
                     
-                    Streem.sharedInstance.startCustomerStreem(withPro: user) { success in
+                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: user.id) { success in
                         if !success {
                             let alert = UIAlertController(title: nil, message: "Unable to call \(user.name).", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -87,7 +85,7 @@ class ViewController: UIViewController {
             return
         }
         
-        Streem.sharedInstance.startOnsiteStreem() { success in
+        Streem.sharedInstance.startLocalStreem() { success in
             if !success {
                 let alert = UIAlertController(title: nil, message: "Unable to establish connection.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
