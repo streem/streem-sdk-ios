@@ -32,7 +32,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - SnapKit (4.0.1)
-  - Streem (0.6.1):
+  - Streem (0.6.2):
     - PromiseKit (~> 6.2.8)
     - RateLimit (~> 2.1.1)
     - RxAnimated (~> 0.4.1)
@@ -86,7 +86,7 @@ SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  Streem: c514cff7e25f97276a3207a4645c9f277a2d2631
+  Streem: 6255fe1719954394613c11c7a7bde2dd4c3b0109
   SwiftProtobuf: 84cd6b8f4fd2fc3d9fbd80a0aaf2e957d52824ec
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: 901134d5b99f0657b850fbf7a56ebddacda558c3
