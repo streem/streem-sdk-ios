@@ -8,7 +8,7 @@ platform :ios, '10.3'
 
 target 'StreemNow' do
   #pod 'Streem', :podspec => '../streem-app/streem-sdk/ios/cocoapods/Streem/0.6.0/Streem.podspec.json'
-  pod 'Streem', '~> 0.6.0'
+  pod 'Streem', '~> 0.7.1'
 
   target 'StreemNow_Tests' do
     inherit! :search_paths
