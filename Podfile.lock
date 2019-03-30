@@ -20,7 +20,6 @@ PODS:
   - PromiseKit/UIKit (6.2.8):
     - PromiseKit/CorePromise
   - Quick (1.2.0)
-  - RateLimit (2.1.2)
   - RxAnimated (0.4.1):
     - RxAnimated/Core (= 0.4.1)
     - RxCocoa (~> 4.0)
@@ -31,29 +30,24 @@ PODS:
   - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
-  - SnapKit (4.0.1)
-  - Streem (0.7.1):
+  - Streem (0.8.1):
     - PromiseKit (~> 6.2.8)
-    - RateLimit (~> 2.1.1)
     - RxAnimated (~> 0.4.1)
     - RxCocoa (~> 4.3.0)
     - RxSwift (~> 4.3.0)
-    - SnapKit (~> 4.0.0)
     - SwiftProtobuf (~> 1.0)
     - TwilioSyncClient (~> 0.7.5)
     - TwilioVideo (= 2.6.0)
-    - Willow (~> 5.0)
-  - SwiftProtobuf (1.3.1)
+  - SwiftProtobuf (1.4.0)
   - TwilioSyncClient (0.7.5)
   - TwilioVideo (2.6.0)
-  - Willow (5.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
   - Nimble (~> 7.0.2)
   - Nimble-Snapshots (~> 6.3.0)
   - Quick (~> 1.2.0)
-  - Streem (~> 0.7.1)
+  - Streem (~> 0.8.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -62,14 +56,11 @@ SPEC REPOS:
     - Nimble-Snapshots
     - PromiseKit
     - Quick
-    - RateLimit
     - RxAnimated
     - RxCocoa
     - RxSwift
-    - SnapKit
     - SwiftProtobuf
     - TwilioVideo
-    - Willow
   https://github.com/streem/cocoapods:
     - Streem
   https://github.com/twilio/cocoapod-specs:
@@ -81,17 +72,14 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  RateLimit: 3652039be00c614d0f6e468026edd6760463a425
   RxAnimated: 8b3142830a60840ebed5755d33b9c88ad5a1647c
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  Streem: c81d3b47e50783c49f46d168c4f17e0f0de530d6
-  SwiftProtobuf: 84cd6b8f4fd2fc3d9fbd80a0aaf2e957d52824ec
+  Streem: 29ffa4c7d2e14216a4b890b5b8f953019bd7ee92
+  SwiftProtobuf: b06646ed6cdcfc3fecd074c6000fe0c413140e4f
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: a3b58b5a7c5a3271b18c8a481a4f0aa51f79b2c4
-  Willow: ad7f75939db11f7d56a97df2ca04405815e73125
 
-PODFILE CHECKSUM: 5e0b86a69ba0769df1a4a67706232dd61c596a93
+PODFILE CHECKSUM: 90bde35646b9358ac0beab20b1255d1b94f3efbf
 
 COCOAPODS: 1.5.3
