@@ -15,9 +15,9 @@ Example Streem SDK project for IOS
 | Landscape Support                                 | ❌ 				| ✅                |
 | iPad Support                                      | ✅ 				| ✅                |
 | API Access (GET /streems)                         | ❌ 				| ✅                |
-| AR Remote Streem                                  | ✅ 				|                   |
-| AR Onsite Streem                                  | ✅ 				|                   |
-| AR Arrow Tool                                     | ✅ 				|                   |
+| AR Remote Streem                                  | ✅ 				| ✅                |
+| AR Onsite Streem                                  | ✅ 				| ✅                |
+| AR Arrow Tool                                     | ✅ 				| ✅                |
 | Remote Streemshot                                 | ✅ 				| ✅                |
 | Onsite Streemshot                           	    | ✅ 				| ✅                |
 | Streemshot Measure tool                           | ✅					|                   |
@@ -25,9 +25,9 @@ Example Streem SDK project for IOS
 | Remote Recording                                  | ✅ 				|                   |
 
 
-### Account/App Setup
+### Company/App Setup
 
-* Obtain your `account_id` from Streem
+* Obtain your `company_id` from Streem
 * Provide your IOS bundle id for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
 * Streem will provide you with an `appId` and `appSecret` for each of your IOS apps
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
@@ -100,12 +100,12 @@ To make a call to user "tom", do the following:
     }
 ```
 
-Assuming that CallKit has been set up correctly, this will make a phone call to Tom's device.
+If CallKit has been set up correctly, Tom's device will ring like a phone call, and once answered, both phones will be connected on Streem.
 
 
 ### Starting a Local Streem
 
-This is even simpler than starting a remote Streem:
+A Local Streem uses the device's camera, and opens up an AR experience with our arrow and measure tools, and the ability to capture streemshots.  Open a Local Streem simply by:
 
 ```swift
     Streem.sharedInstance.startLocalStreem() { success in
