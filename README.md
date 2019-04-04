@@ -20,9 +20,10 @@ Example Streem SDK project for IOS
 | AR Arrow Tool                                     | ✅ 				| ✅                |
 | Remote Streemshot                                 | ✅ 				| ✅                |
 | Onsite Streemshot                           	    | ✅ 				| ✅                |
-| Streemshot Measure tool                           | ✅					|                   |
+| Streemshot Editing                                | ✅					|                   |
+| Streemshot Processing                             | ✅					|                   |
 | Onsite Recording                           	    | ✅ 				|                   |
-| Remote Recording                                  | ✅ 				|                   |
+| Remote Recording                                  | ✅ 				| ✅                |
 
 
 ### Company/App Setup
