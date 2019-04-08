@@ -3,7 +3,7 @@
 //  StreemNow_Tests
 //
 //  Created by Sean Adkinson on 7/19/18.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  Copyright © 2018 Streem, Inc. All rights reserved.
 //
 
 import Quick
