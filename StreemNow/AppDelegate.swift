@@ -3,7 +3,7 @@
 //  StreemNow
 //
 //  Created by Sean Adkinson on 07/17/2018.
-//  Copyright (c) 2018 Sean Adkinson. All rights reserved.
+//  Copyright © 2018 Streem, Inc. All rights reserved.
 //
 
 import UIKit
