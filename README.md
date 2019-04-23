@@ -37,11 +37,18 @@ Example Streem SDK project for IOS
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)
 
+Add a `source` to your `Podfile`:
+```
+    source 'https://github.com/streem/cocoapods'
+```
+
+Then add the `Streem` dependency:
+
 ```
     pod 'Streem'
 ```
 
-Then simply import the framework where it is used:
+Finally, import the framework where it is used:
 
 ```swift
     import Streem
