@@ -1,7 +1,11 @@
 # streem-sdk-ios
 Example Streem SDK project for IOS
 
-**Important: We do not currently support Xcode 10.2 and Swift 5.  We are working to resolve this as soon as possible**
+### Example App Requirements
+
+* Xcode 10.2 with Swift 5
+* Cocoapods 1.6 or later
+* ARKit compatible device with IOS 12 or later
 
 ## Streem Functions
 
