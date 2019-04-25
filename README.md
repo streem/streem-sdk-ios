@@ -1,6 +1,7 @@
 # streem-sdk-ios
 Example Streem SDK project for IOS
 
+**Important: We do not currently support Xcode 10.2 and Swift 5.  We are working to resolve this as soon as possible**
 
 ## Streem Functions
 

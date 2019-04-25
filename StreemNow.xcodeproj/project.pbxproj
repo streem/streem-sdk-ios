@@ -7,20 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0B6585D7302A6479F008FD /* Pods_StreemNow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591099AA27123B736FA132F3 /* Pods_StreemNow_Tests.framework */; };
 		2107C569212F1DC600A7CA02 /* VideoFrameProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107C568212F1DC600A7CA02 /* VideoFrameProviderSpec.swift */; };
 		2107C56B212F1F3500A7CA02 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2107C56A212F1F3500A7CA02 /* CoreMedia.framework */; };
 		2137218D2122584A00E35355 /* StreemSessionObservablesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137218C2122584A00E35355 /* StreemSessionObservablesSpec.swift */; };
 		2139519B210121A6001A8611 /* StreemStateCodableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2139519A210121A6001A8611 /* StreemStateCodableSpec.swift */; };
 		21C46559216FC3020075978A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C46548216FB6E40075978A /* ViewController.swift */; };
 		21FA74D4211103A40041ADD5 /* IdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA74D3211103A40041ADD5 /* IdentifyViewController.swift */; };
+		5140F3F8443CA1FED7389B81 /* Pods_StreemNow_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A0A62C5A2A9FE442B7A869 /* Pods_StreemNow_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		8A518E9AC63E19CFADF35B35 /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */; };
-		BAB77F646097909DC848D8DB /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */; };
+		F5D8F09E995D4DFB2AABB8F9 /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD4CBD390997D2BEEC355D /* Pods_StreemNow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,13 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0015ECD9453C05A71E758915 /* Pods_Streem_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Streem_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		04FB88831E87682EFA414EEF /* Pods_StreemSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0964A7A78B7E32B0439A752B /* Pods-StreemNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow.release.xcconfig"; sourceTree = "<group>"; };
-		17505322E999CBDDB104BF2C /* Pods-Streem_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streem_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Streem_Example/Pods-Streem_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1D23A8BA97349C746F1ECD67 /* Pods-StreemNow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1D9EEFA2021AF6B13EDA0523 /* Pods-StreemNow_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Example/Pods-StreemNow_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1E036231D6DCE0B8B2A709D9 /* Pods-StreemNow_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2107C568212F1DC600A7CA02 /* VideoFrameProviderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFrameProviderSpec.swift; sourceTree = "<group>"; };
 		2107C56A212F1F3500A7CA02 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2137218C2122584A00E35355 /* StreemSessionObservablesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreemSessionObservablesSpec.swift; sourceTree = "<group>"; };
@@ -50,12 +42,7 @@
 		21C46548216FB6E40075978A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21EB035021EFA2D200014F86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21FA74D3211103A40041ADD5 /* IdentifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyViewController.swift; sourceTree = "<group>"; };
-		4A799730FCAB38F838B85489 /* Pods_StreemNow_StreemNowPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow_StreemNowPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B49E6C71E1276CC54754936 /* Pods-StreemSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemSDK_Example/Pods-StreemSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5573F8553234F268B106A2DD /* Pods-StreemNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow.debug.xcconfig"; sourceTree = "<group>"; };
-		591099AA27123B736FA132F3 /* Pods_StreemNow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CD2E76C48B558278C608C4E /* Pods_StreemNow_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2380F1A55C368CE649EC60 /* Pods-Streem_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streem_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streem_Tests/Pods-Streem_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		45E036EA65EBF2B7221C6324 /* Pods-StreemNow_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* StreemNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreemNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,15 +52,11 @@
 		607FACE51AFB9204008FA782 /* StreemNow_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreemNow_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8416872FD6755367D4F70FF8 /* Pods-StreemSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemSDK_Tests/Pods-StreemSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A10D93F46FDE93D4BD574A1B /* Pods-StreemNow_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Example/Pods-StreemNow_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C578748752DCF51DB6EA7092 /* Pods-Streem_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streem_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Streem_Tests/Pods-Streem_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C60BFF91352D3BE43DC39B95 /* Pods_StreemSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C710D0476B662CBC345F0AD4 /* Pods-Streem_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streem_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streem_Example/Pods-Streem_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		CC87F836081C463BAB93380C /* Pods_Streem_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Streem_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4FA6DCAFF23FC2826C0AB97 /* Pods-StreemSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemSDK_Tests/Pods-StreemSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9149FDA16B227F474443756 /* Pods-StreemSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemSDK_Example/Pods-StreemSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		65C755C88CAA3E0275485373 /* Pods-StreemNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow.release.xcconfig"; sourceTree = "<group>"; };
+		86806F7B6D8F6F6D572319D5 /* Pods-StreemNow_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		89BD4CBD390997D2BEEC355D /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A0A62C5A2A9FE442B7A869 /* Pods_StreemNow_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FD3456C88CA92CB1C2668E /* Pods-StreemNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB77F646097909DC848D8DB /* Pods_StreemNow.framework in Frameworks */,
-				8A518E9AC63E19CFADF35B35 /* Pods_StreemNow.framework in Frameworks */,
+				F5D8F09E995D4DFB2AABB8F9 /* Pods_StreemNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2107C56B212F1F3500A7CA02 /* CoreMedia.framework in Frameworks */,
-				1F0B6585D7302A6479F008FD /* Pods_StreemNow_Tests.framework in Frameworks */,
+				5140F3F8443CA1FED7389B81 /* Pods_StreemNow_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +94,8 @@
 				607FACD21AFB9204008FA782 /* StreemNow */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				62564F44C0C8E52597B39EC7 /* Pods */,
 				B687BC56E62E704ABBCD37CE /* Frameworks */,
+				EDB7CF24CC747E64B37F33D2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,41 +152,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		62564F44C0C8E52597B39EC7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C710D0476B662CBC345F0AD4 /* Pods-Streem_Example.debug.xcconfig */,
-				17505322E999CBDDB104BF2C /* Pods-Streem_Example.release.xcconfig */,
-				5E2380F1A55C368CE649EC60 /* Pods-Streem_Tests.debug.xcconfig */,
-				C578748752DCF51DB6EA7092 /* Pods-Streem_Tests.release.xcconfig */,
-				E9149FDA16B227F474443756 /* Pods-StreemSDK_Example.debug.xcconfig */,
-				4B49E6C71E1276CC54754936 /* Pods-StreemSDK_Example.release.xcconfig */,
-				D4FA6DCAFF23FC2826C0AB97 /* Pods-StreemSDK_Tests.debug.xcconfig */,
-				8416872FD6755367D4F70FF8 /* Pods-StreemSDK_Tests.release.xcconfig */,
-				1D9EEFA2021AF6B13EDA0523 /* Pods-StreemNow_Example.debug.xcconfig */,
-				A10D93F46FDE93D4BD574A1B /* Pods-StreemNow_Example.release.xcconfig */,
-				1D23A8BA97349C746F1ECD67 /* Pods-StreemNow_Tests.debug.xcconfig */,
-				1E036231D6DCE0B8B2A709D9 /* Pods-StreemNow_Tests.release.xcconfig */,
-				5573F8553234F268B106A2DD /* Pods-StreemNow.debug.xcconfig */,
-				0964A7A78B7E32B0439A752B /* Pods-StreemNow.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B687BC56E62E704ABBCD37CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				2107C56A212F1F3500A7CA02 /* CoreMedia.framework */,
-				0015ECD9453C05A71E758915 /* Pods_Streem_Example.framework */,
-				CC87F836081C463BAB93380C /* Pods_Streem_Tests.framework */,
-				04FB88831E87682EFA414EEF /* Pods_StreemSDK_Example.framework */,
-				C60BFF91352D3BE43DC39B95 /* Pods_StreemSDK_Tests.framework */,
-				5CD2E76C48B558278C608C4E /* Pods_StreemNow_Example.framework */,
-				591099AA27123B736FA132F3 /* Pods_StreemNow_Tests.framework */,
-				AA7C19925688E3DE6C4DD7DE /* Pods_StreemNow.framework */,
-				4A799730FCAB38F838B85489 /* Pods_StreemNow_StreemNowPro.framework */,
+				89BD4CBD390997D2BEEC355D /* Pods_StreemNow.framework */,
+				B1A0A62C5A2A9FE442B7A869 /* Pods_StreemNow_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDB7CF24CC747E64B37F33D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2FD3456C88CA92CB1C2668E /* Pods-StreemNow.debug.xcconfig */,
+				65C755C88CAA3E0275485373 /* Pods-StreemNow.release.xcconfig */,
+				45E036EA65EBF2B7221C6324 /* Pods-StreemNow_Tests.debug.xcconfig */,
+				86806F7B6D8F6F6D572319D5 /* Pods-StreemNow_Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,11 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "StreemNow" */;
 			buildPhases = (
-				B234CD8AD53E29C9A0AA5C7A /* [CP] Check Pods Manifest.lock */,
+				2E8FF1AA7C00C6369478CBBB /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				63119BAE37927DD67DC58A09 /* [CP] Embed Pods Frameworks */,
+				A9FF6F4F7182B95515CD30CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,11 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "StreemNow_Tests" */;
 			buildPhases = (
-				03E732B4D4F598BC278F4212 /* [CP] Check Pods Manifest.lock */,
+				029F66B8AE02CA3F535E96AD /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				7ED728711CD4CC75945A218A /* [CP] Embed Pods Frameworks */,
+				BFFA0ED7DDAF0F64431641F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,16 +311,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03E732B4D4F598BC278F4212 /* [CP] Check Pods Manifest.lock */ = {
+		029F66B8AE02CA3F535E96AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StreemNow_Tests-checkManifestLockResult.txt",
 			);
@@ -363,10 +333,34 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63119BAE37927DD67DC58A09 /* [CP] Embed Pods Frameworks */ = {
+		2E8FF1AA7C00C6369478CBBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StreemNow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9FF6F4F7182B95515CD30CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh",
@@ -381,6 +375,8 @@
 				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
@@ -397,10 +393,12 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7ED728711CD4CC75945A218A /* [CP] Embed Pods Frameworks */ = {
+		BFFA0ED7DDAF0F64431641F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests-frameworks.sh",
@@ -410,6 +408,8 @@
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
@@ -419,24 +419,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreemNow_Tests/Pods-StreemNow_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B234CD8AD53E29C9A0AA5C7A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StreemNow-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -635,7 +617,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5573F8553234F268B106A2DD /* Pods-StreemNow.debug.xcconfig */;
+			baseConfigurationReference = B2FD3456C88CA92CB1C2668E /* Pods-StreemNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNow/StreemNow.entitlements;
@@ -653,7 +635,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0964A7A78B7E32B0439A752B /* Pods-StreemNow.release.xcconfig */;
+			baseConfigurationReference = 65C755C88CAA3E0275485373 /* Pods-StreemNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNow/StreemNow.entitlements;
@@ -671,7 +653,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D23A8BA97349C746F1ECD67 /* Pods-StreemNow_Tests.debug.xcconfig */;
+			baseConfigurationReference = 45E036EA65EBF2B7221C6324 /* Pods-StreemNow_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 3QG6M38N8P;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -694,7 +676,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E036231D6DCE0B8B2A709D9 /* Pods-StreemNow_Tests.release.xcconfig */;
+			baseConfigurationReference = 86806F7B6D8F6F6D572319D5 /* Pods-StreemNow_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 3QG6M38N8P;
 				FRAMEWORK_SEARCH_PATHS = (
