@@ -30,7 +30,7 @@ PODS:
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
-  - Streem (0.9.4):
+  - Streem (0.9.17):
     - PromiseKit (~> 6.2.8)
     - RxAnimated (~> 0.4.1)
     - RxCocoa (~> 4.5.0)
@@ -47,7 +47,7 @@ DEPENDENCIES:
   - Nimble (~> 7.0.2)
   - Nimble-Snapshots (~> 6.3.0)
   - Quick (~> 1.2.0)
-  - Streem (= 0.9.4)
+  - Streem (~> 0.9.17)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -75,11 +75,11 @@ SPEC CHECKSUMS:
   RxAnimated: 8b3142830a60840ebed5755d33b9c88ad5a1647c
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  Streem: 323782d0631e7ee9f9704ad0b7f4930330d0640e
+  Streem: 704827498009bf13a1236e9021254a453812009d
   SwiftProtobuf: 241400280f912735c1e1b9fe675fdd2c6c4d42e2
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: a3b58b5a7c5a3271b18c8a481a4f0aa51f79b2c4
 
-PODFILE CHECKSUM: fd5d2bfc16dfbb794e5c8c619772cc0a83ac75b3
+PODFILE CHECKSUM: 45d940c8cc5be1802b95cc1fc713bbbcea9652ae
 
 COCOAPODS: 1.5.3
