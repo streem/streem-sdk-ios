@@ -7,7 +7,6 @@ use_frameworks!
 platform :ios, '10.3'
 
 target 'StreemNow' do
-  #pod 'Streem', :podspec => '../streem-app/streem-sdk/ios/cocoapods/Streem/0.6.0/Streem.podspec.json'
   pod 'Streem', '~> 0.9.17'
 
   target 'StreemNow_Tests' do
