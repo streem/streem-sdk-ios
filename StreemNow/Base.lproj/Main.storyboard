@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-810" y="-306"/>
         </scene>
-        <!--Streem NOW-->
+        <!--Streem-->
         <scene sceneID="Xmj-Q2-5Bu">
             <objects>
                 <viewController id="wJM-tG-Yg8" customClass="ViewController" customModule="StreemNow" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
                                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <state key="normal" title="Start Call">
+                                                        <state key="normal" title="Call Expert">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -97,7 +97,7 @@
                             <constraint firstItem="TJ1-wG-fPT" firstAttribute="top" secondItem="h6R-eV-cMv" secondAttribute="bottom" id="uCg-ox-icv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Streem NOW" id="sSd-Sk-jz8">
+                    <navigationItem key="navigationItem" title="Streem" id="sSd-Sk-jz8">
                         <barButtonItem key="rightBarButtonItem" title="Identify" id="bBW-4D-bcc" userLabel="Identify Button">
                             <connections>
                                 <segue destination="WDf-aL-gXj" kind="show" id="HIV-79-uFm"/>
@@ -105,9 +105,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="callExpertButton" destination="7fb-BJ-IdV" id="nLK-mA-IQg"/>
                         <outlet property="identifyButton" destination="bBW-4D-bcc" id="JfM-qT-HQQ"/>
-                        <outlet property="openOnsiteButton" destination="bqC-z7-n3q" id="YNE-XS-z4Z"/>
-                        <outlet property="startCallButton" destination="7fb-BJ-IdV" id="LWI-e7-QsR"/>
+                        <outlet property="openOnsiteButton" destination="bqC-z7-n3q" id="yaP-Zd-PGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo1-6F-RZ0" sceneMemberID="firstResponder"/>
@@ -150,7 +150,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                                                                 <connections>
-                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="M1n-5w-9ZR"/>
+                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="cKW-va-9z2"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
@@ -170,7 +170,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                                 <connections>
-                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="zyo-7b-8kO"/>
+                                                                    <outlet property="delegate" destination="WDf-aL-gXj" id="Hws-hh-ejm"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
@@ -192,16 +192,16 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-nQ-kvD">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vCe-B5-hw9">
                                                         <rect key="frame" x="0.0" y="256.5" width="335" height="31"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-eu-2pg">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYN-FF-auB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="281" height="31"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEN-Z8-piL">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXW-LD-xxU">
                                                                 <rect key="frame" x="286" y="0.0" width="51" height="31"/>
                                                             </switch>
                                                         </subviews>
@@ -211,6 +211,9 @@
                                                         <state key="normal" title="Logout">
                                                             <color key="titleColor" red="1" green="0.059499482554000394" blue="0.092460356542865885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clearIdentity" destination="WDf-aL-gXj" eventType="touchDragInside" id="zWD-ef-mVc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -249,7 +252,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatarUrlField" destination="gTP-xD-dcr" id="E9D-Pe-Kzh"/>
-                        <outlet property="expertSwitch" destination="LEN-Z8-piL" id="4CV-QV-Eh4"/>
+                        <outlet property="expertSwitch" destination="fXW-LD-xxU" id="6Ki-Fj-3LY"/>
                         <outlet property="logoutButton" destination="WyI-Xv-Nls" id="alX-Pl-jTo"/>
                         <outlet property="nameField" destination="dj7-N2-Ces" id="zqj-AI-6CE"/>
                         <outlet property="saveButton" destination="7mm-Wb-6TH" id="X3K-Rr-EHr"/>
