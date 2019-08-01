@@ -27,8 +27,8 @@ Example Streem SDK project for IOS
 | Onsite Streemshot                           	    | ✅ 				| ✅                |
 | Streemshot Editing                                | ✅					|                   |
 | Streemshot Processing                             | ✅					|                   |
-| Onsite Recording                           	    | ✅ 				|                   |
-| Remote Recording                                  | ✅ 				| ✅                |
+| Onsite Recording                           	    | ✅ 				| ✅                |
+| Remote Recording                                  | ✅ 				|                   |
 
 
 ### Company/App Setup
