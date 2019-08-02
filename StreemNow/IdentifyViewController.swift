@@ -2,7 +2,6 @@
 //  IdentifyViewController.swift
 //  StreemNow
 //
-//  Created by Sean Adkinson on 7/31/18.
 //  Copyright © 2018 Streem, Inc. All rights reserved.
 //
 
