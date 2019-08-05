@@ -60,9 +60,9 @@ Finally, import the framework where it is used:
 ```
 
 
-### Logging In
+### Changes to your AppDelegate code
 
-Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the SDK with your App ID and secret:
+Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the Streem SDK with your App ID and secret:
 
 ```swift
     Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET") {
@@ -86,7 +86,18 @@ Implement the two required `StreemDelegate` methods:
     }
 ```
 
-Next, once the user has logged into your app, inform Streem that they are logged in:
+Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:completionHandler:)` implementation,  call `Streem.setBackgroundURLSession(withIdentifier:, completionHandler:)`:
+
+```swift
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        Streem.setBackgroundURLSession(withIdentifier: identifier, completionHandler: completionHandler)
+    }
+```
+
+
+### Logging In
+
+Once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
     Streem.sharedInstance.identify(

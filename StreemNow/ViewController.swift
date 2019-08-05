@@ -50,7 +50,6 @@ class ViewController: UIViewController {
                 optionMenu.addAction(UIAlertAction(title: "\(user.name)", style: .default) { alert in
                     let index = optionMenu.actions.index(of: alert)
                     let user = users[index!]
-                    print("Calling user: \(user.id)")
                     
                     Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: user.id) { success in
                         if !success {
@@ -59,10 +58,6 @@ class ViewController: UIViewController {
                             return
                         }
                         else {
-                            if #available(iOS 11.0, *) {
-                                let session = Streem.sharedInstance.getCurrentARSession()
-                                print("AR Session: \(String(describing: session))")
-                            }
                             self.isStartingAStreem = false
                         }
                     }
@@ -99,10 +94,6 @@ class ViewController: UIViewController {
                 return
             }
             else {
-                if #available(iOS 11.0, *) {
-                    let session = Streem.sharedInstance.getCurrentARSession()
-                    print("AR Session: \(String(describing: session))")
-                }
                 self.isStartingAStreem = false
             }
         }
