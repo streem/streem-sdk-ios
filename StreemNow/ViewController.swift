@@ -1,8 +1,7 @@
 //
 //  ViewController.swift
-//  StreemNow
+//  Streem
 //
-//  Created by Sean Adkinson on 07/17/2018.
 //  Copyright © 2018 Streem, Inc. All rights reserved.
 //
 
@@ -11,57 +10,38 @@ import Streem
 
 class ViewController: UIViewController {
     
-    var appId = "*** YOUR APP-ID GOES HERE ***"
-    var appSecret = "*** YOUR APP-SECRET GOES HERE ***"
-    
-    private var currentUser: StreemUser?
-    
-    private let defaultsMeasurementUnitsKey = "measurement_units"
-
     @IBOutlet weak var identifyButton: UIBarButtonItem!
     @IBOutlet weak var callExpertButton: UIButton!
     @IBOutlet weak var openOnsiteButton: UIButton!
     
-    let defaults = UserDefaults.standard
-    let measurementUnits: [UnitLength: String] = [ .inches: "inches", .feet: "feet", .millimeters: "millimeters", .centimeters: "centimeters"]
+    var isStartingAStreem = false {
+        didSet {
+            identifyButton.isEnabled = !isStartingAStreem
+            callExpertButton.isEnabled = !isStartingAStreem
+            openOnsiteButton.isEnabled = !isStartingAStreem
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Streem.initialize(delegate: self, appId: appId, appSecret: appSecret) { [weak self] in
-            guard let self = self else { return }
-            Streem.sharedInstance.measurementUnitsToChooseFrom = [ .inches, .feet, .millimeters, .centimeters ]
-            NotificationCenter.default.addObserver(self, selector: #selector(self.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
-            self.defaultsChanged()
-        }
+        StreemInitializer.shared.delegate = self
     }
     
-    @objc private func defaultsChanged() {
-        if let unitString = self.defaults.string(forKey: self.defaultsMeasurementUnitsKey),
-            let (unit, _) = self.measurementUnits.first(where: { $1 == unitString }) {
-            Streem.sharedInstance.measurementUnit = unit
-        } else {
-            // First launch: no default has been set yet, so choose based on device settings.
-            let usesMetricSystem = Locale.current.usesMetricSystem
-            let unitString = measurementUnits[usesMetricSystem ? .centimeters : .inches]
-            defaults.set(unitString, forKey: defaultsMeasurementUnitsKey)
-        }
-    }
-
     @IBAction func startCall(_ sender: Any) {
-        guard currentUser?.id != nil else {
-            let alert = UIAlertController(title: nil, message: "You must first Identify", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Got It", style: .default))
-            self.present(alert, animated: true)
+        guard StreemInitializer.shared.currentUser?.id != nil else {
+            presentAlert(message: "You must first Identify")
             return
         }
-        
-        Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: false) { users in
-            let users = users.filter { $0.id != self.currentUser?.id }
+
+        guard !isStartingAStreem else { return }
+        isStartingAStreem = true
+
+        Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: true) { [weak self] users in
+            guard let self = self else { return }
+            let users = users.filter { $0.id != StreemInitializer.shared.currentUser?.id }
             guard !users.isEmpty else {
-                let alert = UIAlertController(title: nil, message: "Nobody else has connected recently.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true)
+                self.presentAlert(message: "Nobody else has connected recently.")
+                self.isStartingAStreem = false
                 return
             }
             
@@ -70,19 +50,22 @@ class ViewController: UIViewController {
                 optionMenu.addAction(UIAlertAction(title: "\(user.name)", style: .default) { alert in
                     let index = optionMenu.actions.index(of: alert)
                     let user = users[index!]
-                    print("Calling user: \(user.id)")
-
+                    
                     Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: user.id) { success in
                         if !success {
-                            let alert = UIAlertController(title: nil, message: "Unable to call \(user.name).", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default))
-                            self.present(alert, animated: true)
+                            self.presentAlert(message: "Unable to call \(user.name).")
+                            self.isStartingAStreem = false
                             return
+                        }
+                        else {
+                            self.isStartingAStreem = false
                         }
                     }
                 })
             }
-            optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                self.isStartingAStreem = false
+            })
 
             if let popoverController = optionMenu.popoverPresentationController {
                 popoverController.sourceView = self.view
@@ -95,31 +78,39 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startOnsite(_ sender: Any) {
-        guard currentUser?.id != nil else {
-            let alert = UIAlertController(title: nil, message: "You must first Identify", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Got It", style: .default))
-            self.present(alert, animated: true)
+        guard StreemInitializer.shared.currentUser?.id != nil else {
+            presentAlert(message: "You must first Identify")
             return
         }
 
+        guard !isStartingAStreem else { return }
+        isStartingAStreem = true
+        
         Streem.sharedInstance.startLocalStreem() { [weak self] success in
             guard let self = self else { return }
             if !success {
-                let alert = UIAlertController(title: nil, message: "Unable to establish connection.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true)
+                self.presentAlert(message: "Unable to establish connection.")
+                self.isStartingAStreem = false
                 return
+            }
+            else {
+                self.isStartingAStreem = false
             }
         }
     }
+    
+    private func presentAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
 }
 
-extension ViewController: StreemDelegate {
+extension ViewController: StreemInitializerDelegate {
     
-    public func currentUserDidChange(user: StreemUser?) {
-        currentUser = user
+    public func currentUserDidChange() {
         var title = "Identify"
-        if let currentUser = currentUser {
+        if let currentUser = StreemInitializer.shared.currentUser {
             // If currentUser is non-nil, then currentUser.name SHOULD be non-empty. Unless there's some server issue...
             if !currentUser.name.isEmpty {
                 title = currentUser.name
@@ -128,11 +119,5 @@ extension ViewController: StreemDelegate {
             }
         }
         identifyButton.title = title
-    }
-    
-    public func measurementUnitDidChange(measurementUnit: UnitLength) {
-        if let string = self.measurementUnits[measurementUnit] {
-            defaults.set(string, forKey: defaultsMeasurementUnitsKey)
-        }
     }
 }

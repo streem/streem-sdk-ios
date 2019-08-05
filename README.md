@@ -60,31 +60,49 @@ Finally, import the framework where it is used:
 ```
 
 
-### Logging In
+### Changes to your AppDelegate code
 
-Before identifying the currently logged in user, initialize the SDK with your App ID and secret:
+Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the Streem SDK with your App ID and secret:
 
 ```swift
-    Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET")
+    Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET") {
+        // Your app might wish to set up default measurement units here,
+        // by setting `Streem.sharedInstance.measurementUnitsToChooseFrom` and
+        // `Streem.sharedInstance.measurementUnit`.
+    }
 ```
 
 Implement the two required `StreemDelegate` methods:
 
 ```swift
-    public func initializationDidFail() {
-        // present alert, etc. in the rare event that Streem initialization fails
-    }
-
     public func currentUserDidChange(user: StreemUser?) {
         // as necessary, update your stored and/or displayed `user.name` and `user.id`
     }
+    
+    public func func measurementUnitDidChange(measurementUnit: UnitLength) {
+        // Your app might wish to copy this value to your app preferences,
+        // so that when starting future sessions you can restore it
+        // (by setting `Streem.sharedInstance.measurementUnit`).
+    }
 ```
 
-Next, once the user has logged into your app, inform Streem that they are logged in:
+Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:completionHandler:)` implementation,  call `Streem.setBackgroundURLSession(withIdentifier:, completionHandler:)`:
+
+```swift
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        Streem.setBackgroundURLSession(withIdentifier: identifier, completionHandler: completionHandler)
+    }
+```
+
+
+### Logging In
+
+Once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
     Streem.sharedInstance.identify(
-        userId: "john", 
+        userId: "john",
+        expert: false,
         name: "John Smith", 
         avatarUrl: "http://..."
         ) { success in
@@ -132,7 +150,6 @@ A Local Streem uses the device's camera, and opens up an AR experience with our 
 ## Future Features
 
 * [ ] Customizable UI
-* [ ] Lifecycle Callbacks
 * [ ] Custom Tools
 
 Please submit any other requests, and we'll evaluate and add to this list. 
