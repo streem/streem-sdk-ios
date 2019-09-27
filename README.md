@@ -60,6 +60,21 @@ Finally, import the framework where it is used:
 ```
 
 
+
+### Changes to your Info.plist file
+
+You should provide appropriate strings for iOS to present to users the first time that the Streem SDK requests permission to use the camera, the microphone, and the GPS location. For example,
+
+**NSCameraUsageDescription**
+`This application is requesting permission to access your camera.`
+
+**NSMicrophoneUsageDescription**
+`This application is requesting permission to access your microphone.`
+
+**NSLocationWhenInUseUsageDescription**
+`Your location is being requested. We will always ask you first before we share your location with other users.`
+
+
 ### Changes to your AppDelegate code
 
 Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the Streem SDK with your App ID and secret:

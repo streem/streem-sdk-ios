@@ -30,11 +30,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Video for streem sessions</string>
+	<string>StreemNow is requesting permission to access your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>User location to match with local pro</string>
+	<string>Your location is being requested. We will always ask you first before we share your location with other users.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Audio for streem sessions</string>
+	<string>StreemNow is requesting permission to access your microphone.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceSansPro-Regular.ttf</string>
