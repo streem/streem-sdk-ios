@@ -87,11 +87,11 @@ Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` impleme
     }
 ```
 
-Implement the two required `StreemDelegate` methods:
+Implement the `StreemDelegate` methods -- these are optional, but usually you will want to implement them:
 
 ```swift
     public func currentUserDidChange(user: StreemUser?) {
-        // as necessary, update your stored and/or displayed `user.name` and `user.id`
+        // As necessary, update your stored and/or displayed `user.name` and `user.id`
     }
     
     public func func measurementUnitDidChange(measurementUnit: UnitLength) {

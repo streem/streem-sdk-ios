@@ -4,17 +4,24 @@ source 'https://github.com/streem/cocoapods'
 
 use_frameworks!
 
-platform :ios, '10.3'
+platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'Streem', '~> 0.11.3'
+  pod 'Streem', '~> 0.12'
 
-  target 'StreemNow_Tests' do
-    inherit! :search_paths
+end
 
-    pod 'Quick', '~> 1.2.0'
-    pod 'Nimble', '~> 7.0.2'
-    pod 'FBSnapshotTestCase' , '~> 2.1.4'
-    pod 'Nimble-Snapshots' , '~> 6.3.0'
-  end
+post_install do |installer|
+	installer.pods_project.targets.each do |target|
+		target.build_configurations.each do |config|
+			# This allows us to build for use in Swift 5.1.2
+			#
+			# At the moment, we apparently need to include this setting
+			# here in our StreemNow Podfile, to be compatible with the
+			# build settings used by our SDK itself.
+			# Without this setting, symbol-mangling apparently becomes
+			# incompatible between the SDK and this project.
+			config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+		end
+	end
 end
