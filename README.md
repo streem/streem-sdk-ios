@@ -25,7 +25,7 @@ Example Streem SDK project for IOS
 | AR Arrow Tool                                     | ✅ 				| ✅                |
 | Remote Streemshot                                 | ✅ 				| ✅                |
 | Onsite Streemshot                           	    | ✅ 				| ✅                |
-| Streemshot Editing                                | ✅					|                   |
+| Streemshot Editing                                | ✅					| ✅                    |
 | Streemshot Processing                             | ✅					|                   |
 | Onsite Recording                           	    | ✅ 				| ✅                |
 | Remote Recording                                  | ✅ 				|                   |
@@ -87,11 +87,11 @@ Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` impleme
     }
 ```
 
-Implement the two required `StreemDelegate` methods:
+Implement the `StreemDelegate` methods -- these are optional, but usually you will want to implement them:
 
 ```swift
     public func currentUserDidChange(user: StreemUser?) {
-        // as necessary, update your stored and/or displayed `user.name` and `user.id`
+        // As necessary, update your stored and/or displayed `user.name` and `user.id`
     }
     
     public func func measurementUnitDidChange(measurementUnit: UnitLength) {
@@ -132,7 +132,7 @@ Once the user has logged into your app, inform Streem that they are logged in:
 
 ### Starting a Remote Streem
 
-Through some mechanism in your app, you determine that two users should be streeming.
+Through some mechanism in your app, you determine that your logged-in user and another user should be streeming.
 
 To make a call to user "tom", do the following:
 
@@ -151,7 +151,7 @@ If CallKit has been set up correctly, Tom's device will ring like a phone call, 
 
 ### Starting a Local Streem
 
-A Local Streem uses the device's camera, and opens up an AR experience with our arrow and measure tools, and the ability to capture streemshots.  Open a Local Streem simply by:
+A Local Streem uses the device's camera, and opens up an AR experience with our arrow and measure tools, and the ability to capture Streemshots.  Open a Local Streem simply by:
 
 ```swift
     Streem.sharedInstance.startLocalStreem() { success in
@@ -160,6 +160,66 @@ A Local Streem uses the device's camera, and opens up an AR experience with our 
         }
     }
 ```
+
+### Fetching the Call Log
+
+You can fetch a list of the logged-in user's previous streems:
+
+```swift
+    Streem.sharedInstance.fetchCallLog { callLogEntries in
+        // display a Table of the calls, etc.
+    }
+```
+
+The returned array contains objects of type `StreemCallLogEntry`, which have these properties:
+
+```swift
+    startDate: Date            // Session start time.
+    endDate: Date?             // Session end time.
+    participants: [StreemUser] // Session participants. One for an Onsite Streem, two for a two-way Streem.
+    streemshotsCount: Int      // The number of Streemshots captured during the session.
+```
+
+### Displaying and Editing Streemshots
+
+Once you have fetched the call log, you may display or edit the Streemshots associated with any of the calls.
+
+First, obtain a `StreemshotManager` for the call:
+
+```swift
+    let streemshotManager = Streem.sharedInstance.streemshotManager(forCallLogEntry: entry)
+```
+
+As soon as the `StreemshotManager` is created, it will begin to download the call's Streemshots.
+
+You can associate a `UIImageView` with each Streemshot. For example, this might be an image view within a UICollectionViewCell:
+
+```swift
+    streemshotManager.register(imageView: cell.streemshotThumbnail, forStreemshotIndex: indexPath.item)
+```
+
+When the Streemshot has been downloaded, the `StreemshotManager` will set the `UIImageView`'s `image`.
+
+You can also break this association, by calling:
+
+```swift
+    streemshotManager.unregister(imageView: theImageView)
+```
+
+For example, if the image view is part of a UICollectionViewCell, you should call `unregister(imageView:)` within the cell's `prepareForReuse()` method.
+
+To present the UI for editing a Streemshot, first confirm that the Streemshot has been fully downloaded, by calling:
+
+```swift
+    streemshotManager.canEditStreemshot(atIndex: theIndex)
+```
+Once that method returns `true`, you can launch a Streemshot-editing session:
+
+```swift
+    streemshotManager.editStreemshot(atIndex: theIndex)
+```
+
+The `StreemshotManager` will present the Streemshot-editing view controller, loaded with the indicated Streemshot. (The view controller also allows the user to scroll through the other Streemshots associated with the call.)
 
 
 ## Future Features

@@ -1,6 +1,3 @@
-//  StreemInitializer.swift
-//  Streem
-//
 //  Copyright © 2019 Streem, Inc. All rights reserved.
 
 import Foundation
@@ -8,6 +5,7 @@ import Streem
 
 protocol StreemInitializerDelegate {
     func currentUserDidChange()
+    func didLaunch(withInviteId inviteId: String)
 }
 
 class StreemInitializer {
@@ -15,8 +13,11 @@ class StreemInitializer {
     static let shared = StreemInitializer()
     
     var currentUser: StreemUser?
-    var delegate: StreemInitializerDelegate?
+    var delegate: StreemInitializerDelegate? { didSet { checkInvite() }}
     
+    private var initialized = false
+    private var launchedByInviteId: String?
+
     private let appId = "*** YOUR APP-ID GOES HERE ***"
     private let appSecret = "*** YOUR APP-SECRET GOES HERE ***"
 
@@ -28,9 +29,11 @@ class StreemInitializer {
     private init() {
         Streem.initialize(delegate: self, appId: appId, appSecret: appSecret) { [weak self] in
             guard let self = self else { return }
+            self.initialized = true
             Streem.sharedInstance.measurementUnitsToChooseFrom = [ .inches, .feet, .millimeters, .centimeters ]
             NotificationCenter.default.addObserver(self, selector: #selector(self.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
             self.defaultsChanged()
+            self.checkInvite()
         }
     }
 
@@ -49,6 +52,19 @@ class StreemInitializer {
     func didLaunch() {
         // TODO: might use this function to signal background activation vs. fresh launch
         // For now, though, simply a way to force Streem.sharedInstance to create itself.
+    }
+
+    func didLaunch(withInviteId inviteId: String) {
+        didLaunch()
+        launchedByInviteId = inviteId
+        checkInvite()
+    }
+
+    private func checkInvite() {
+        if initialized, let inviteId = launchedByInviteId, let delegate = delegate {
+            delegate.didLaunch(withInviteId: inviteId)
+            launchedByInviteId = nil
+        }
     }
 }
 
