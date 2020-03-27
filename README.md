@@ -148,7 +148,7 @@ To make a call to user "tom", do the following:
 
 If CallKit has been set up correctly, Tom's device will ring like a phone call, and once answered, both phones will be connected on Streem.
 
-Due to an issue with ARKit, you cannot start a Remote Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
+Note: Due to an issue with ARKit, you cannot start a Remote Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
 
 ### Starting a Local Streem
 
@@ -162,7 +162,7 @@ A Local Streem uses the device's camera, and opens up an AR experience with our 
     }
 ```
 
-Due to an issue with ARKit, you cannot start a Local Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
+Note: Due to an issue with ARKit, you cannot start a Local Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
 
 ### Fetching the Call Log
 
