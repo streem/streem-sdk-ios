@@ -7,37 +7,14 @@ Example Streem SDK project for IOS
 * Cocoapods 1.6 or later
 * ARKit compatible device with IOS 12 or later
 
-## Streem Functions
-
-| Core Functionality                                | Streem App        | SDK Status        |
-| ------------------------------------------------- | ----------------- | ----------------- |
-| Non-AR remote streeming                           | ✅ 				| ✅                |
-| Non-AR onsite streeming                           | ✅ 				| ✅                |
-| Pro-to-Pro calling                                | ❌ 				| ✅                |
-| Pro CallKit integration                           | ✅ 				| ✅                |
-| Customer CallKit integration                      | ❌ 				| ✅                |
-| Laser tool                                        | ✅ 				| ✅                |
-| Landscape Support                                 | ❌ 				| ✅                |
-| iPad Support                                      | ✅ 				| ✅                |
-| API Access (GET /streems)                         | ❌ 				| ✅                |
-| AR Remote Streem                                  | ✅ 				| ✅                |
-| AR Onsite Streem                                  | ✅ 				| ✅                |
-| AR Arrow Tool                                     | ✅ 				| ✅                |
-| Remote Streemshot                                 | ✅ 				| ✅                |
-| Onsite Streemshot                           	    | ✅ 				| ✅                |
-| Streemshot Editing                                | ✅					| ✅                    |
-| Streemshot Processing                             | ✅					|                   |
-| Onsite Recording                           	    | ✅ 				| ✅                |
-| Remote Recording                                  | ✅ 				|                   |
-
-
 ### Company/App Setup
 
 * Obtain your `company_id` from Streem
 * Provide your IOS bundle id for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
 * Streem will provide you with an `appId` and `appSecret` for each of your IOS apps
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
-
+* StreemKit expects to be called from a ViewController within a NavigationController, in which it will present its own ViewController.
+ 
 ### Installation
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)
@@ -47,16 +24,16 @@ Add a `source` to your `Podfile`:
     source 'https://github.com/streem/cocoapods'
 ```
 
-Then add the `Streem` dependency:
+Then add the `StreemKit` dependency:
 
 ```
-    pod 'Streem'
+    pod 'StreemKit'
 ```
 
 Finally, import the framework where it is used:
 
 ```swift
-    import Streem
+    import StreemKit
 ```
 
 
@@ -129,12 +106,14 @@ Once the user has logged into your app, inform Streem that they are logged in:
         }
 ```
 
+There are two representations of the user. The user in your system, and the user in Streem's system. Streem uses the userId as an identifier to a user in our system, and `userId` is intended to stay consistent per user in your system. The properties of `expert`, `name`, and `avatarUrl`, all of which are supplied by you in this identify call, are per user via that `userId`. Changing these values in subsequent identify calls will update their values in Streem's system.
+
 
 ### Starting a Remote Streem
 
 Through some mechanism in your app, you determine that your logged-in user and another user should be streeming.
 
-To make a call to user "tom", do the following:
+To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
     Streem.sharedInstance.startRemoteStreem(
@@ -149,6 +128,82 @@ To make a call to user "tom", do the following:
 If CallKit has been set up correctly, Tom's device will ring like a phone call, and once answered, both phones will be connected on Streem.
 
 Note: Due to an issue with ARKit, you cannot start a Remote Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
+
+#### Roles
+
+Roles dictate which side of the streem you're on: whether you are providing or receiving the video feed. They also affect which tools are available to you. The different roles are:
+
+* `LOCAL_CUSTOMER`: The Customer in a two-way streem
+* `ONSITE_CUSTOMER`: The Customer in an onsite (one-way) streem 
+* `REMOTE_PRO`: The Pro in a two-way streem
+* `ONSITE_PRO`: The Pro in an onsite (one-way) streem
+
+In general if you are starting a remote streem you will want the `LOCAL_CUSTOMER` role. 
+
+### Getting Remote User IDs
+
+In order to start a streem with a remote user, your app will need to supply that user's `remoteUserId`. There are two mechanisms available in the SDK for retrieving a `remoteUserId`. The first is through getting a list of recently logged-in users. The second is through an invitation. In addition to these two methods, you can maintain your own list of `remoteUserIds` and supply them to your app however you choose. 
+
+#### Recently Logged In Users
+
+By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedInstance` you will receive a list of recently logged in users for your company. You can use this method to filter only experts. You then give this method a callback where you select the remote user through some mechanism and start the streem. 
+
+```swift
+    Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: true) { [weak self] users in
+        guard let self = self else { return }
+
+        // Select the user you wish to streem with
+
+        Streem.sharedInstance.startRemoteStreem(
+            asRole: .LOCAL_CUSTOMER,
+            withRemoteUserId: selectedUser.id) { success in 
+                // handle succes of streem
+        }
+``` 
+
+#### Invitations
+
+If you are utilizing Streem's Pro implementations on the web and/or iOS you will likely have access to invitations. Invitations are communicated via a 9-digit code. This code can be transmitted through SMS, email, or copy and pasted to some other mechanism such as Slack. 
+
+Once you've retrieved this 9-digit code in your app you will follow three steps. 
+
+* Call `login(withSmsInvitationId:)`. This will retrieve the invitation details for the given code. 
+* Call `identifyCustomer(companyCode:inviteCode:name:avatarUrl:completion:)` to identify the customer with the Streem `sharedInstance`. 
+* Call `startRemoteStreem` with the remote user contained in the invitation. The whole flow looks like:
+
+```swift
+    StreemAuth.sharedInstance.login(withSmsInvitationId: invitationCode) { error, loginResponse, details in 
+        let invitation = Invitation(
+	    requesterName: details.name,
+	    displayName: details.user.displayName,
+	    invitationToken: details.token,
+	    idToken: loginResponse.token,
+	    code: code,
+	    remoteId: details.user.uid,
+	    referenceId: details.referenceId,
+	    photoURL: details.user.photoURL,
+	    companyCode: details.company.companyCode,
+	    companyName: details.company.name,
+	    companyLogoURL: details.company.logoUrl)
+
+        Streem.sharedInstance.identifyCustomer(
+            companyCode: invitation.companyCode,
+            inviteCode: invitation.code,
+            name: invitation.requesterName,
+            avatarUrl: invitation.photoURL) { success in 
+            if success {
+                Streem.sharedInstance.startRemoteStreem(
+                    asRole: .LOCAL_CUSTOMER,
+                    remoteUserId: invitation.remoteId,
+                    referenceId: invitation.referenceId,
+                    companyCode: invitation.companyCode
+                ) { streemSuccess in 
+                    // handle streem success
+                }
+            }
+        }
+    }
+``` 
 
 ### Starting a Local Streem
 
@@ -224,10 +279,3 @@ Once that method returns `true`, you can launch a Streemshot-editing session:
 
 The `StreemshotManager` will present the Streemshot-editing view controller, loaded with the indicated Streemshot. (The view controller also allows the user to scroll through the other Streemshots associated with the call.)
 
-
-## Future Features
-
-* [ ] Customizable UI
-* [ ] Custom Tools
-
-Please submit any other requests, and we'll evaluate and add to this list. 
