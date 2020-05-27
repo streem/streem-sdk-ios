@@ -92,19 +92,18 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 Once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
-    Streem.sharedInstance.identify(with: code, avatarUrl: "http://...") { error, details in
-        guard let details = details else {
-            // invalid invitation code
-            return
-        }
+    Streem.sharedInstance.identify(
+        userId: "john",
+        expert: false,
+        name: "John Smith", 
+        avatarUrl: "http://..."
+        ) { success in
         
-        guard error == nil else {
-            // A valid code was used, but we're unable to start the streem at this time.
-            // We would suggest storing the invitation for the user to try again with later.
-            return
+        if success {
+            // dismiss login screen, etc.
+        } else {
+            // present alert, etc.
         }
-            
-        // Successfully identified user. Dismiss login screen, etc.
     }
 ```
 
