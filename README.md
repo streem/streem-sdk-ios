@@ -92,18 +92,20 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 Once the user has logged into your app, inform Streem that they are logged in:
 
 ```swift
-    Streem.sharedInstance.identify(
-        userId: "john",
-        expert: false,
-        name: "John Smith", 
-        avatarUrl: "http://..."
-        ) { success in
-            if success {
-                // dismiss login screen, etc.
-            } else {
-                // present alert, etc.
-            }
+    Streem.sharedInstance.identify(with: code, avatarUrl: "http://...") { error, details in
+        guard let details = details else {
+            // invalid invitation code
+            return
         }
+        
+        guard error == nil else {
+            // A valid code was used, but we're unable to start the streem at this time.
+            // We would suggest storing the invitation for the user to try again with later.
+            return
+        }
+            
+        // Successfully identified user. Dismiss login screen, etc.
+    }
 ```
 
 There are two representations of the user. The user in your system, and the user in Streem's system. Streem uses the userId as an identifier to a user in our system, and `userId` is intended to stay consistent per user in your system. The properties of `expert`, `name`, and `avatarUrl`, all of which are supplied by you in this identify call, are per user via that `userId`. Changing these values in subsequent identify calls will update their values in Streem's system.
@@ -165,41 +167,47 @@ By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedIn
 
 If you are utilizing Streem's Pro implementations on the web and/or iOS you will likely have access to invitations. Invitations are communicated via a 9-digit code. This code can be transmitted through SMS, email, or copy and pasted to some other mechanism such as Slack. 
 
-Once you've retrieved this 9-digit code in your app you will follow three steps. 
+Once you've retrieved this 9-digit code in your app you will follow two steps. 
 
-* Call `login(withSmsInvitationId:)`. This will retrieve the invitation details for the given code. 
-* Call `identifyCustomer(companyCode:inviteCode:name:avatarUrl:completion:)` to identify the customer with the Streem `sharedInstance`. 
+* Call `identify(with invitationCode:avatarUrl:)`  to will retrieve the invitation details and  identify the customer for the given code.
 * Call `startRemoteStreem` with the remote user contained in the invitation. The whole flow looks like:
 
 ```swift
-    StreemAuth.sharedInstance.login(withSmsInvitationId: invitationCode) { error, loginResponse, details in 
+    Streem.sharedInstance.identify(with: code) { error, details in
+        guard let details = details else {
+            // An invalid code was used
+            return
+        }
+    
         let invitation = Invitation(
-	    requesterName: details.name,
-	    displayName: details.user.displayName,
-	    invitationToken: details.token,
-	    idToken: loginResponse.token,
-	    code: code,
-	    remoteId: details.user.uid,
-	    referenceId: details.referenceId,
-	    photoURL: details.user.photoURL,
-	    companyCode: details.company.companyCode,
-	    companyName: details.company.name,
-	    companyLogoURL: details.company.logoUrl)
+            requesterName: details.name,
+            displayName: details.user.displayName,
+            code: code,
+            remoteId: details.user.uid,
+            referenceId: details.referenceId,
+            photoURL: details.user.photoURL,
+            companyCode: details.company.companyCode,
+            companyName: details.company.name,
+            expiresAt: details.expiresAt,
+            companyLogoURL: details.company.logoUrl
+        )
+        
+        guard error == nil else {
+            // A valid code was used, but we're unable to start the streem at this time.
+            // We would suggest storing the invitation for the user to try again with later.
+            return
+        }
 
-        Streem.sharedInstance.identifyCustomer(
-            companyCode: invitation.companyCode,
-            inviteCode: invitation.code,
-            name: invitation.requesterName,
-            avatarUrl: invitation.photoURL) { success in 
-            if success {
-                Streem.sharedInstance.startRemoteStreem(
-                    asRole: .LOCAL_CUSTOMER,
-                    remoteUserId: invitation.remoteId,
-                    referenceId: invitation.referenceId,
-                    companyCode: invitation.companyCode
-                ) { streemSuccess in 
-                    // handle streem success
-                }
+        Streem.sharedInstance.startRemoteStreem(
+            asRole: .LOCAL_CUSTOMER,
+            remoteUserId: invitation.remoteId,
+            referenceId: invitation.referenceId,
+            companyCode: invitation.companyCode
+        ) { streemSuccess in
+            if streemSuccess {
+                // handle streem success
+            } else {
+                // handle streem error
             }
         }
     }
