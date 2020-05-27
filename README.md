@@ -11,7 +11,7 @@ Example Streem SDK project for IOS
 
 * Obtain your `company_id` from Streem
 * Provide your IOS bundle id for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
-* Streem will provide you with an `appId` and `appSecret` for each of your IOS apps
+* Streem will provide you with an `appId`  for each of your IOS apps
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
 * StreemKit expects to be called from a ViewController within a NavigationController, in which it will present its own ViewController.
  
@@ -54,10 +54,10 @@ You should provide appropriate strings for iOS to present to users the first tim
 
 ### Changes to your AppDelegate code
 
-Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the Streem SDK with your App ID and secret:
+Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize the Streem SDK with your App ID:
 
 ```swift
-    Streem.initialize(delegate: self, appId: "APP_ID", appSecret: "APP_SECRET") {
+    Streem.initialize(delegate: self, appId: "APP_ID") {
         // Your app might wish to set up default measurement units here,
         // by setting `Streem.sharedInstance.measurementUnitsToChooseFrom` and
         // `Streem.sharedInstance.measurementUnit`.
@@ -118,12 +118,10 @@ Through some mechanism in your app, you determine that your logged-in user and a
 To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
-    Streem.sharedInstance.startRemoteStreem(
-        asRole: .LOCAL_CUSTOMER,
-        withRemoteUserId: "tom") { success in
-            if !success {
-                // present alert, etc.
-                }
+    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: "tom") { success in
+        if !success {
+            // present alert, etc.
+        }
     }
 ```
 
