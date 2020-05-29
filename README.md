@@ -96,7 +96,6 @@ Once the user has logged into your app, inform Streem that they are logged in:
             companyCode: "acme-inc", 
             email: "john.smith600@gmail.com", 
             password: "StreemIsC00l!", 
-            expert: true, 
             avatarUrl: "http://..."
         ) { success in
         
@@ -108,7 +107,7 @@ Once the user has logged into your app, inform Streem that they are logged in:
     }
 ```
 
-The `companyCode` is a code that streem will provide your company with; it is the url prefix when using the Steem Web App (`https://{company-code}.swa.dev.streem.cloud`). The `email` and `password` fields are the credentials a user has set up through the Streem Web App. `expert` indicates whether or not the user trying to login is an agent or a customer. This value defaults to `true`. `avatarUrl` is an optional string containing the url for a profile picture the user would like to be visible during streems.
+The `companyCode` is a code that Streem will provide your company with; it is the url prefix when using the Steem Web App (`https://{company-code}.swa.dev.streem.cloud`). The `email` and `password` fields are the credentials a user has set up through the Streem Web App.  `avatarUrl` is an optional string containing the url for a profile picture the user would like to be visible during streems.
 
 
 ### Starting a Remote Streem
