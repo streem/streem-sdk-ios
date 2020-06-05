@@ -1,7 +1,7 @@
 // Copyright © 2019 Streem, Inc. All rights reserved.
 
 import UIKit
-import Streem
+import StreemKit
 
 class InvitationViewController: UIViewControllerSupport {
     
@@ -23,10 +23,18 @@ class InvitationViewController: UIViewControllerSupport {
     }
     
     @IBAction func startCall(_ sender: Any) {
-        guard let user = invitationDetails?.user else { return }
+        guard let user = invitationDetails?.user,
+              let companyCode = invitationDetails?.company.companyCode
+        else { return }
+        
         showActivityIndicator(true)
         
-        Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: user.uid) { [weak self] success in
+        Streem.sharedInstance.startRemoteStreem(
+            asRole: .LOCAL_CUSTOMER,
+            remoteUserId: user.uid,
+            referenceId: invitationDetails.referenceId,
+            companyCode: companyCode
+        ) { [weak self] success in
             guard let self = self else { return }
             self.showActivityIndicator(false)
             if !success {

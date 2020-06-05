@@ -1,7 +1,7 @@
 // Copyright © 2019 Streem, Inc. All rights reserved.
 
 import UIKit
-import Streem
+import StreemKit
 
 class CallLogDetailsViewController: UICollectionViewController {
     

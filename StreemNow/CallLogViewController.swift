@@ -1,7 +1,7 @@
 // Copyright © 2019 Streem, Inc. All rights reserved.
 
 import Foundation
-import Streem
+import StreemKit
 
 class CallLogViewController: UITableViewController {
     
