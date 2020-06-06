@@ -3,9 +3,9 @@ Example Streem SDK project for IOS
 
 ### Example App Requirements
 
-* Xcode 11 with Swift 5
-* Cocoapods 1.6 or later
-* ARKit compatible device with IOS 12 or later
+* Xcode 11 with Swift 4.2
+* Cocoapods 1.8 or later
+* ARKit compatible device with IOS 11.3
 
 ### Company/App Setup
 
@@ -117,7 +117,7 @@ Through some mechanism in your app, you determine that your logged-in user and a
 To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
-    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: "tom") { success in
+    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: "tom") { success in
         if !success {
             // present alert, etc.
         }
@@ -155,7 +155,7 @@ By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedIn
 
         Streem.sharedInstance.startRemoteStreem(
             asRole: .LOCAL_CUSTOMER,
-            withRemoteUserId: selectedUser.id) { success in 
+            remoteUserId: selectedUser.id) { success in 
                 // handle succes of streem
         }
 ``` 

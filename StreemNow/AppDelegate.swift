@@ -1,7 +1,7 @@
 //  Copyright © 2018 Streem, Inc. All rights reserved.
 
 import UIKit
-import Streem
+import StreemKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

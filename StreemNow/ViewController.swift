@@ -1,7 +1,7 @@
 //  Copyright © 2018 Streem, Inc. All rights reserved.
 
 import UIKit
-import Streem
+import StreemKit
 
 class ViewController: UIViewControllerSupport {
 
@@ -56,9 +56,10 @@ class ViewController: UIViewControllerSupport {
                 optionMenu.addAction(UIAlertAction(title: "\(user.name)", style: .default) { alert in
                     let index = optionMenu.actions.index(of: alert)
                     let user = users[index!]
+                    self.showActivityIndicator(true)
                     print("Calling user: \(user.id)")
 
-                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteUserId: user.id) { success in
+                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: user.id) { success in
                         if !success {
                             self.presentAlert(message: "Unable to call \(user.name).")
                         }
@@ -142,34 +143,20 @@ extension ViewController: StreemInitializerDelegate {
             }
         }
 
-        StreemAuth.sharedInstance.login(withSmsInvitationId: inviteId) { [weak self] (error, idToken, invitationDetails) in
-            guard let self = self, let idToken = idToken, let invitationDetails = invitationDetails else {
+        Streem.sharedInstance.login(with: inviteId) { [weak self] (error, invitationDetails) in
+            guard let self = self, let invitationDetails = invitationDetails else {
                 print("Error logging in with invitation: \(error?.localizedDescription ?? "unknown")")
                 showFailure()
                 return
             }
 
-            let data = decode(jwtToken: idToken)
-            print("Successfully logged in with invitation... data: \(data)")
+            print("Successfully logged in with invitation... response: \(invitationDetails.name)")
             print("Invitation details: \(invitationDetails)")
             self.invitationDetails = invitationDetails
 
-            Streem.sharedInstance.identify(
-                idToken: idToken,
-                expert: false,
-                name: data["name"] as? String,
-                avatarUrl:  data["picture"] as? String) { [weak self] success in
-
-                guard let self = self else { return }
-                guard success else {
-                    showFailure()
-                    return
-                }
-
-                self.showActivityIndicator(false)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "launch-invite-success", sender: self)
-                }
+            self.showActivityIndicator(false)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "launch-invite-success", sender: self)
             }
         }
     }

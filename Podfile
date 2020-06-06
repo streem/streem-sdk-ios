@@ -7,7 +7,7 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'Streem', '~> 0.12'
+  pod 'StreemKit', '~> 0.13'
 
 end
 

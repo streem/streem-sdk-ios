@@ -1,7 +1,7 @@
 // Copyright © 2019 Streem, Inc. All rights reserved.
 
 import UIKit
-import Streem
+import StreemKit
 
 class LoginViewController : UIViewControllerSupport {
 
@@ -38,29 +38,19 @@ class LoginViewController : UIViewControllerSupport {
             }
         }
         
-        StreemAuth.sharedInstance.login(
+        Streem.sharedInstance.login(
             companyCode: companyCode,
             email: email,
-            password: password) { [weak self] (error, idToken) in
-                guard let idToken = idToken else {
+            password: password) { [weak self] (error, details) in
+                guard let details = details, error == nil else {
                     print("Error logging in: \(error?.localizedDescription ?? "unknown")")
                     showFailure()
                     return
                 }
                 
-                let data = decode(jwtToken: idToken)
-                print("Successfully logged in... data: \(data)")
+                print("Successfully logged in... data: \(details)")
                 
-                Streem.sharedInstance.identify(
-                    idToken: idToken,
-                    expert: true,
-                    name: data["name"] as? String,
-                    avatarUrl:  data["picture"] as? String) { [weak self] success in
                         guard let self = self else { return }
-                        guard success else {
-                            showFailure()
-                            return
-                        }
                         
                         self.showActivityIndicator(false)
                         self.defaults.set(companyCode, forKey: "companyCode")
@@ -70,7 +60,6 @@ class LoginViewController : UIViewControllerSupport {
                         }
                 }
         }
-    }
     
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
