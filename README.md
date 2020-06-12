@@ -1,6 +1,9 @@
 # streem-sdk-ios
 Example Streem SDK project for IOS
 
+# Jessica test
+this is just a test. don't merge it please
+
 ### Example App Requirements
 
 * Xcode 11 with Swift 4.2
