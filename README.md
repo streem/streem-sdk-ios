@@ -219,6 +219,32 @@ A Local Streem uses the device's camera, and opens up an AR experience with our 
 
 Note: Due to an issue with ARKit, you cannot start a Local Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
 
+## Pro Implementation
+The above is sufficient to implement the Customer side of streems (the caller). If you want to implement the Pro side of streems (the callee) the following will get you started.
+
+### Logging In
+Before you can start doing Pro things you'll need to login as a Pro. A user which is created with Streem can be designated as a Pro through the admin portal. Once designated, the user should login using their username and password:
+
+```swift
+    Streem.sharedInstance.login(
+        companyCode: "myCompanyCode",
+        email: "user@mycompany.com",
+        password: "password",
+        avatarUrl: "https://pathtoimage.com") { error, response in 
+            // handle error and response here
+    }
+```
+
+### Logging Out
+Once your user is ready to logout you need to call `clearUser` on the `sharedInstance`:
+
+```swift
+    Streem.sharedInstance.clearUser()
+```
+
+### The Post Call Experience
+The SDK provides a number of items for constructing a post call experience which allows a Pro user to review their calls, add notes, edit streemshots, and interact with a mesh from calls with that enabled. The collection of items made available after streems are called `artifacts` and to retrieve them from the SDK you use an `ArtifactManager`.
+
 ### Fetching the Call Log
 
 You can fetch a list of the logged-in user's previous streems:
@@ -232,50 +258,107 @@ You can fetch a list of the logged-in user's previous streems:
 The returned array contains objects of type `StreemCallLogEntry`, which have these properties:
 
 ```swift
-    startDate: Date            // Session start time.
-    endDate: Date?             // Session end time.
-    participants: [StreemUser] // Session participants. One for an Onsite Streem, two for a two-way Streem.
-    streemshotsCount: Int      // The number of Streemshots captured during the session.
+    startDate: Date                                    // Session start time
+    endDate: Date?                                     // Session end time
+    participants: [StreemUser]                         // Session participants. One for an Onsite Streem, two for a two-way Streem.
+    artifactCount: Int                                 // The number of Artifacts captured during the session
+    hasMesh: Bool                                      // Whether the streem has a mesh with it or not
+    isOnsite: Bool                                     // Whether the streem was an onsite streem or not
+    latestDetectedAddress: String                      // The latest detected address for the streem
+    latestDetectedCoordinates: CLLocationCoordinate2D  // The latest GPS coordinates for the streem
+    notes: String                                      // The notes for the streem
+    referenceId: String                                // The reference ID of the streem
+    shareUrl: String                                   // The URL for sharing the call details
+    isMissed: Bool                                     // Whether the streem call was missed or not
 ```
 
-### Displaying and Editing Streemshots
+### Displaying and Editing Artifacts
 
-Once you have fetched the call log, you may display or edit the Streemshots associated with any of the calls.
+Once you have fetched the call log, you may display or edit the artifacts associated with any of the calls.
 
-First, obtain a `StreemshotManager` for the call:
+First, obtain an `ArtifactManager` for the call. The call to `artifactManager` takes a callback which will provide, for each artifact associated with the call, the type and index of the artifact, as well as whether that artifact was retrieved successfully:
+```swift
+    let artifactManager = Streem.sharedInstance.artifactManager(forCallLogEntry: entry) { [weak self] artifactType, artifactIndex, success in
+        switch artifactType {
+        case .streemshot: 
+            handleStreemshotLoading(artifactIndex, success)
+        case .recording:
+            handleRecordingLoading(artifactIndex, success)
+        case .mesh:
+            handleMeshLoading(artifactIndex, success)
+        }
+    }
+```
+
+As soon as the `ArtifactManager` is created, it will begin to download the call's Artifacts.
+
+Your `handleArtifactLoading` methods from above should check for success and then retrieve the image, recording, or provide a representation of the mesh. 
 
 ```swift
-    let streemshotManager = Streem.sharedInstance.streemshotManager(forCallLogEntry: entry)
+    func handleStreemshotLoading(index: Int, success: Bool) {
+        if success {
+            let image = artifactManager.streemshotImage(at: index)
+            // Do something with the image
+        } else {
+            // handle failure
+        }
+    }
+
+    func handleRecordingLoading(index: Int, success: Bool) {
+        if success {
+            // The recording artifact will be a downloaded, playable movie file which can be retrieved via its URL
+            let url = artifactManager.recordingUrl(at: index)
+            let asset = AVURLAsset(url: url, options: nil)
+            // Do something with the AV Asset
+
+            // Or if you simply want to play the video
+            let vc = AVPlayerViewController()
+            vc.player = AVPlayer(url: url)
+            // Present vc
+        } else {
+            // handle failure
+        }
+    }
+
+    func handleMeshLoading(index: Int, success: Bool) {
+       if success {
+           // Do something to display mesh
+       } else {
+           // handle failure
+       } 
+    }
 ```
 
-As soon as the `StreemshotManager` is created, it will begin to download the call's Streemshots.
-
-You can associate a `UIImageView` with each Streemshot. For example, this might be an image view within a UICollectionViewCell:
+When presenting Streemshots you may want to display if a Streemshot has a note. To check if it has one call:
 
 ```swift
-    streemshotManager.register(imageView: cell.streemshotThumbnail, forStreemshotIndex: indexPath.item)
+    if artifactManage.streemshotHadNote(at: index) {
+        // Display that Streemshot has a note
+    }
 ```
-
-When the Streemshot has been downloaded, the `StreemshotManager` will set the `UIImageView`'s `image`.
-
-You can also break this association, by calling:
-
-```swift
-    streemshotManager.unregister(imageView: theImageView)
-```
-
-For example, if the image view is part of a UICollectionViewCell, you should call `unregister(imageView:)` within the cell's `prepareForReuse()` method.
 
 To present the UI for editing a Streemshot, first confirm that the Streemshot has been fully downloaded, by calling:
 
 ```swift
-    streemshotManager.canEditStreemshot(atIndex: theIndex)
+    artifactManager.canEditStreemshot(atIndex: theIndex)
 ```
 Once that method returns `true`, you can launch a Streemshot-editing session:
 
 ```swift
-    streemshotManager.editStreemshot(atIndex: theIndex)
+    artifactManager.editStreemshot(atIndex: theIndex)
 ```
 
-The `StreemshotManager` will present the Streemshot-editing view controller, loaded with the indicated Streemshot. (The view controller also allows the user to scroll through the other Streemshots associated with the call.)
+The `ArtifactManager` will present the Streemshot-editing view controller, loaded with the indicated Streemshot. (The view controller also allows the user to scroll through the other Streemshots associated with the call.)
+
+To enter into the mesh editor you follow a similar set of steps. First check to see that the mesh is ready and editable:
+
+```swift
+    artifactManager.canEditMeshScene()
+```
+
+If that returns `true`, you can launch the mesh scene editing session:
+
+```swift
+    artifactManager.editMeshScene()
+```
 
