@@ -235,10 +235,10 @@ Before you can start doing Pro things you'll need to login as a Pro. A user whic
 ```
 
 ### Logging Out
-Once your user is ready to logout you need to call `clearUser` on the `sharedInstance`:
+Once your user is ready to logout you need to call `logout` on the `sharedInstance`:
 
 ```swift
-    Streem.sharedInstance.clearUser()
+    Streem.sharedInstance.logout()
 ```
 
 ### The Post Call Experience
