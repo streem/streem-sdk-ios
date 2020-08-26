@@ -26,7 +26,7 @@ class ViewController: UIViewControllerSupport {
         else {
             let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             optionMenu.addAction(UIAlertAction(title: "Logout", style: .destructive) { alert in
-                Streem.sharedInstance.clearUser()
+                Streem.sharedInstance.logout()
             })
             optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             showMenu(optionMenu)
