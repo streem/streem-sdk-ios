@@ -14,6 +14,10 @@ Example Streem SDK project for IOS
 * Streem will provide you with an `appId`  for each of your IOS apps
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
 * StreemKit expects to be called from a ViewController within a NavigationController, in which it will present its own ViewController.
+
+#### Note on Universal Links
+
+If you would like to use universal links with Streem invitation links, there is some additional setup required. You will need to coordinate with Streem to have your app's bundle id added to our `apple-app-site-association` file. You will then need to add the Associated Domains entitlement to your app with the domains `<companyCode>.swac.prod-us.streem.cloud` and `<companyCode>.streem.me`. For more details on adding this entitlement please see the "Add the Associated Domains Entitlement to Your App" section of this resource: https://developer.apple.com/documentation/safariservices/supporting_associated_domains.  
  
 ### Installation
 
