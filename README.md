@@ -121,7 +121,7 @@ Through some mechanism in your app, you determine that your logged-in user and a
 To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
-    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: "tom") { success in
+    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteExternalUserId: "tom") { success in
         if !success {
             // present alert, etc.
         }
@@ -147,9 +147,9 @@ In general if you are starting a remote streem you will want the `LOCAL_CUSTOMER
 
 In order to start a streem with a remote user, your app will need to supply that user's `remoteUserId`. There are two mechanisms available in the SDK for retrieving a `remoteUserId`. The first is through getting a list of recently logged-in users. The second is through an invitation. In addition to these two methods, you can maintain your own list of `remoteUserIds` and supply them to your app however you choose. 
 
-#### Recently Logged In Users
+#### Recently Logged-In Users
 
-By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedInstance` you will receive a list of recently logged in users for your company. You can use this method to filter only experts. You then give this method a callback where you select the remote user through some mechanism and start the streem. 
+By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedInstance` you will receive a list of recently logged-in users for your company. You can use this method to filter only experts. You then give this method a callback where you select the remote user through some mechanism and start the streem. 
 
 ```swift
     Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: true) { [weak self] users in
@@ -159,7 +159,7 @@ By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedIn
 
         Streem.sharedInstance.startRemoteStreem(
             asRole: .LOCAL_CUSTOMER,
-            remoteUserId: selectedUser.id) { success in 
+            withRemoteExternalUserId: selectedUser.id) { success in 
                 // handle succes of streem
         }
 ``` 
@@ -195,7 +195,7 @@ Once you've retrieved this 9-digit code in your app you will follow two steps.
 
         Streem.sharedInstance.startRemoteStreem(
             asRole: .LOCAL_CUSTOMER,
-            remoteUserId: invitation.remoteId,
+            withRemoteExternalUserId: invitation.remoteId,
             referenceId: invitation.referenceId,
             companyCode: invitation.companyCode
         ) { streemSuccess in
@@ -258,21 +258,25 @@ You can fetch a list of the logged-in user's previous streems:
     }
 ```
 
-The returned array contains objects of type `StreemCallLogEntry`, which have these properties:
+The returned array contains objects of type `StreemCallLogEntry`, which have these properties and method:
 
 ```swift
+    id: String                                         // A unique id for the call log
     startDate: Date                                    // Session start time
     endDate: Date?                                     // Session end time
     participants: [StreemUser]                         // Session participants. One for an Onsite Streem, two for a two-way Streem.
-    artifactCount: Int                                 // The number of Artifacts captured during the session
     hasMesh: Bool                                      // Whether the streem has a mesh with it or not
     isOnsite: Bool                                     // Whether the streem was an onsite streem or not
     latestDetectedAddress: String                      // The latest detected address for the streem
     latestDetectedCoordinates: CLLocationCoordinate2D  // The latest GPS coordinates for the streem
     notes: String                                      // The notes for the streem
+    maximumNotesCharacters: Int                        // Maximum allowable length of Call Notes -- expressed in characters, not bytes
     referenceId: String                                // The reference ID of the streem
     shareUrl: String                                   // The URL for sharing the call details
     isMissed: Bool                                     // Whether the streem call was missed or not
+    
+    // The number of available artifacts of the specified type.
+    func artifactCount(type: StreemArtifactType) -> Int
 ```
 
 ### Displaying and Editing Artifacts
@@ -283,6 +287,8 @@ First, obtain an `ArtifactManager` for the call. The call to `artifactManager` t
 ```swift
     let artifactManager = Streem.sharedInstance.artifactManager(forCallLogEntry: entry) { [weak self] artifactType, artifactIndex, success in
         switch artifactType {
+        case .callNote:
+            handleCallNoteLoading(success)
         case .streemshot: 
             handleStreemshotLoading(artifactIndex, success)
         case .recording:
@@ -295,9 +301,16 @@ First, obtain an `ArtifactManager` for the call. The call to `artifactManager` t
 
 As soon as the `ArtifactManager` is created, it will begin to download the call's Artifacts.
 
-Your `handleArtifactLoading` methods from above should check for success and then retrieve the image, recording, or provide a representation of the mesh. 
+Your `handleArtifactLoading` methods from above should check for success and then retrieve the note, image, recording, or provide a representation of the mesh. 
 
 ```swift
+    func handleCallNoteLoading(success: Bool) {
+        self.noteCell?.isReadOnly = !artifactManager.canEditCallNote()
+        artifactManager.callNote() { noteText in
+            // Do something with the note text
+        }
+    }
+
     func handleStreemshotLoading(index: Int, success: Bool) {
         if success {
             let image = artifactManager.streemshotImage(at: index)
@@ -335,33 +348,33 @@ Your `handleArtifactLoading` methods from above should check for success and the
 When presenting Streemshots you may want to display if a Streemshot has a note. To check if it has one call:
 
 ```swift
-    if artifactManage.streemshotHadNote(at: index) {
+    if artifactManager.streemshotHasNote(at: index) {
         // Display that Streemshot has a note
     }
 ```
 
-To present the UI for editing a Streemshot, first confirm that the Streemshot has been fully downloaded, by calling:
+To present the UI for presenting and editing a Streemshot, first confirm that the Streemshot has been fully downloaded, by calling:
 
 ```swift
-    artifactManager.canEditStreemshot(atIndex: theIndex)
+    artifactManager.canAccessStreemshot(atIndex: theIndex)
 ```
 Once that method returns `true`, you can launch a Streemshot-editing session:
 
 ```swift
-    artifactManager.editStreemshot(atIndex: theIndex)
+    artifactManager.accessStreemshot(atIndex: theIndex)
 ```
 
 The `ArtifactManager` will present the Streemshot-editing view controller, loaded with the indicated Streemshot. (The view controller also allows the user to scroll through the other Streemshots associated with the call.)
 
-To enter into the mesh editor you follow a similar set of steps. First check to see that the mesh is ready and editable:
+To enter into the mesh editor you follow a similar set of steps. First check to see that the mesh is ready and presentable:
 
 ```swift
-    artifactManager.canEditMeshScene()
+    artifactManager.canAccessMeshScene()
 ```
 
 If that returns `true`, you can launch the mesh scene editing session:
 
 ```swift
-    artifactManager.editMeshScene()
+    artifactManager.accessMeshScene()
 ```
 

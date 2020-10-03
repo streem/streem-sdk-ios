@@ -50,16 +50,16 @@ class LoginViewController : UIViewControllerSupport {
                 
                 print("Successfully logged in... data: \(details)")
                 
-                        guard let self = self else { return }
-                        
-                        self.showActivityIndicator(false)
-                        self.defaults.set(companyCode, forKey: "companyCode")
-                        self.defaults.set(email, forKey: "email")
-                        DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                guard let self = self else { return }
+                
+                self.showActivityIndicator(false)
+                self.defaults.set(companyCode, forKey: "companyCode")
+                self.defaults.set(email, forKey: "email")
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
                 }
         }
+    }
     
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {

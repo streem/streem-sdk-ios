@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +46,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7lt-5i-seH">
                                                 <rect key="frame" x="8" y="8" width="359" height="178"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fb-BJ-IdV">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fb-BJ-IdV">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="46"/>
                                                         <color key="backgroundColor" red="0.23137254901960785" green="0.5490196078431373" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -56,7 +57,7 @@
                                                             <action selector="startCall:" destination="wJM-tG-Yg8" eventType="touchUpInside" id="nPj-Do-c4V"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqC-z7-n3q" userLabel="Open Onsite">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqC-z7-n3q" userLabel="Open Onsite">
                                                         <rect key="frame" x="0.0" y="66" width="359" height="46"/>
                                                         <color key="backgroundColor" red="0.23137254901960785" green="0.5490196078431373" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -67,7 +68,7 @@
                                                             <action selector="startOnsite:" destination="wJM-tG-Yg8" eventType="touchUpInside" id="aKL-8B-Yzq"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-4Y-aBg" userLabel="Open Onsite">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-4Y-aBg" userLabel="Open Onsite">
                                                         <rect key="frame" x="0.0" y="132" width="359" height="46"/>
                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.54901960780000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -99,7 +100,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="esF-oU-2Gc" firstAttribute="top" secondItem="TJ1-wG-fPT" secondAttribute="bottom" id="UTa-yi-kmo"/>
                             <constraint firstItem="TJ1-wG-fPT" firstAttribute="leading" secondItem="ESe-C1-ipy" secondAttribute="leading" id="aQU-Ag-4mY"/>
@@ -217,7 +218,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aqg-HN-dMw" firstAttribute="top" secondItem="8IK-La-xd8" secondAttribute="bottom" id="7HN-hO-UGz"/>
                             <constraint firstItem="qqW-bD-flT" firstAttribute="width" secondItem="Gg2-zp-TuW" secondAttribute="width" id="CbJ-J2-C6a"/>
@@ -266,7 +267,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="szB-jl-rtX">
                                                 <rect key="frame" x="8" y="8" width="359" height="39"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-w3-yhV">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-w3-yhV">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="39"/>
                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.54901960780000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
@@ -298,7 +299,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PbY-jD-s2Z" firstAttribute="top" secondItem="zxX-YK-pSC" secondAttribute="bottom" id="2Br-Qq-50s"/>
                             <constraint firstItem="zxX-YK-pSC" firstAttribute="top" secondItem="pxl-3i-gGf" secondAttribute="bottom" id="Zyg-Gh-qK7"/>
@@ -323,7 +324,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U17-LW-LKo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CallLogTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CallLogTableViewCell" rowHeight="88" id="wYb-Ap-pMf" customClass="CallLogTableViewCell" customModule="StreemNow" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="88"/>
@@ -347,8 +348,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N Streemshots" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrF-NR-cef" userLabel="Streemshots">
-                                            <rect key="frame" x="226" y="34" width="114" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" text="N Streemshots" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="PrF-NR-cef" userLabel="Streemshots">
+                                            <rect key="frame" x="226" y="34" width="120" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -366,9 +367,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="artifactsLabel" destination="PrF-NR-cef" id="9Cj-SQ-VbD"/>
                                     <outlet property="participantNameLabel" destination="9kz-YT-q5z" id="bAM-Jp-B6h"/>
                                     <outlet property="startDateLabel" destination="GTp-vP-6PX" id="Xov-SP-C4Z"/>
-                                    <outlet property="streemshotsLabel" destination="PrF-NR-cef" id="9Cj-SQ-VbD"/>
                                     <segue destination="wFF-Ob-ivs" kind="show" identifier="call-log-detail" id="qwe-cc-Zr9"/>
                                 </connections>
                             </tableViewCell>
@@ -392,7 +393,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="SWq-Xi-iKi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="4dw-9M-hhA">
                             <size key="itemSize" width="150" height="150"/>
                             <size key="estimatedItemSize" width="150" height="150"/>
@@ -401,10 +402,51 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CallLogDetailsCollectionViewCell" id="8bF-Ma-Too" customClass="CallLogDetailsCollectionViewCell" customModule="StreemNow" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CallLogDetailsNoteCell" id="dXr-ju-ecb" customClass="CallLogDetailsNoteCell" customModule="StreemNow" customModuleProvider="target">
                                 <rect key="frame" x="26" y="18" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="06L-QN-10i">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNS-Ml-xzc">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" id="Eyg-mT-w3X">
+                                            <rect key="frame" x="0.0" y="30" width="150" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="dXr-ju-ecb" id="i97-FQ-qe3"/>
+                                            </connections>
+                                        </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-0V-Q5W">
+                                            <rect key="frame" x="60" y="-6" width="90" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="Save note"/>
+                                            <connections>
+                                                <action selector="save" destination="dXr-ju-ecb" eventType="touchUpInside" id="9zC-0M-7Hz"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="noteTextView" destination="Eyg-mT-w3X" id="yt7-Xl-tgv"/>
+                                    <outlet property="saveButton" destination="hmR-0V-Q5W" id="WJL-63-QHI"/>
+                                </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CallLogDetailsThumbnailCell" id="8bF-Ma-Too" customClass="CallLogDetailsThumbnailCell" customModule="StreemNow" customModuleProvider="target">
+                                <rect key="frame" x="199" y="18" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ5-ac-1CP">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ5-ac-1CP">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -415,7 +457,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go7-8V-Zax" customClass="CallLogDetailsCollectionViewCellImageView" customModule="StreemNow" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go7-8V-Zax" customClass="CallLogDetailsThumbnailCellImageView" customModule="StreemNow" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -423,7 +465,7 @@
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="loadingLabel" destination="zPf-AE-K7w" id="89s-LK-vQd"/>
-                                    <outlet property="streemshotThumbnail" destination="Go7-8V-Zax" id="4WN-He-tYW"/>
+                                    <outlet property="thumbnail" destination="Go7-8V-Zax" id="IbL-Ub-3Hb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -439,4 +481,15 @@
             <point key="canvasLocation" x="2189.5999999999999" y="-919.79010494752629"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -1,4 +1,4 @@
-//  Copyright © 2019 Streem, Inc. All rights reserved.
+// Copyright © 2019 Streem, Inc. All rights reserved.
 
 import Foundation
 import StreemKit
@@ -6,6 +6,7 @@ import StreemKit
 protocol StreemInitializerDelegate {
     func currentUserDidChange()
     func didLaunch(withInviteId inviteId: String)
+    func helpRequested()
 }
 
 class StreemInitializer {
@@ -78,5 +79,9 @@ extension StreemInitializer: StreemDelegate {
         if let string = measurementUnits[measurementUnit] {
             defaults.set(string, forKey: defaultsMeasurementUnitsKey)
         }
+    }
+    
+    public func helpRequested() {
+        delegate?.helpRequested()
     }
 }
