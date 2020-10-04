@@ -31,13 +31,37 @@ class CallLogViewController: UITableViewController {
             
             cell.startDateLabel.text = DateFormatter.localizedString(from: entry.startDate, dateStyle: .short, timeStyle: .short)
             
-            if entry.streemshotsCount == 0 {
-                cell.streemshotsLabel.isHidden = true
+            let streemshotsCount = entry.artifactCount(type: .streemshot)
+            let hasMesh = entry.artifactCount(type: .mesh) > 0
+            let recordingsCount = entry.artifactCount(type: .recording)
+
+            if streemshotsCount == 0, !hasMesh, recordingsCount == 0 {
+                cell.artifactsLabel.isHidden = true
                 cell.accessoryType = .none
                 cell.selectionStyle = .none
             } else {
-                cell.streemshotsLabel.isHidden = false
-                cell.streemshotsLabel.text = entry.streemshotsCount == 1 ? "1 Streemshot" : "\(entry.streemshotsCount) Streemshots"
+                var text = ""
+                let nonBreakingSpace = " "
+                if streemshotsCount > 0 {
+                    text = streemshotsCount == 1 ? "1\(nonBreakingSpace)Streemshot" : "\(streemshotsCount)\(nonBreakingSpace)Streemshots"
+                }
+                if hasMesh {
+                    if !text.isEmpty {
+                        text += "\r"
+                    }
+                    
+                    text += "Mesh"
+                }
+                if recordingsCount > 0 {
+                    if !text.isEmpty {
+                        text += "\r"
+                    }
+                    
+                    text += recordingsCount == 1 ? "1\(nonBreakingSpace)Recording" : "\(recordingsCount)\(nonBreakingSpace)Recordings"
+                }
+
+                cell.artifactsLabel.isHidden = false
+                cell.artifactsLabel.text = text
                 cell.accessoryType = .disclosureIndicator
                 cell.selectionStyle = .default
             }
@@ -46,7 +70,7 @@ class CallLogViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if let entry = callLogEntries?[indexPath.row], entry.streemshotsCount == 0 {
+        if let entry = callLogEntries?[indexPath.row], entry.artifactCount(type: .streemshot) == 0, entry.artifactCount(type: .mesh) == 0, entry.artifactCount(type: .recording) == 0 {
             return nil
         } else {
             return indexPath
@@ -66,6 +90,6 @@ class CallLogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var participantNameLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var streemshotsLabel: UILabel!
+    @IBOutlet weak var artifactsLabel: UILabel!
 
 }

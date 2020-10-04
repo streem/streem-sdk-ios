@@ -1,4 +1,4 @@
-//  Copyright © 2018 Streem, Inc. All rights reserved.
+// Copyright © 2018 Streem, Inc. All rights reserved.
 
 import UIKit
 import StreemKit
@@ -59,7 +59,9 @@ class ViewController: UIViewControllerSupport {
                     self.showActivityIndicator(true)
                     print("Calling user: \(user.id)")
 
-                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: user.id) { success in
+                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteExternalUserId: user.id) { success in
+                        self.showActivityIndicator(false)
+                    
                         if !success {
                             self.presentAlert(message: "Unable to call \(user.name).")
                         }
@@ -161,6 +163,13 @@ extension ViewController: StreemInitializerDelegate {
         }
     }
 
+    func helpRequested() {
+        print("help requested")
+        DispatchQueue.main.async {
+            self.presentAlertOnTopVC(message: "User has requested help")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsViewController = segue.destination as? InvitationViewController {
             detailsViewController.invitationDetails = invitationDetails
