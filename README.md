@@ -23,23 +23,39 @@ If you would like to use universal links with Streem invitation links, there is 
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)
 
-Add a `source` to your `Podfile`:
+Add a `source` to your `Podfile` for Streem:
 ```
     source 'https://github.com/streem/cocoapods'
 ```
 
-Then add the `StreemKit` dependency:
+And also for Streem's dependencies:
+```
+    source 'https://github.com/CocoaPods/Specs.git'
+    source 'https://github.com/twilio/cocoapod-specs'
+```
 
+Then add the `StreemKit` dependency to your `target`:
 ```
     pod 'StreemKit'
 ```
 
-Finally, import the framework where it is used:
+Finally, in your code, import the framework where it is used:
 
 ```swift
     import StreemKit
 ```
 
+If you run into build problems related to missing symbols, you might need to add this to your `Podfile`:
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        end
+    end
+end
+
+```
 
 
 ### Changes to your Info.plist file

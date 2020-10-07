@@ -25,7 +25,7 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - StreemKit (0.14.0):
+  - StreemKit (0.15.0):
     - GzipSwift (~> 5.1.1)
     - PromiseKit (~> 6.13)
     - RxAnimated (~> 0.7.0)
@@ -40,7 +40,7 @@ PODS:
   - TwilioVideo (3.2.0)
 
 DEPENDENCIES:
-  - StreemKit (~> 0.14)
+  - StreemKit (~> 0.15)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -66,11 +66,11 @@ SPEC CHECKSUMS:
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  StreemKit: 8d644d3a81e874869284602b1af75625316b6515
+  StreemKit: c8a9c2dbfe17b969fa218d4cb7d643760fe9ad3e
   SwiftProtobuf: 4ef85479c18ca85b5482b343df9c319c62bda699
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: f398f1490c40c5129d3e4ba9837d1d7532616193
 
-PODFILE CHECKSUM: e79cbf6b9eb755de5a26583d3a94889955ec79c0
+PODFILE CHECKSUM: 533810679028bf4c142d0091765961fd496aac5b
 
 COCOAPODS: 1.8.4
