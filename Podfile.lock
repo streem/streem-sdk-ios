@@ -1,14 +1,5 @@
 PODS:
   - GzipSwift (5.1.1)
-  - PromiseKit (6.13.1):
-    - PromiseKit/CorePromise (= 6.13.1)
-    - PromiseKit/Foundation (= 6.13.1)
-    - PromiseKit/UIKit (= 6.13.1)
-  - PromiseKit/CorePromise (6.13.1)
-  - PromiseKit/Foundation (6.13.1):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.13.1):
-    - PromiseKit/CorePromise
   - RxAnimated (0.7.0):
     - RxAnimated/Core (= 0.7.0)
     - RxCocoa (~> 5.1)
@@ -25,9 +16,8 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - StreemKit (0.15.1):
+  - StreemKit (0.16.0-beta.1):
     - GzipSwift (~> 5.1.1)
-    - PromiseKit (~> 6.13)
     - RxAnimated (~> 0.7.0)
     - RxCocoa (~> 5.1.0)
     - RxGesture (~> 3.0)
@@ -40,12 +30,11 @@ PODS:
   - TwilioVideo (3.2.0)
 
 DEPENDENCIES:
-  - StreemKit (~> 0.15.1)
+  - StreemKit (~> 0.16.0-beta.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - GzipSwift
-    - PromiseKit
     - RxAnimated
     - RxCocoa
     - RxGesture
@@ -60,17 +49,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   RxAnimated: 8540892468e906e7404595bc51ed4b36b3737ab5
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  StreemKit: 1ca24445a9eceb81bcfd3677efc0dd5ffa9a39e7
+  StreemKit: 91d8bfab9090657ac027613ff5ee3d222f9efd6a
   SwiftProtobuf: ed465ed18402f998fd117f631da27e0168e6b59c
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: f398f1490c40c5129d3e4ba9837d1d7532616193
 
-PODFILE CHECKSUM: f0d343be598dc058a3c4d0b8ca0f87baf3885b7a
+PODFILE CHECKSUM: a5316d8f288c5eea3de4a95601b102e4cd46d8b5
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

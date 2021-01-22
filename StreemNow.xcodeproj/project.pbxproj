@@ -227,32 +227,28 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAnimated/RxAnimated.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${PODS_ROOT}/StreemKit/StreemKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework",
-				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework.dSYM",
 				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemKit/StreemKit.framework/StreemKit",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gzip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioSyncClient.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/TwilioSyncClient.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

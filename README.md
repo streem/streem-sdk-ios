@@ -4,14 +4,14 @@ Example Streem SDK project for IOS
 ### Example App Requirements
 
 * Xcode 11 with Swift 4.2
-* Cocoapods 1.8 or later
+* Cocoapods 1.9 or later (1.10 for debug symbols)
 * ARKit compatible device with IOS 11.3
 
 ### Company/App Setup
 
 * Obtain your `company_id` from Streem
-* Provide your IOS bundle id for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
-* Streem will provide you with an `appId`  for each of your IOS apps
+* Provide your IOS Bundle ID for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
+* Streem will provide you with an `appId`  for each of your IOS apps (e.g. you'll need one for development and release, if you use different Bundle IDs)
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
 * StreemKit expects to be called from a ViewController within a NavigationController, in which it will present its own ViewController.
 
@@ -23,13 +23,9 @@ If you would like to use universal links with Streem invitation links, there is 
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)
 
-Add a `source` to your `Podfile` for Streem:
+Add the following  `source` lines to your `Podfile` for Streem and its dependencies:
 ```
     source 'https://github.com/streem/cocoapods'
-```
-
-And also for Streem's dependencies:
-```
     source 'https://github.com/CocoaPods/Specs.git'
     source 'https://github.com/twilio/cocoapod-specs'
 ```
@@ -39,22 +35,20 @@ Then add the `StreemKit` dependency to your `target`:
     pod 'StreemKit'
 ```
 
+Load and run the `configure_streemkit.rb` script and function from within your `post_install` block:
+```ruby
+post_install do |installer|
+    ...
+    load './Pods/StreemKit/configure_streemkit.rb'
+    configure_streemkit(installer)
+    ...
+end
+```
+
 Finally, in your code, import the framework where it is used:
 
 ```swift
     import StreemKit
-```
-
-If you run into build problems related to missing symbols, you might need to add this to your `Podfile`:
-```
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-        end
-    end
-end
-
 ```
 
 
@@ -394,3 +388,29 @@ If that returns `true`, you can launch the mesh scene editing session:
     artifactManager.accessMeshScene()
 ```
 
+## Known Issues
+
+### iOS 12 Storyboard Crash
+
+There is a certain configuration that can cause iOS 12 to crash, if ALL of the following conditions are met:
+* Your app and StreemKit share a cocoapod dependency
+* You have a `ViewController` with a non-frozen  `struct` or `enum` as a stored property, from either `StreemKit` or a shared dependency
+* You instantiate the `ViewController` from a Storyboard
+
+More details on this issue can be found [here](https://bugs.swift.org/browse/SR-11969).
+
+The reason this happens is that StreemKit is published as a binary swift framework with [Library Evolution Support](https://swift.org/blog/library-evolution/).  It also means that our direct dependencies must also have Library Evolution Support.  When a non-frozen `struct` or `enum` from one of these libraries is stored in a class, and that class is dynamically created using `NSClassFromString` (which includes storyboards), the `objc` runtime must be able handle these "open memory layout" objects.  iOS 12 did not ship with an `objc` runtime capable of handling these objects, so the class fails to instantiate, and you get a crash.
+
+The bug typically manifests as something like the following:
+```
+2019-12-10 11:51:54.379859+0530 SampleApp[860:373730] Unknown class _TtC9SampleApp11OrderPageVC in Interface Builder file.
+
+2019-12-10 11:51:54.477752+0530 SampleApp[860:373730] *** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<UIViewController 0x13be59400> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key amountTextField.'
+```
+
+We are working to get our transitive dependency list down in order to minimize the potential for this bug to be caused by integrating StreemKit.  If you experience this issue, please reach out so we can work together to get past it. 
+
+
+### Laser/Draw functionality not available in non-AR sessions
+
+Currently if running the camera on a non-AR devices (such as iPhone 6 and below), our laser and draw tools do not render on the screen properly.
