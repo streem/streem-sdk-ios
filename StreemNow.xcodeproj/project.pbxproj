@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2102683925BAD23500638666 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		2107C56A212F1F3500A7CA02 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		214CAA63214DE7C20048193F /* StreemNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StreemNow.entitlements; sourceTree = "<group>"; };
 		21C46548216FB6E40075978A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				21EB035021EFA2D200014F86 /* README.md */,
+				2102683925BAD23500638666 /* CHANGELOG.md */,
 				607FACD21AFB9204008FA782 /* StreemNow */,
 				607FACD11AFB9204008FA782 /* Products */,
 				B687BC56E62E704ABBCD37CE /* Frameworks */,
