@@ -4,10 +4,10 @@ source 'https://github.com/streem/cocoapods'
 
 use_frameworks!
 
-platform :ios, '11.3'
+platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'StreemKit', '~> 0.16.0-beta.1'
+  pod 'StreemKit', '~> 0.16.0-beta.2'
 end
 
 post_install do |installer|
