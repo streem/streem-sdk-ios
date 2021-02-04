@@ -402,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNow/StreemNow.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QG6M38N8P;
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				INFOPLIST_FILE = StreemNow/Info.plist;
@@ -424,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StreemNow/StreemNow.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QG6M38N8P;
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				INFOPLIST_FILE = StreemNow/Info.plist;
