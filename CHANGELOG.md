@@ -1,4 +1,8 @@
 
+### 0.17.0 - February 25, 2021
+
+* Added support for Single Sign-On
+
 ### 0.16.0 - February 24, 2021
 
 * Now publishing StreemKit as an `xcframework` with support for simulator and iOS devices in one package
