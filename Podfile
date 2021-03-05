@@ -7,7 +7,7 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'StreemKit', '~> 0.16.0'
+  pod 'StreemKit', '~> 0.17.0'
 end
 
 post_install do |installer|

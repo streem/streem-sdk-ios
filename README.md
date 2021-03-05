@@ -103,26 +103,7 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 
 ### Logging In
 
-Once the user has logged into your app, inform Streem that they are logged in:
-
-```swift
-    Streem.sharedInstance.login(
-            companyCode: "acme-inc", 
-            email: "john.smith600@gmail.com", 
-            password: "StreemIsC00l!", 
-            avatarUrl: "http://..."
-        ) { success in
-        
-        if success {
-            // dismiss login screen, etc.
-        } else {
-            // present alert, etc.
-        }
-    }
-```
-
-The `companyCode` is a code that Streem will provide your company with; it is the url prefix when using the Steem Web App (`https://{company-code}.swa.dev.streem.cloud`). The `email` and `password` fields are the credentials a user has set up through the Streem Web App.  `avatarUrl` is an optional string containing the url for a profile picture the user would like to be visible during streems.
-
+Updated documentation coming soon!
 
 ### Starting a Remote Streem
 

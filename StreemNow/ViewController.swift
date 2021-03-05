@@ -145,22 +145,7 @@ extension ViewController: StreemInitializerDelegate {
             }
         }
 
-        Streem.sharedInstance.login(with: inviteId) { [weak self] (error, invitationDetails) in
-            guard let self = self, let invitationDetails = invitationDetails else {
-                print("Error logging in with invitation: \(error?.localizedDescription ?? "unknown")")
-                showFailure()
-                return
-            }
-
-            print("Successfully logged in with invitation... response: \(invitationDetails.name)")
-            print("Invitation details: \(invitationDetails)")
-            self.invitationDetails = invitationDetails
-
-            self.showActivityIndicator(false)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "launch-invite-success", sender: self)
-            }
-        }
+        // SSO based login coming soon!
     }
 
     func helpRequested() {
