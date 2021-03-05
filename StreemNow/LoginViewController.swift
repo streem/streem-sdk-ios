@@ -38,27 +38,7 @@ class LoginViewController : UIViewControllerSupport {
             }
         }
         
-        Streem.sharedInstance.login(
-            companyCode: companyCode,
-            email: email,
-            password: password) { [weak self] (error, details) in
-                guard let details = details, error == nil else {
-                    print("Error logging in: \(error?.localizedDescription ?? "unknown")")
-                    showFailure()
-                    return
-                }
-                
-                print("Successfully logged in... data: \(details)")
-                
-                guard let self = self else { return }
-                
-                self.showActivityIndicator(false)
-                self.defaults.set(companyCode, forKey: "companyCode")
-                self.defaults.set(email, forKey: "email")
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-        }
+        // SSO based login coming soon!
     }
     
     @objc func editingChanged(_ textField: UITextField) {

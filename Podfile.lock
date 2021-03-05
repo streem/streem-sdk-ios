@@ -15,7 +15,7 @@ PODS:
     - RxSwift (~> 5.1)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.2)
   - StreemKit (0.17.0):
     - GzipSwift (~> 5.1.1)
     - RxAnimated (~> 0.7.0)
@@ -54,8 +54,8 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  StreemKit: 7ae6cec6e762d3f7391e56c7040664737e1b917c
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  StreemKit: 1f98ec46925fdcfb3d0a6ee4351208643a041381
   SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: f398f1490c40c5129d3e4ba9837d1d7532616193
