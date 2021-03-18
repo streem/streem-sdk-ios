@@ -1,3 +1,7 @@
+### 0.18.0 - March 18, 2021
+
+* Fixed speaker button
+* Measurement fixes
 
 ### 0.17.0 - February 25, 2021
 
