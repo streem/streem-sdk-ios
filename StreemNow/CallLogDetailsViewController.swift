@@ -147,7 +147,7 @@ class CallLogDetailsViewController: UICollectionViewController, UICollectionView
             let index = streemshotIndex(for: indexPath)
             
             if index < 0 {
-                return artifactManager?.canAccessMeshScene() ?? false
+                return artifactManager?.canAccessMeshScene(at: 0) ?? false
             } else {
                 return artifactManager?.canAccessStreemshot(at: index) ?? false
             }
@@ -163,7 +163,7 @@ class CallLogDetailsViewController: UICollectionViewController, UICollectionView
             let index = streemshotIndex(for: indexPath)
             
             if index < 0 {
-                artifactManager?.accessMeshScene()
+                artifactManager?.accessMeshScene(at: 0)
             } else {
                 artifactManager?.accessStreemshot(at: index)
             }
