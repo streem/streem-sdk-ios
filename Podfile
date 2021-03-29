@@ -8,6 +8,7 @@ platform :ios, '11.0'
 
 target 'StreemNow' do
   pod 'StreemKit', '~> 0.18.0'
+  pod 'AppAuth', '~> 1.4'
 end
 
 post_install do |installer|
