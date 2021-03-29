@@ -49,19 +49,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return false
     }
     
-    func logout() {
-        currentAuthorizationFlow?.cancel()
-        currentAuthorizationFlow = nil
-
-        if let currentUser = StreemInitializer.shared.currentUser,
-           let companyCode = currentUser.companyCode,
-           let authState = AuthPersister.retrieveAuth(),
-           let topViewController = UIViewControllerSupport.defaultTopViewController() {
-            OpenIDHelper.logout(withCompanyCode: companyCode, authState: authState, appDelegate: self, presentingViewController: topViewController)
-        }
-        
-        AuthPersister.clearAuth()
-    }
-
-    
 }
