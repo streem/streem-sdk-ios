@@ -217,16 +217,22 @@ Note: Due to an issue with ARKit, you cannot start a Local Streem from a view us
 The above is sufficient to implement the Customer side of streems (the caller). If you want to implement the Pro side of streems (the callee) the following will get you started.
 
 ### Logging In
-Before you can start doing Pro things you'll need to login as a Pro. A user which is created with Streem can be designated as a Pro through the admin portal. Once designated, the user should login using their username and password:
+Before you can start doing Pro things you'll need to login as a Pro. A user which is created with Streem can be designated as a Pro through the admin portal. Once designated, the user should login using OpenId:
 
 ```swift
-    Streem.sharedInstance.login(
-        companyCode: "myCompanyCode",
-        email: "user@mycompany.com",
-        password: "password",
-        avatarUrl: "https://pathtoimage.com") { error, response in 
-            // handle error and response here
+
+Streem.sharedInstance.getOpenIdConfiguration(forCompanyCode: companyCode) { [weak self] error, clientId, tokenEndpoint, authorizationEndpoint, logoutEndpoint in
+
+    OpenIDHelper.loginViaOpenId(withCompanyCode: companyCode,
+                                 clientId: clientId,
+                                 tokenEndpoint: tokenEndpoint,
+                                 authorizationEndpoint: authorizationEndpoint,
+                                 appDelegate: self.appDelegate,
+                                 presentingViewController: self) { streemIdentity, errorMessage in
+        completion(true, streemIdentity, errorMessage)
     }
+
+}
 ```
 
 ### Logging Out
