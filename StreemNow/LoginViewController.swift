@@ -55,6 +55,11 @@ class LoginViewController : UIViewControllerSupport {
                         showFailure()
                     }
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self.showActivityIndicator(false)
+                    showFailure()
+                }
             }
         }
     }
