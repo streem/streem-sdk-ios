@@ -103,7 +103,20 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 
 ### Logging In
 
-Updated documentation coming soon!
+### Invitation Code Authentication
+
+If a customer is being invited to a remote streem with an invitation code, authentication will happen using the following methods:
+
+```swift
+Streem.sharedInstance.login(withInvitationCode: code) { [weak self] error, details, identity in
+
+	 Streem.sharedInstance.identify(with: identity) { [weak self] success in
+	 	// the customer is now authenticated
+	 }
+
+}
+```
+
 
 ### Starting a Remote Streem
 
