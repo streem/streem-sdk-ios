@@ -103,7 +103,7 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 
 ### Logging In
 
-### Invitation Code Authentication
+#### Invitation Code Authentication
 
 If a customer is being invited to a remote streem with an invitation code, authentication will happen using the following methods:
 
@@ -114,6 +114,29 @@ Streem.sharedInstance.login(withInvitationCode: code) { [weak self] error, detai
 	 	// the customer is now authenticated
 	 }
 
+}
+```
+
+#### Embedded Auth
+
+If you are embedding the Streem SDK inside an app that already has authentication, you will want to use one of our [Server Side SDK's](#server-side-sdk's) to return a `StreemToken` along with your normal auth flow.  When creating a `StreemIdentity`, you will provide a `StreemToken` as well as a method for refreshing the `StreemToken` when it expires.
+
+```swift
+
+let streemToken = yourServerAuthResponse.streemToken
+
+let streemIdentity = StreemIdentity.init(token: StreemToken, name: String, avatarUrl: String?, isExpert: Bool) {
+    return { didObtainFreshStreemToken in
+        YourServer.refreshStreemToken() { newStreemToken in
+            didObtainFreshStreemToken(newStreemToken)
+        }
+    }
+}
+
+Streem.sharedInstance.identify(with: streemIdentity) { [weak self] success in
+	if success {
+		// you successfully logged in!
+	}
 }
 ```
 
@@ -387,6 +410,12 @@ If that returns `true`, you can launch the mesh scene editing session:
 ```swift
     artifactManager.accessMeshScene()
 ```
+
+## Server Side SDK's
+If you are embedding the Streem SDK into an app that already has authentication, you will want to implement one of the following server side SDK's to return a `StreemToken` along with your normal auth flow.  Your app will then use that token to authenticate with the Streem servers
+
+[https://github.com/streem/streem-sdk-node](https://github.com/streem/streem-sdk-node)
+[https://github.com/streem/streem-sdk-ruby](https://github.com/streem/streem-sdk-ruby)
 
 ## Known Issues
 
