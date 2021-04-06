@@ -18,6 +18,8 @@
 		6E0C3DB62528089100773C78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C3DB22528089100773C78 /* LoginViewController.swift */; };
 		6E0C3DB72528089100773C78 /* CallLogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C3DB32528089100773C78 /* CallLogDetailsViewController.swift */; };
 		6E226A0A22F3BF0F008E0966 /* StreemInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E226A0922F3BF0F008E0966 /* StreemInitializer.swift */; };
+		A729BF0A261286650012CF07 /* OpenIdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729BF09261286650012CF07 /* OpenIdHelper.swift */; };
+		A729BF0E261287020012CF07 /* AuthPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729BF0D261287020012CF07 /* AuthPersister.swift */; };
 		F5D8F09E995D4DFB2AABB8F9 /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD4CBD390997D2BEEC355D /* Pods_StreemNow.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		6E0C3DB32528089100773C78 /* CallLogDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallLogDetailsViewController.swift; sourceTree = "<group>"; };
 		6E226A0922F3BF0F008E0966 /* StreemInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreemInitializer.swift; sourceTree = "<group>"; };
 		89BD4CBD390997D2BEEC355D /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A729BF09261286650012CF07 /* OpenIdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdHelper.swift; sourceTree = "<group>"; };
+		A729BF0D261287020012CF07 /* AuthPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPersister.swift; sourceTree = "<group>"; };
 		B2FD3456C88CA92CB1C2668E /* Pods-StreemNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreemNow/Pods-StreemNow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,10 +85,12 @@
 			children = (
 				214CAA63214DE7C20048193F /* StreemNow.entitlements */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				A729BF0D261287020012CF07 /* AuthPersister.swift */,
 				6E0C3DB32528089100773C78 /* CallLogDetailsViewController.swift */,
 				6E0C3DB12528089000773C78 /* CallLogViewController.swift */,
 				6E0C3DB02528089000773C78 /* InvitationViewController.swift */,
 				6E0C3DB22528089100773C78 /* LoginViewController.swift */,
+				A729BF09261286650012CF07 /* OpenIdHelper.swift */,
 				6E226A0922F3BF0F008E0966 /* StreemInitializer.swift */,
 				6E07D67123D28B35004DA29B /* UIViewControllerSupport.swift */,
 				21C46548216FB6E40075978A /* ViewController.swift */,
@@ -228,6 +234,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAnimated/RxAnimated.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -244,6 +251,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gzip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAnimated.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -273,9 +281,11 @@
 				6E0C3DB72528089100773C78 /* CallLogDetailsViewController.swift in Sources */,
 				6E0C3DB62528089100773C78 /* LoginViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				A729BF0E261287020012CF07 /* AuthPersister.swift in Sources */,
 				6E0C3DB52528089100773C78 /* CallLogViewController.swift in Sources */,
 				6E0C3DB42528089100773C78 /* InvitationViewController.swift in Sources */,
 				6E07D67223D28B35004DA29B /* UIViewControllerSupport.swift in Sources */,
+				A729BF0A261286650012CF07 /* OpenIdHelper.swift in Sources */,
 				21C46559216FC3020075978A /* ViewController.swift in Sources */,
 				6E226A0A22F3BF0F008E0966 /* StreemInitializer.swift in Sources */,
 			);

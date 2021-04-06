@@ -1,13 +1,14 @@
+
 # streem-sdk-ios
 Example Streem SDK project for IOS
 
-### Example App Requirements
+## Requirements
 
 * Xcode 11 with Swift 4.2
 * Cocoapods 1.9 or later (1.10 for debug symbols)
 * ARKit compatible device with IOS 11.0
 
-### Company/App Setup
+## Company/App Setup
 
 * Obtain your `company_id` from Streem
 * Provide your IOS Bundle ID for any apps you are going to use the Streem SDK in (later you will be able to do this from a self-service portal)
@@ -15,11 +16,11 @@ Example Streem SDK project for IOS
 * Now that you have your App IDs, follow the steps in the [CallKit Setup Instructions](docs/callkit.md)
 * StreemKit expects to be called from a ViewController within a NavigationController, in which it will present its own ViewController.
 
-#### Note on Universal Links
+### Note on Universal Links
 
 If you would like to use universal links with Streem invitation links, there is some additional setup required. You will need to coordinate with Streem to have your app's bundle id added to our `apple-app-site-association` file. You will then need to add the Associated Domains entitlement to your app with the domains `<companyCode>.swac.prod-us.streem.cloud` and `<companyCode>.streem.me`. For more details on adding this entitlement please see the "Add the Associated Domains Entitlement to Your App" section of this resource: https://developer.apple.com/documentation/safariservices/supporting_associated_domains.  
  
-### Installation
+## Installation
 
 Currently Streem supports Cocoapods installation (Carthage, Swift Package Manager, and Manual to come later)
 
@@ -56,13 +57,13 @@ Finally, in your code, import the framework where it is used:
 
 You should provide appropriate strings for iOS to present to users the first time that the Streem SDK requests permission to use the camera, the microphone, and the GPS location. For example,
 
-**NSCameraUsageDescription**
+- NSCameraUsageDescription
 `This application is requesting permission to access your camera.`
 
-**NSMicrophoneUsageDescription**
+- NSMicrophoneUsageDescription
 `This application is requesting permission to access your microphone.`
 
-**NSLocationWhenInUseUsageDescription**
+- NSLocationWhenInUseUsageDescription
 `Your location is being requested. We will always ask you first before we share your location with other users.`
 
 
@@ -101,11 +102,47 @@ Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:comp
 ```
 
 
-### Logging In
+## Logging In
 
-Updated documentation coming soon!
+### Invitation Code Authentication
 
-### Starting a Remote Streem
+If a customer is being invited to a remote streem with an invitation code, authentication will happen using the following methods:
+
+```swift
+Streem.sharedInstance.login(withInvitationCode: code) { [weak self] error, details, identity in
+
+	 Streem.sharedInstance.identify(with: identity) { [weak self] success in
+	 	// the customer is now authenticated
+	 }
+
+}
+```
+
+### Embedded Auth
+
+If you are embedding the Streem SDK inside an app that already has authentication, you will want to use one of our [Server Side SDK's](#server-side-sdk's) to return a `StreemToken` along with your normal auth flow.  When creating a `StreemIdentity`, you will provide a `StreemToken` as well as a method for refreshing the `StreemToken` when it expires.
+
+```swift
+
+let streemToken = yourServerAuthResponse.streemToken
+
+let streemIdentity = StreemIdentity.init(token: StreemToken, name: String, avatarUrl: String?, isExpert: Bool) {
+    return { didObtainFreshStreemToken in
+        YourServer.refreshStreemToken() { newStreemToken in
+            didObtainFreshStreemToken(newStreemToken)
+        }
+    }
+}
+
+Streem.sharedInstance.identify(with: streemIdentity) { [weak self] success in
+	if success {
+		// you successfully logged in!
+	}
+}
+```
+
+
+## Starting a Remote Streem
 
 Through some mechanism in your app, you determine that your logged-in user and another user should be streeming.
 
@@ -123,7 +160,7 @@ If CallKit has been set up correctly, Tom's device will ring like a phone call, 
 
 Note: Due to an issue with ARKit, you cannot start a Remote Streem from a view using the camera https://forums.developer.apple.com/message/411888#411888
 
-#### Roles
+### Roles
 
 Roles dictate which side of the streem you're on: whether you are providing or receiving the video feed. They also affect which tools are available to you. The different roles are:
 
@@ -138,7 +175,7 @@ In general if you are starting a remote streem you will want the `LOCAL_CUSTOMER
 
 In order to start a streem with a remote user, your app will need to supply that user's `remoteUserId`. There are two mechanisms available in the SDK for retrieving a `remoteUserId`. The first is through getting a list of recently logged-in users. The second is through an invitation. In addition to these two methods, you can maintain your own list of `remoteUserIds` and supply them to your app however you choose. 
 
-#### Recently Logged-In Users
+### Recently Logged-In Users
 
 By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedInstance` you will receive a list of recently logged-in users for your company. You can use this method to filter only experts. You then give this method a callback where you select the remote user through some mechanism and start the streem. 
 
@@ -155,7 +192,7 @@ By calling the SDK's `getRecentlyIdentifiedUsers` method on the Streem `sharedIn
         }
 ``` 
 
-#### Invitations
+### Invitations
 
 If you are utilizing Streem's Pro implementations on the web and/or iOS you will likely have access to invitations. Invitations are communicated via a 9-digit code. This code can be transmitted through SMS, email, or copy and pasted to some other mechanism such as Slack. 
 
@@ -165,41 +202,48 @@ Once you've retrieved this 9-digit code in your app you will follow two steps.
 * Call `startRemoteStreem` with the remote user contained in the invitation. The whole flow looks like:
 
 ```swift
-    Streem.sharedInstance.login(with: invitationCode) { error, details in
+    Streem.sharedInstance.login(with: invitationCode) { error, details, identity in
         guard error == nil, let details = details else {
             // An invalid code was used
             return
         }
-    
-        let invitation = Invitation(
-            requesterName: details.name,
-            displayName: details.user.displayName,
-            code: invitationCode,
-            remoteId: details.user.uid,
-            referenceId: details.referenceId,
-            photoURL: details.user.photoURL,
-            companyCode: details.company.companyCode,
-            companyName: details.company.name,
-            expiresAt: details.expiresAt,
-            companyLogoURL: details.company.logoUrl
-        )
+		
+		Streem.sharedInstance.identify(with: identity) { success in
+			guard success else {
+			// identity was not correct
+			return
+			}
 
-        Streem.sharedInstance.startRemoteStreem(
-            asRole: .LOCAL_CUSTOMER,
-            withRemoteExternalUserId: invitation.remoteId,
-            referenceId: invitation.referenceId,
-            companyCode: invitation.companyCode
-        ) { streemSuccess in
-            if streemSuccess {
-                // handle streem success
-            } else {
-                // handle streem error
-            }
-        }
+	        let invitation = Invitation(
+	            requesterName: details.name,
+	            displayName: details.user.displayName,
+	            code: invitationCode,
+	            remoteId: details.user.uid,
+	            referenceId: details.referenceId,
+	            photoURL: details.user.photoURL,
+	            companyCode: details.company.companyCode,
+	            companyName: details.company.name,
+	            expiresAt: details.expiresAt,
+	            companyLogoURL: details.company.logoUrl
+	        )
+
+	        Streem.sharedInstance.startRemoteStreem(
+	            asRole: .LOCAL_CUSTOMER,
+	            withRemoteExternalUserId: invitation.remoteId,
+	            referenceId: invitation.referenceId,
+	            companyCode: invitation.companyCode
+	        ) { streemSuccess in
+	            if streemSuccess {
+	                // handle streem success
+	            } else {
+	                // handle streem error
+	            }
+	        }
+		}
     }
 ``` 
 
-### Starting a Local Streem
+## Starting a Local Streem
 
 A Local Streem uses the device's camera, and opens up an AR experience with our arrow and measure tools, and the ability to capture Streemshots.  Open a Local Streem simply by:
 
@@ -216,20 +260,26 @@ Note: Due to an issue with ARKit, you cannot start a Local Streem from a view us
 ## Pro Implementation
 The above is sufficient to implement the Customer side of streems (the caller). If you want to implement the Pro side of streems (the callee) the following will get you started.
 
-### Logging In
-Before you can start doing Pro things you'll need to login as a Pro. A user which is created with Streem can be designated as a Pro through the admin portal. Once designated, the user should login using their username and password:
+### OpenID Login
+Before you can start doing Pro things you'll need to login as a Pro. A user which is created with Streem can be designated as a Pro through the admin portal. Once designated, the user should login using OpenId:
 
 ```swift
-    Streem.sharedInstance.login(
-        companyCode: "myCompanyCode",
-        email: "user@mycompany.com",
-        password: "password",
-        avatarUrl: "https://pathtoimage.com") { error, response in 
-            // handle error and response here
+
+Streem.sharedInstance.getOpenIdConfiguration(forCompanyCode: companyCode) { [weak self] error, clientId, tokenEndpoint, authorizationEndpoint, logoutEndpoint in
+
+    OpenIDHelper.loginViaOpenId(withCompanyCode: companyCode,
+                                 clientId: clientId,
+                                 tokenEndpoint: tokenEndpoint,
+                                 authorizationEndpoint: authorizationEndpoint,
+                                 appDelegate: self.appDelegate,
+                                 presentingViewController: self) { streemIdentity, errorMessage in
+        completion(true, streemIdentity, errorMessage)
     }
+
+}
 ```
 
-### Logging Out
+### OpenID Logout
 Once your user is ready to logout you need to call `logout` on the `sharedInstance`:
 
 ```swift
@@ -368,6 +418,12 @@ If that returns `true`, you can launch the mesh scene editing session:
 ```swift
     artifactManager.accessMeshScene()
 ```
+
+## Server Side SDK's
+If you are embedding the Streem SDK into an app that already has authentication, you will want to implement one of the following server side SDK's to return a `StreemToken` along with your normal auth flow.  Your app will then use that token to authenticate with the Streem servers
+
+[https://github.com/streem/streem-sdk-node](https://github.com/streem/streem-sdk-node)
+[https://github.com/streem/streem-sdk-ruby](https://github.com/streem/streem-sdk-ruby)
 
 ## Known Issues
 

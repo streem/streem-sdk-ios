@@ -48,13 +48,18 @@ class UIViewControllerSupport : UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
-
+    
     /// Get the top-most ViewController in the heirarchy and present an alert on that vc
     func presentAlertOnTopVC(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        UIViewControllerSupport.defaultTopViewController()?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func defaultTopViewController() -> UIViewController? {
         let keyWindow = UIApplication.shared.keyWindow
-        guard let rootViewController = keyWindow?.rootViewController else { return }
+        guard let rootViewController = keyWindow?.rootViewController else { return nil }
 
         var pointedViewController: UIViewController? = rootViewController
         
@@ -66,7 +71,7 @@ class UIViewControllerSupport : UIViewController {
         default:
             pointedViewController = pointedViewController?.presentedViewController
         }
-        
+
         while pointedViewController?.presentedViewController != nil {
             switch pointedViewController?.presentedViewController {
             case let navigationController as UINavigationController:
@@ -77,7 +82,8 @@ class UIViewControllerSupport : UIViewController {
                 pointedViewController = pointedViewController?.presentedViewController
             }
         }
-        pointedViewController?.present(alert, animated: true, completion: nil)
+        
+        return pointedViewController
     }
 
     func showMenu(_ menu: UIViewController) {
