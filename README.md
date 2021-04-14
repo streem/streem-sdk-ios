@@ -26,14 +26,13 @@ Currently Streem supports Cocoapods installation (Carthage, Swift Package Manage
 
 Add the following  `source` lines to your `Podfile` for Streem and its dependencies:
 ```
-    source 'https://github.com/streem/cocoapods'
-    source 'https://github.com/CocoaPods/Specs.git'
     source 'https://github.com/twilio/cocoapod-specs'
+    source 'https://github.com/CocoaPods/Specs.git'
 ```
 
 Then add the `StreemKit` dependency to your `target`:
 ```
-    pod 'StreemKit'
+    pod 'StreemKit', :source => 'https://github.com/streem/cocoapods'
 ```
 
 Load and run the `configure_streemkit.rb` script and function from within your `post_install` block:
