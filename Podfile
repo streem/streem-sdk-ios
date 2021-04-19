@@ -1,13 +1,12 @@
-source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/twilio/cocoapod-specs'
-source 'https://github.com/streem/cocoapods'
+source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
 platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'StreemKit', '~> 0.18.0'
+  pod 'StreemKit', '~> 0.18.0', :source => 'https://github.com/streem/cocoapods'
   pod 'AppAuth', '~> 1.4'
 end
 
