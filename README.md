@@ -119,7 +119,7 @@ Streem.sharedInstance.login(withInvitationCode: code) { [weak self] error, detai
 
 ### Embedded Auth
 
-If you are embedding the Streem SDK inside an app that already has authentication, you will want to use one of our [Server Side SDK's](#server-side-sdk's) to return a `StreemToken` along with your normal auth flow.  When creating a `StreemIdentity`, you will provide a `StreemToken` as well as a method for refreshing the `StreemToken` when it expires.
+If you are embedding the Streem SDK inside an app that already has authentication, you will want to use one of our [Server Side SDK's](#server-side-sdks) to return a `StreemToken` along with your normal auth flow.  When creating a `StreemIdentity`, you will provide a `StreemToken` as well as a method for refreshing the `StreemToken` when it expires.
 
 ```swift
 
@@ -421,8 +421,8 @@ If that returns `true`, you can launch the mesh scene editing session:
 ## Server Side SDK's
 If you are embedding the Streem SDK into an app that already has authentication, you will want to implement one of the following server side SDK's to return a `StreemToken` along with your normal auth flow.  Your app will then use that token to authenticate with the Streem servers
 
-[https://github.com/streem/streem-sdk-node](https://github.com/streem/streem-sdk-node)
-[https://github.com/streem/streem-sdk-ruby](https://github.com/streem/streem-sdk-ruby)
+- [https://github.com/streem/streem-sdk-node](https://github.com/streem/streem-sdk-node)
+- [https://github.com/streem/streem-sdk-ruby](https://github.com/streem/streem-sdk-ruby)
 
 ## Known Issues
 
