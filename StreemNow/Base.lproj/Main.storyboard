@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -90,10 +90,38 @@
                                             <constraint firstItem="7lt-5i-seH" firstAttribute="leading" secondItem="m6X-2l-rvy" secondAttribute="leadingMargin" id="wxd-ao-dzd"/>
                                         </constraints>
                                     </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dta-Eh-ywf">
+                                        <rect key="frame" x="8" y="202" width="273" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <connections>
+                                            <action selector="invitationTextFieldReturned:" destination="wJM-tG-Yg8" eventType="primaryActionTriggered" id="2tc-Kn-0to"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGK-xn-eP3">
+                                        <rect key="frame" x="289" y="204" width="78" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="8jd-3B-Edc"/>
+                                            <constraint firstAttribute="height" constant="30" id="jOU-xO-iIr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="Join">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinCallTapped:" destination="wJM-tG-Yg8" eventType="touchUpInside" id="ojw-o0-Q55"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="dta-Eh-ywf" firstAttribute="leading" secondItem="TJ1-wG-fPT" secondAttribute="leadingMargin" id="57h-vj-hsb"/>
                                     <constraint firstItem="m6X-2l-rvy" firstAttribute="width" secondItem="TJ1-wG-fPT" secondAttribute="width" id="5jY-wb-fcT"/>
+                                    <constraint firstItem="dta-Eh-ywf" firstAttribute="centerY" secondItem="cGK-xn-eP3" secondAttribute="centerY" id="EeV-VR-rbH"/>
+                                    <constraint firstItem="dta-Eh-ywf" firstAttribute="top" secondItem="m6X-2l-rvy" secondAttribute="bottom" constant="8" id="K9m-xN-Yym"/>
+                                    <constraint firstItem="cGK-xn-eP3" firstAttribute="leading" secondItem="dta-Eh-ywf" secondAttribute="trailing" constant="8" id="SXe-gA-vMD"/>
                                     <constraint firstAttribute="trailing" secondItem="m6X-2l-rvy" secondAttribute="trailing" id="Sob-ou-QjH"/>
+                                    <constraint firstItem="cGK-xn-eP3" firstAttribute="trailing" secondItem="TJ1-wG-fPT" secondAttribute="trailingMargin" id="iYE-LT-d5V"/>
                                     <constraint firstItem="m6X-2l-rvy" firstAttribute="leading" secondItem="TJ1-wG-fPT" secondAttribute="leading" id="iqf-Gf-94X"/>
                                     <constraint firstAttribute="bottom" secondItem="m6X-2l-rvy" secondAttribute="bottom" id="kDo-XX-5eI"/>
                                     <constraint firstItem="m6X-2l-rvy" firstAttribute="top" secondItem="TJ1-wG-fPT" secondAttribute="top" id="qTb-NE-8Uc"/>
@@ -118,6 +146,7 @@
                     <connections>
                         <outlet property="callExpertButton" destination="7fb-BJ-IdV" id="nLK-mA-IQg"/>
                         <outlet property="callLogButton" destination="wWg-4Y-aBg" id="E9S-IT-DBJ"/>
+                        <outlet property="invitationTextField" destination="dta-Eh-ywf" id="AUE-3I-0x9"/>
                         <outlet property="loginButton" destination="bBW-4D-bcc" id="A8S-H5-5t5"/>
                         <outlet property="openOnsiteButton" destination="bqC-z7-n3q" id="yaP-Zd-PGp"/>
                         <outlet property="scrollView" destination="TJ1-wG-fPT" id="P1Z-lx-sv1"/>
@@ -128,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo1-6F-RZ0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="351" y="58"/>
+            <point key="canvasLocation" x="349.60000000000002" y="57.121439280359823"/>
         </scene>
         <!--Login-->
         <scene sceneID="aQP-NU-txk">
@@ -456,6 +485,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

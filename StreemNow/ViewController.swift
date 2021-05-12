@@ -9,7 +9,8 @@ class ViewController: UIViewControllerSupport {
     @IBOutlet weak var callExpertButton: UIButton!
     @IBOutlet weak var openOnsiteButton: UIButton!
     @IBOutlet weak var callLogButton: UIButton!
-
+    @IBOutlet weak var invitationTextField: UITextField!
+    
     var loggedIn = false
     var invitationDetails: StreemInvitationDetails?
     var callLogEntries: [StreemCallLogEntry]?
@@ -35,7 +36,7 @@ class ViewController: UIViewControllerSupport {
     }
 
     @IBAction func startCall(_ sender: Any) {
-        guard StreemInitializer.shared.currentUser?.id != nil else {
+        guard StreemInitializer.shared.currentUser?.externalUserId != nil else {
             presentAlert(message: "You must first login")
             return
         }
@@ -46,7 +47,7 @@ class ViewController: UIViewControllerSupport {
             guard let self = self else { return }
             self.showActivityIndicator(false)
 
-            let users = users.filter { $0.id != StreemInitializer.shared.currentUser?.id }
+            let users = users.filter { $0.externalUserId != StreemInitializer.shared.currentUser?.externalUserId }
             guard !users.isEmpty else {
                 self.presentAlert(message: "Nobody else has connected recently.")
                 return
@@ -58,9 +59,9 @@ class ViewController: UIViewControllerSupport {
                     let index = optionMenu.actions.index(of: alert)
                     let user = users[index!]
                     self.showActivityIndicator(true)
-                    print("Calling user: \(user.id)")
+                    print("Calling user: \(user.externalUserId)")
 
-                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteExternalUserId: user.id) { success in
+                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteExternalUserId: user.externalUserId) { success in
                         self.showActivityIndicator(false)
                     
                         if !success {
@@ -75,7 +76,7 @@ class ViewController: UIViewControllerSupport {
     }
 
     @IBAction func startOnsite(_ sender: Any) {
-        guard StreemInitializer.shared.currentUser?.id != nil else {
+        guard StreemInitializer.shared.currentUser?.externalUserId != nil else {
             presentAlert(message: "You must first login")
             return
         }
@@ -93,7 +94,7 @@ class ViewController: UIViewControllerSupport {
     }
     
     @IBAction func fetchCallLog(_ sender: Any) {
-        guard StreemInitializer.shared.currentUser?.id != nil else {
+        guard StreemInitializer.shared.currentUser?.externalUserId != nil else {
             presentAlert(message: "You must first login")
             return
         }
@@ -112,6 +113,58 @@ class ViewController: UIViewControllerSupport {
             }
         }
     }
+    
+    @IBAction func invitationTextFieldReturned(_ sender: Any) {
+        startCallFromInvite()
+    }
+    
+    @IBAction func joinCallTapped(_ sender: Any) {
+        startCallFromInvite()
+    }
+    
+    private func startCallFromInvite() {
+        guard let inviteCode = invitationTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(),
+              inviteCode.count == 9
+        else {
+            presentAlert(message: "Please enter a valid 9 digit invitation code")
+            return
+        }
+        showActivityIndicator(true)
+        
+        Streem.sharedInstance.login(withInvitationCode: inviteCode) { [weak self] error, details, identity in
+            guard error == nil, let details = details, let identity = identity else {
+                self?.showActivityIndicator(false)
+                print("error logging in: \(error!)")
+                self?.presentAlert(message: "Invalid invite code")
+                return
+            }
+            
+            Streem.sharedInstance.identify(with: identity) { [weak self] success in
+                guard success else {
+                    self?.showActivityIndicator(false)
+                    self?.presentAlert(message: "Error Starting Call")
+                    return
+                }
+                Streem.sharedInstance.startRemoteStreem(
+                    asRole: .LOCAL_CUSTOMER,
+                    remoteUserId: details.user.uid,
+                    referenceId: details.referenceId,
+                    companyCode: details.company.companyCode
+                ) { [weak self] success in
+                    self?.showActivityIndicator(false)
+                    
+                    if success {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.invitationTextField.text = ""
+                        }
+                    } else {
+                        self?.presentAlert(message: "Error Starting Call")
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 extension ViewController: StreemInitializerDelegate {
@@ -123,8 +176,8 @@ extension ViewController: StreemInitializerDelegate {
             // If currentUser is non-nil, then currentUser.name SHOULD be non-empty. Unless there's some server issue...
             if !currentUser.name.isEmpty {
                 title = currentUser.name
-            } else if !currentUser.id.isEmpty {
-                title = currentUser.id
+            } else if !currentUser.externalUserId.isEmpty {
+                title = currentUser.externalUserId
             }
         }
         else {
@@ -145,7 +198,6 @@ extension ViewController: StreemInitializerDelegate {
                 self.present(alert, animated: true)
             }
         }
-
         // SSO based login coming soon!
     }
 
