@@ -1,3 +1,16 @@
+### 0.20.0 - May 13, 20201
+
+* Added customer lobby
+* Improve tool selection
+* Better CocoaPod security
+* Usability fixes
+
+### 0.19.0 April 10th, 2021
+
+* Logging additions
+* Bug fixes
+* Removed WebRTC external dependency
+
 ### 0.18.0 - March 18, 2021
 
 * Fixed speaker button
