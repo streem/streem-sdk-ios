@@ -28,7 +28,7 @@ class StreemInitializer {
     private let measurementUnits: [UnitLength: String] = [ .inches: "inches", .feet: "feet", .millimeters: "millimeters", .centimeters: "centimeters"]
     
     private init() {
-        Streem.initialize(delegate: self, appId: appId, streemDomain: "sandbox.streem.cloud") { [weak self] in
+        Streem.initialize(delegate: self, appId: appId, streemDomain: streemDomain) { [weak self] in
             guard let self = self else { return }
             self.initialized = true
             Streem.sharedInstance.measurementUnitsToChooseFrom = [ .inches, .feet, .millimeters, .centimeters ]
