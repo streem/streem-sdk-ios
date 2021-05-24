@@ -20,6 +20,7 @@ class StreemInitializer {
     private var launchedByInviteId: String?
 
     private let appId = "*** YOUR APP-ID GOES HERE ***"
+    private let streemDomain = "sandbox.streem.cloud"
 
     private let defaultsMeasurementUnitsKey = "measurement_units"
     
@@ -27,7 +28,7 @@ class StreemInitializer {
     private let measurementUnits: [UnitLength: String] = [ .inches: "inches", .feet: "feet", .millimeters: "millimeters", .centimeters: "centimeters"]
     
     private init() {
-        Streem.initialize(delegate: self, appId: appId) { [weak self] in
+        Streem.initialize(delegate: self, appId: appId, streemDomain: "sandbox.streem.cloud") { [weak self] in
             guard let self = self else { return }
             self.initialized = true
             Streem.sharedInstance.measurementUnitsToChooseFrom = [ .inches, .feet, .millimeters, .centimeters ]
