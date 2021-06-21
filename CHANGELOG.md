@@ -1,4 +1,10 @@
-### 0.20.0 - May 13, 20201
+### 0.21.0 - June 17, 2021
+
+* Added OnSite GPS request
+* Removed RxSwift CocoaPods
+* Removed GzipSwift CocoaPod
+
+### 0.20.0 - May 13, 2021
 
 * Added customer lobby
 * Improve tool selection
