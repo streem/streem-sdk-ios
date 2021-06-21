@@ -4,9 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - GzipSwift (5.1.1)
   - StreemKit (0.21.0):
-    - GzipSwift (~> 5.1.1)
     - SwiftProtobuf (~> 1.7)
     - TwilioSyncClient (~> 0.7.5)
     - TwilioVideo (= 3.2)
@@ -21,7 +19,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AppAuth
-    - GzipSwift
     - SwiftProtobuf
     - TwilioVideo
   https://github.com/streem/cocoapods:
@@ -31,8 +28,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  StreemKit: 541acd60f558f76f837210d225d1f948cf1d0418
+  StreemKit: 7522e46c338b21ca0d4cc9135f356ba0b55725a7
   SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: f398f1490c40c5129d3e4ba9837d1d7532616193
