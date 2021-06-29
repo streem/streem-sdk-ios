@@ -1,3 +1,9 @@
+### 0.22.0 - June 30, 2021
+
+* Built with Xcode 12.3
+* Uses RxSwift CocoaPods
+* Bug fixes
+
 ### 0.21.0 - June 17, 2021
 
 * Added OnSite GPS request
