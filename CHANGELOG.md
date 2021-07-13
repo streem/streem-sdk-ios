@@ -1,3 +1,7 @@
+### 0.22.1 - July 12, 2021
+
+* Bug fixes
+
 ### 0.22.0 - June 30, 2021
 
 * Built with Xcode 12.3
