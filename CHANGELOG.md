@@ -1,3 +1,7 @@
+### 0.22.2 - July 20, 20201
+
+* Bug fixes
+
 ### 0.22.1 - July 12, 2021
 
 * Bug fixes
