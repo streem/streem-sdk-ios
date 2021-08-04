@@ -20,7 +20,7 @@ class StreemInitializer {
     private var launchedByInviteId: String?
 
     private let appId = "*** YOUR APP-ID GOES HERE ***"
-    private let streemDomain = "sandbox.streem.cloud" // for Production, set streemDomain to nil
+    private let streemDomain = "sandbox.streem.cloud" // for Production, use `prod-us.streem.cloud`.
 
     private let defaultsMeasurementUnitsKey = "measurement_units"
     
