@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ni6-oX-5B5">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,13 +41,13 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-2l-rvy" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7lt-5i-seH">
-                                                <rect key="frame" x="8" y="8" width="359" height="178"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="166"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fb-BJ-IdV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="46"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="42"/>
                                                         <color key="backgroundColor" red="0.23137254901960785" green="0.5490196078431373" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <state key="normal" title="Call Expert">
@@ -58,7 +58,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqC-z7-n3q" userLabel="Open Onsite">
-                                                        <rect key="frame" x="0.0" y="66" width="359" height="46"/>
+                                                        <rect key="frame" x="0.0" y="62" width="359" height="42"/>
                                                         <color key="backgroundColor" red="0.23137254901960785" green="0.5490196078431373" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <state key="normal" title="Open Onsite">
@@ -69,7 +69,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-4Y-aBg" userLabel="Open Onsite">
-                                                        <rect key="frame" x="0.0" y="132" width="359" height="46"/>
+                                                        <rect key="frame" x="0.0" y="124" width="359" height="42"/>
                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.54901960780000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <state key="normal" title="Call Log">
@@ -91,15 +91,15 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dta-Eh-ywf">
-                                        <rect key="frame" x="8" y="202" width="273" height="34"/>
+                                        <rect key="frame" x="8" y="190" width="273" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <connections>
                                             <action selector="invitationTextFieldReturned:" destination="wJM-tG-Yg8" eventType="primaryActionTriggered" id="2tc-Kn-0to"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGK-xn-eP3">
-                                        <rect key="frame" x="289" y="204" width="78" height="30"/>
+                                        <rect key="frame" x="289" y="192" width="78" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="78" id="8jd-3B-Edc"/>
@@ -257,13 +257,13 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5a-hG-PqT" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="szB-jl-rtX">
-                                                <rect key="frame" x="8" y="8" width="359" height="39"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-w3-yhV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="39"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="35"/>
                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.54901960780000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <state key="normal" title="Call Mr. Sean from Sean's Steaks">
@@ -322,14 +322,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CallLogTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CallLogTableViewCell" rowHeight="88" id="wYb-Ap-pMf" customClass="CallLogTableViewCell" customModule="StreemNow" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="88"/>
+                                <rect key="frame" x="0.0" y="24.5" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYb-Ap-pMf" id="aAl-kJ-M8y">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="349.5" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kz-YT-q5z" userLabel="Name">
-                                            <rect key="frame" x="16" y="11" width="324" height="44"/>
+                                            <rect key="frame" x="16" y="11" width="325.5" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="1iL-dH-NEd"/>
                                             </constraints>
@@ -338,7 +338,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTp-vP-6PX" userLabel="Start">
-                                            <rect key="frame" x="16" y="55" width="324" height="20.5"/>
+                                            <rect key="frame" x="16" y="55" width="325.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
