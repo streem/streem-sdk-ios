@@ -25,7 +25,7 @@ class CallLogViewController: UITableViewController {
             if entry.participants.count == 1 {
                 participantName = entry.participants[0].name
             } else if let currentUser = StreemInitializer.shared.currentUser {
-                participantName = entry.participants.first { $0.id != currentUser.id }?.name
+                participantName = entry.participants.first { $0.externalUserId != currentUser.externalUserId }?.name
             }
             cell.participantNameLabel.text = participantName
             

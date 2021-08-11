@@ -93,7 +93,7 @@ class LoginViewController : UIViewControllerSupport {
                                              presentingViewController: self) { streemIdentity, errorMessage in
                     completion(true, streemIdentity, errorMessage)
                 }
-            } else {
+            } else if let error = error {
                 print(error)
             }
         }
