@@ -13,10 +13,10 @@ class LoginViewController : UIViewControllerSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        submitButton.isEnabled = false
-
         companyCodeField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         companyCodeField.text = defaults.string(forKey: "companyCode") ?? ""
+
+        submitButton.isEnabled = !(companyCodeField.text?.isEmpty ?? true)        
     }
 
     @IBAction func submitLogin(_ sender: Any) {
@@ -93,7 +93,7 @@ class LoginViewController : UIViewControllerSupport {
                                              presentingViewController: self) { streemIdentity, errorMessage in
                     completion(true, streemIdentity, errorMessage)
                 }
-            } else {
+            } else if let error = error {
                 print(error)
             }
         }
