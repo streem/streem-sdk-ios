@@ -6,7 +6,7 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'StreemNow' do
-  pod 'StreemKit', '~> 0.22.2', :source => 'https://github.com/streem/cocoapods'
+  pod 'StreemKit', '~> 0.23.0', :source => 'https://github.com/streem/cocoapods'
   pod 'AppAuth', '~> 1.4'
 end
 

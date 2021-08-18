@@ -1,4 +1,10 @@
-### 0.22.2 - July 20, 20201
+### 0.23.0 - August 19, 2021
+
+* UI improvements to sample app
+* Documentation improvements
+* Bug fixes
+
+### 0.22.2 - July 20, 2021
 
 * Bug fixes
 
