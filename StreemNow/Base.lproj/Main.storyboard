@@ -90,8 +90,8 @@
                                             <constraint firstItem="7lt-5i-seH" firstAttribute="leading" secondItem="m6X-2l-rvy" secondAttribute="leadingMargin" id="wxd-ao-dzd"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dta-Eh-ywf">
-                                        <rect key="frame" x="8" y="190" width="273" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="invitation code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dta-Eh-ywf">
+                                        <rect key="frame" x="8" y="190" width="267" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <connections>
@@ -99,10 +99,10 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGK-xn-eP3">
-                                        <rect key="frame" x="289" y="192" width="78" height="30"/>
+                                        <rect key="frame" x="283" y="192" width="84" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="78" id="8jd-3B-Edc"/>
+                                            <constraint firstAttribute="width" constant="84" id="8jd-3B-Edc"/>
                                             <constraint firstAttribute="height" constant="30" id="jOU-xO-iIr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -113,6 +113,12 @@
                                             <action selector="joinCallTapped:" destination="wJM-tG-Yg8" eventType="touchUpInside" id="ojw-o0-Q55"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7y-Iy-0Dp" userLabel="Expert">
+                                        <rect key="frame" x="260" y="589.5" width="50" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dta-Eh-ywf" firstAttribute="leading" secondItem="TJ1-wG-fPT" secondAttribute="leadingMargin" id="57h-vj-hsb"/>
@@ -127,9 +133,19 @@
                                     <constraint firstItem="m6X-2l-rvy" firstAttribute="top" secondItem="TJ1-wG-fPT" secondAttribute="top" id="qTb-NE-8Uc"/>
                                 </constraints>
                             </scrollView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ncu-Ug-OAR">
+                                <rect key="frame" x="318" y="628" width="51" height="31"/>
+                                <connections>
+                                    <action selector="expertChanged:" destination="wJM-tG-Yg8" eventType="valueChanged" id="Kuo-Hl-yoU"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="p7y-Iy-0Dp" firstAttribute="centerY" secondItem="Ncu-Ug-OAR" secondAttribute="centerY" id="6Rg-3B-Fyl"/>
+                            <constraint firstItem="esF-oU-2Gc" firstAttribute="top" secondItem="Ncu-Ug-OAR" secondAttribute="bottom" constant="8" id="CM3-ZP-qn4"/>
+                            <constraint firstAttribute="trailing" secondItem="Ncu-Ug-OAR" secondAttribute="trailing" constant="8" id="IYb-zN-o4I"/>
+                            <constraint firstItem="Ncu-Ug-OAR" firstAttribute="leading" secondItem="p7y-Iy-0Dp" secondAttribute="trailing" constant="8" id="JTY-QC-lpX"/>
                             <constraint firstItem="esF-oU-2Gc" firstAttribute="top" secondItem="TJ1-wG-fPT" secondAttribute="bottom" id="UTa-yi-kmo"/>
                             <constraint firstItem="TJ1-wG-fPT" firstAttribute="leading" secondItem="ESe-C1-ipy" secondAttribute="leading" id="aQU-Ag-4mY"/>
                             <constraint firstAttribute="trailing" secondItem="TJ1-wG-fPT" secondAttribute="trailing" id="n2a-1x-BVp"/>
@@ -146,7 +162,9 @@
                     <connections>
                         <outlet property="callExpertButton" destination="7fb-BJ-IdV" id="nLK-mA-IQg"/>
                         <outlet property="callLogButton" destination="wWg-4Y-aBg" id="E9S-IT-DBJ"/>
+                        <outlet property="expertSwitch" destination="Ncu-Ug-OAR" id="BFV-nJ-N9B"/>
                         <outlet property="invitationTextField" destination="dta-Eh-ywf" id="AUE-3I-0x9"/>
+                        <outlet property="joinButton" destination="cGK-xn-eP3" id="pAL-zV-dHo"/>
                         <outlet property="loginButton" destination="bBW-4D-bcc" id="A8S-H5-5t5"/>
                         <outlet property="openOnsiteButton" destination="bqC-z7-n3q" id="yaP-Zd-PGp"/>
                         <outlet property="scrollView" destination="TJ1-wG-fPT" id="P1Z-lx-sv1"/>
