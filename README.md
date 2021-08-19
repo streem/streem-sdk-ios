@@ -4,7 +4,7 @@ Example Streem SDK project for IOS
 
 ## Requirements
 
-* Xcode 11 with Swift 4.2
+* Xcode 12 with Swift 4.2
 * Cocoapods 1.9 or later (1.10 for debug symbols)
 * ARKit compatible device with IOS 11.0
 
