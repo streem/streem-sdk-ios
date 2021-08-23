@@ -17,19 +17,9 @@ class ViewController: UIViewControllerSupport {
     var invitationDetails: StreemInvitationDetails?
     var callLogEntries: [StreemCallLogEntry]?
 
-    private var activityIndicator: UIActivityIndicatorView?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         StreemInitializer.shared.delegate = self
-        
-        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-        if let indicator = activityIndicator {
-            view.addSubview(indicator)
-            indicator.translatesAutoresizingMaskIntoConstraints = false
-            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        }
         
         expertSwitch.isOn = false
         expertSwitch.isEnabled = false
@@ -195,30 +185,33 @@ class ViewController: UIViewControllerSupport {
     }
     
     func createInvite() {
-        if let currentUser = StreemInitializer.shared.currentUser {
-            var name = "StreemNow Invitee"
-            let currentUserName = currentUser.name
-            let initials = currentUserName.split(separator: " ")
-                .compactMap { $0.prefix(1).uppercased() }
-                .reduce("") { "\($0)\($1)" }
-            name += " (\(initials))"
+        guard let currentUser = StreemInitializer.shared.currentUser else {
+            presentAlert(message: "Error creating invite")
+            return
+        }
+        
+        var name = "StreemNow Invitee"
+        let currentUserName = currentUser.name
+        let initials = currentUserName.split(separator: " ")
+            .compactMap { $0.prefix(1).uppercased() }
+            .reduce("") { "\($0)\($1)" }
+        name += " (\(initials))"
 
-            activityIndicator?.startAnimating()
-            
-            Streem.sharedInstance.createInvitation(forUser: name, referenceId: nil, type: .link) { [weak self] invitation, error in
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.showActivityIndicator(false)
-                    
-                    if let invitation = invitation {
-                        DispatchQueue.main.async { [weak self] in
-                            guard let self = self else { return }
-                            self.invitationTextField.text = invitation.code.formattedAsInvitationCode()
-                            self.activityIndicator?.stopAnimating()
-                        }
-                    } else {
-                        self.presentAlert(message: "Error creating invitation - \(error.debugDescription)")
+        showActivityIndicator(true)
+
+        Streem.sharedInstance.createInvitation(forUser: name, referenceId: nil, type: .link) { [weak self] invitation, error in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.showActivityIndicator(false)
+                
+                if let invitation = invitation {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.invitationTextField.text = invitation.code.formattedAsInvitationCode()
+                        self.showActivityIndicator(false)
                     }
+                } else {
+                    self.presentAlert(message: "Error creating invitation - \(error.debugDescription)")
                 }
             }
         }
