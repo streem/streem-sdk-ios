@@ -9,7 +9,9 @@ class ViewController: UIViewControllerSupport {
     @IBOutlet weak var callExpertButton: UIButton!
     @IBOutlet weak var openOnsiteButton: UIButton!
     @IBOutlet weak var callLogButton: UIButton!
+    @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var invitationTextField: UITextField!
+    @IBOutlet weak var expertSwitch: UISwitch!
     
     var loggedIn = false
     var invitationDetails: StreemInvitationDetails?
@@ -18,6 +20,9 @@ class ViewController: UIViewControllerSupport {
     override func viewDidLoad() {
         super.viewDidLoad()
         StreemInitializer.shared.delegate = self
+        
+        expertSwitch.isOn = false
+        expertSwitch.isEnabled = false
     }
 
     @IBAction func loginTap() {
@@ -119,7 +124,20 @@ class ViewController: UIViewControllerSupport {
     }
     
     @IBAction func joinCallTapped(_ sender: Any) {
-        startCallFromInvite()
+        if expertSwitch.isOn {
+            createInvite()
+        } else {
+            startCallFromInvite()
+        }
+    }
+    
+    @IBAction func expertChanged(_ sender: UISwitch) {
+        let expertMode = sender.isOn
+        
+        joinButton.setTitle(expertMode ? "Create" : "Join", for: .normal)
+        invitationTextField.isEnabled = expertMode == false
+        
+        invitationTextField.text = ""
     }
     
     private func startCallFromInvite() {
@@ -165,6 +183,38 @@ class ViewController: UIViewControllerSupport {
         }
         
     }
+    
+    func createInvite() {
+        guard let currentUser = StreemInitializer.shared.currentUser else {
+            presentAlert(message: "Error creating invite")
+            return
+        }
+        
+        var name = "StreemNow Invitee"
+        let currentUserName = currentUser.name
+        let initials = currentUserName.split(separator: " ")
+            .compactMap { $0.prefix(1).uppercased() }
+            .reduce("") { "\($0)\($1)" }
+        name += " (\(initials))"
+
+        showActivityIndicator(true)
+
+        Streem.sharedInstance.createInvitation(forUser: name, referenceId: nil, type: .link) { [weak self] invitation, error in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.showActivityIndicator(false)
+                
+                if let invitation = invitation {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.invitationTextField.text = invitation.code.formattedAsInvitationCode()
+                    }
+                } else {
+                    self.presentAlert(message: "Error creating invitation - \(error.debugDescription)")
+                }
+            }
+        }
+    }
 }
 
 extension ViewController: StreemInitializerDelegate {
@@ -179,9 +229,12 @@ extension ViewController: StreemInitializerDelegate {
             } else if !currentUser.externalUserId.isEmpty {
                 title = currentUser.externalUserId
             }
+            
+            expertSwitch.isEnabled = currentUser.isExpert
         }
         else {
             loggedIn = false
+            expertSwitch.isEnabled = false
         }
 
         loginButton.title = title
