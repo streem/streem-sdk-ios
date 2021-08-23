@@ -208,7 +208,6 @@ class ViewController: UIViewControllerSupport {
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
                         self.invitationTextField.text = invitation.code.formattedAsInvitationCode()
-                        self.showActivityIndicator(false)
                     }
                 } else {
                     self.presentAlert(message: "Error creating invitation - \(error.debugDescription)")
