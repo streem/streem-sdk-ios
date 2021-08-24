@@ -49,7 +49,7 @@ SPEC CHECKSUMS:
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
-  StreemKit: 0285af0aa8eea2f4ab9f747ecf4906ac524338bc
+  StreemKit: 787910afed4ba4346dede2f8b4e379cc7aaaeffb
   SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
   TwilioSyncClient: 09a90adf4680557747987eccd530b60cf386842a
   TwilioVideo: c13a51ceca375e91620eb7578d2573c90cf53b46

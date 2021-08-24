@@ -23,8 +23,7 @@ class InvitationViewController: UIViewControllerSupport {
     }
     
     @IBAction func startCall(_ sender: Any) {
-        guard let user = invitationDetails?.user,
-              let companyCode = invitationDetails?.company.companyCode
+        guard let user = invitationDetails?.user
         else { return }
         
         showActivityIndicator(true)
@@ -32,8 +31,7 @@ class InvitationViewController: UIViewControllerSupport {
         Streem.sharedInstance.startRemoteStreem(
             asRole: .LOCAL_CUSTOMER,
             remoteUserId: user.uid,
-            referenceId: invitationDetails.referenceId,
-            companyCode: companyCode
+            referenceId: invitationDetails.referenceId
         ) { [weak self] success in
             guard let self = self else { return }
             self.showActivityIndicator(false)

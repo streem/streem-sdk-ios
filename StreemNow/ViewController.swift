@@ -66,7 +66,7 @@ class ViewController: UIViewControllerSupport {
                     self.showActivityIndicator(true)
                     print("Calling user: \(user.externalUserId)")
 
-                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, withRemoteExternalUserId: user.externalUserId) { success in
+                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: user.streemUserId) { success in
                         self.showActivityIndicator(false)
                     
                         if !success {
@@ -166,8 +166,7 @@ class ViewController: UIViewControllerSupport {
                 Streem.sharedInstance.startRemoteStreem(
                     asRole: .LOCAL_CUSTOMER,
                     remoteUserId: details.user.uid,
-                    referenceId: details.referenceId,
-                    companyCode: details.company.companyCode
+                    referenceId: details.referenceId
                 ) { [weak self] success in
                     self?.showActivityIndicator(false)
                     
