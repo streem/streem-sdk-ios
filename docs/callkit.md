@@ -21,7 +21,7 @@ Follow these instructions to setup your app with CallKit push notifications, whi
 * Under Identifiers > App IDs, ensure the app exists that you are creating a certificate for (add the App if it does not exist)
 * Go to Certificates > All, and tap the Plus icon to add a new certificate ![Add Cert](images/1_add_cert.png)
 * Select VoIP Services Certificate, and tap Continue ![Select VOIP](images/2_select_voip.png)
-* Select the App ID you are generating a certificate for
+* Select the Bundle ID of the app you are generating a certificate for
 * On the Create a CSR file screen, stop and open the Keychain Access app on your Mac
 * From the Mac toolbar, select Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority ![Start CSR](images/3_start_csr.png)
 * Enter your email address in the first field, and in "Common Name", simply enter a descriptive name for your key (e.g. Streem VOIP Key)
@@ -77,9 +77,6 @@ SSL-Session:
 
 ### Send Streem your Certificate and Private Key
 
-Streem needs these files so that we can send VOIP notifications on your behalf.  Until we have a self-service portal, you'll need to send us these files, and we'll upload them to our servers.
+Streem needs these files so that we can send VOIP notifications on your behalf. Contact us at [sdk-support@streem.com](mailto:sdk-support@streem.com) for details on how to send us the files.
 
-You can email sdk-support@streem.pro, or work out another delivery mechanism.
-
-We do a PUT to our servers with these credentials, so if you want to try doing this yourself, please just hit us up on Slack and we can work with you on that.  Expect the self-serve portal to be available in 2019.
-
+We do a PUT to our servers with these credentials; if you'd rather try doing this yourself, let us know in the email and we can work with you on that.
