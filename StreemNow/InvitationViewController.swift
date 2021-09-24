@@ -27,15 +27,17 @@ class InvitationViewController: UIViewControllerSupport {
         else { return }
         
         showActivityIndicator(true)
-        
-        Streem.sharedInstance.startRemoteStreem(
-            asRole: .LOCAL_CUSTOMER,
-            remoteUserId: user.uid,
-            referenceId: invitationDetails.referenceId
-        ) { [weak self] success in
+
+        let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: user.uid)
+
+        Streem.sharedInstance.startRemoteStreemWithUser(
+            remoteUser: remoteUser,
+            referenceId: invitationDetails.referenceId,
+            localRole: .LOCAL_CUSTOMER
+        ) { [weak self] result in
             guard let self = self else { return }
             self.showActivityIndicator(false)
-            if !success {
+            if case .failure(_) = result {
                 self.presentAlert(message: "Unable to call \(user.displayName).")
                 return
             }

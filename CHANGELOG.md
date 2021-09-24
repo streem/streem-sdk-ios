@@ -1,3 +1,10 @@
+### 0.24.0 - September 24, 2021
+
+* [API changes to startRemoteStreem](docs/remote.md)
+* Renamespacing of all WebRTC objective C types
+* RxCocoa and RxGesture dependencies vendored from source
+* Bug fixes & stability improvements
+
 ### 0.23.0 - August 19, 2021
 
 * UI improvements to sample app

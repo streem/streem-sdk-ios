@@ -66,10 +66,12 @@ class ViewController: UIViewControllerSupport {
                     self.showActivityIndicator(true)
                     print("Calling user: \(user.externalUserId)")
 
-                    Streem.sharedInstance.startRemoteStreem(asRole: .LOCAL_CUSTOMER, remoteUserId: user.streemUserId) { success in
+                    let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: user.streemUserId)
+
+                    Streem.sharedInstance.startRemoteStreemWithUser(remoteUser: remoteUser, localRole: .LOCAL_CUSTOMER) { result in
                         self.showActivityIndicator(false)
-                    
-                        if !success {
+
+                        if case .failure(_) = result {
                             self.presentAlert(message: "Unable to call \(user.name).")
                         }
                     }
@@ -88,11 +90,11 @@ class ViewController: UIViewControllerSupport {
 
         showActivityIndicator(true)
 
-        Streem.sharedInstance.startLocalStreem() { [weak self] success in
+        Streem.sharedInstance.startLocalStreem() { [weak self] result in
             guard let self = self else { return }
             self.showActivityIndicator(false)
 
-            if !success {
+            if case let .failure(_) = result {
                 self.presentAlert(message: "Unable to establish connection.")
             }
         }
@@ -163,18 +165,22 @@ class ViewController: UIViewControllerSupport {
                     self?.presentAlert(message: "Error Starting Call")
                     return
                 }
-                Streem.sharedInstance.startRemoteStreem(
-                    asRole: .LOCAL_CUSTOMER,
-                    remoteUserId: details.user.uid,
-                    referenceId: details.referenceId
-                ) { [weak self] success in
+
+                let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: details.user.uid)
+
+                Streem.sharedInstance.startRemoteStreemWithUser(
+                    remoteUser: remoteUser,
+                    referenceId: details.referenceId,
+                    localRole: .LOCAL_CUSTOMER
+                ) { [weak self] result in
                     self?.showActivityIndicator(false)
-                    
-                    if success {
+
+                    switch result {
+                    case .success(_):
                         DispatchQueue.main.async { [weak self] in
                             self?.invitationTextField.text = ""
                         }
-                    } else {
+                    case .failure(_):
                         self?.presentAlert(message: "Error Starting Call")
                     }
                 }
