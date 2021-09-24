@@ -31,7 +31,7 @@ Once your app has an invitation code, make these three calls:
 
 * `identify(with identity:)` to identify the user to Streem;
 
-* `startRemoteStreem()` to start the Streem call.
+* `startRemoteStreemWithUser()` to start the Streem call.
 
 The whole flow looks like:
 
@@ -48,15 +48,18 @@ The whole flow looks like:
                 return
             }
 
-            Streem.sharedInstance.startRemoteStreem(
-                asRole: .LOCAL_CUSTOMER,
-                remoteUserId: details.user.uid,
-                referenceId: details.referenceId
-            ) { streemSuccess in
-                if streemSuccess {
-                    // handle Streem call success
-                } else {
+            let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: details.user.uid)
+
+            Streem.sharedInstance.startRemoteStreemWithUser(
+                remoteUser: remoteUser,
+                referenceId: details.referenceId,
+                localRole: .LOCAL_CUSTOMER
+            ) { result in
+                switch result {
+                case .failure(let error):
                     // handle Streem call error
+                case .success(_):
+                    // handle Streem call success
                 }
             }
         }

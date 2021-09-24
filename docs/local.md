@@ -10,8 +10,8 @@
 A local Streem call uses the device's camera to launch a one-person AR experience that includes StreemKit's arrow and measure tools, and the ability to capture Streemshots.  Open a local Streem call simply by:
 
 ```swift
-    Streem.sharedInstance.startLocalStreem() { success in
-        if !success {
+    Streem.sharedInstance.startLocalStreem() { result in
+        if case let .failure(error) = result {
             // present alert, etc.
         }
     }

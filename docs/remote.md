@@ -12,12 +12,13 @@ Through some mechanism in your app, you determine that your logged-in user and a
 To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
-    Streem.sharedInstance.startRemoteStreem(
-        asRole: .LOCAL_CUSTOMER,
-        withRemoteExternalUserId: "tom",
-        companyCode: "acme-co"
-    ) { success in
-        if !success {
+    let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, companyCode: "acme-co", externalUserId: "tom")
+
+    Streem.sharedInstance.startRemoteStreemWithUser(
+        remoteUser: remoteUser,
+        localRole: .LOCAL_CUSTOMER
+    ) { result in
+        if case .failure(let error) = result {
             // present alert, etc.
         }
     }
@@ -58,10 +59,12 @@ By calling StreemKit's `getRecentlyIdentifiedUsers` method on the Streem `shared
 
         // Select the user you wish to call
 
-        Streem.sharedInstance.startRemoteStreem(
-            asRole: .LOCAL_CUSTOMER,
-            remoteUserId: selectedUser.id) { success in
-                // handle succes of Streem call
+        let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: selectedUser.id)
+
+        Streem.sharedInstance.startRemoteStreemWithUser(
+            remoteUser: remoteUser,
+            localRole: .LOCAL_CUSTOMER) { result in
+                // handle result of Streem call
         }
 ```
 

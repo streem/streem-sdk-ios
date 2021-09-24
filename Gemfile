@@ -2,8 +2,8 @@
 #
 # Ensure this file is checked in to source control!
 #ruby-gemset=streem
-#ruby=2.4.4
-ruby "2.4.4"
+
+ruby "2.6.5"
 
 source "https://rubygems.org"
 
