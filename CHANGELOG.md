@@ -1,3 +1,9 @@
+### 0.26.0 - November 15, 2021
+
+-   Fixed a bug impacting OnSite recordings
+-   Improved testing capabilities
+-   Updated domains
+
 ### 0.25.0 - October 18, 2021
 
 -   Updates necessary to ensure smooth operation on iOS 15 devices
