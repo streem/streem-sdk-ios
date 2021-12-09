@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
-platform :ios, '11.0'
+platform :ios, '13.0'
 
 target 'StreemNow' do
   pod 'StreemKit', '~> 0.26.0', :source => 'https://github.com/streem/cocoapods'

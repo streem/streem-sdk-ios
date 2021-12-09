@@ -44,7 +44,7 @@ class CallLogDetailsViewController: UICollectionViewController, UICollectionView
                     switch artifactType {
                     case .callNote:
                         guard let artifactManager = self.artifactManager else { return }
-                        self.noteCell?.isReadOnly = !artifactManager.canEditCallNote()
+                        self.noteCell?.isReadOnly = !artifactManager.canEditCallNote(for: callLogEntry)
                         artifactManager.callNote() {
                             self.noteCell?.note = $0
                         }
