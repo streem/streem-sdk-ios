@@ -66,7 +66,7 @@ Your `handleArtifactLoading` methods from above should check for success and the
 
 ```swift
     func handleCallNoteLoading(success: Bool) {
-        self.noteCell?.isReadOnly = !artifactManager.canEditCallNote()
+        self.noteCell?.isReadOnly = !artifactManager.canEditCallNote(for: callLogEntry)
         artifactManager.callNote() { noteText in
             // Do something with the note text
         }
