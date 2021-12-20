@@ -19,20 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        print("Opening app from deep link")
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let incomingURL = userActivity.webpageURL,
-            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
-            let params = components.queryItems else {
-                return false
-        }
-
-        if let inviteId = params.first(where: { $0.name == "invite" } )?.value {
-            StreemInitializer.shared.didLaunch(withInviteId: inviteId)
-            return true
-        } else {
-            print("inviteId is required")
+              let incomingURL = userActivity.webpageURL
+        else {
+            print("App opened from invalid link")
             return false
         }
+
+        guard let linkType = Streem.sharedInstance.parseUniversalLink(incomingURL: incomingURL) else {
+            print("App opened without valid invite link")
+            return false
+        }
+
+        switch linkType {
+        case .invitation(companyCode: _, invitationCode: let invitationCode):
+            StreemInitializer.shared.didLaunch(withInviteId: invitationCode)
+            return true
+        default:
+            StreemInitializer.shared.didLaunch()
+            print("Failed to parse the link")
+        }
+
+        return false
     }
     
     // MARK: - OpenID authorization, via AppAuth
