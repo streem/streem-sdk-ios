@@ -1,9 +1,3 @@
-## 0.27.0 -
-
--   iOS minimum version updated to 13.0
--   Disabled mesh visualization and PiP
--   Fixed a bug where iOS Expert kept ringing after customer had declined to join
-
 ### 0.26.0 - November 15, 2021
 
 -   Fixed a bug impacting OnSite recordings

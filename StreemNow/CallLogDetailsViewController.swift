@@ -38,7 +38,7 @@ class CallLogDetailsViewController: UICollectionViewController, UICollectionView
     var callLogEntry: StreemCallLogEntry? {
         didSet {
             if let callLogEntry = callLogEntry {
-                artifactManager = Streem.sharedInstance.artifactManager(for: callLogEntry.id) { [weak self] artifactType, artifactIndex, success in
+                artifactManager = Streem.sharedInstance.artifactManager(for: callLogEntry) { [weak self] artifactType, artifactIndex, success in
                     guard let self = self else { return }
                     
                     switch artifactType {
