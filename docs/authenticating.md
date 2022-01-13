@@ -25,6 +25,35 @@ An Expert can use Streem's website or mobile apps to create an **invitation** fo
 
 An invitation is represented by a 9-digit code, which can be transmitted to the Customer through SMS, email, or any other mechanism. Your app should allow a user to manually enter the code; in addition, your app can register for [universal links](company_app.md#note-on-universal-links) so that it will respond to a user tapping an invitation link received via SMS or email.
 
+To parse the invitation deep-link, use this method: `Streem.sharedInstance.parseUniversalLink(incomingURL: )` in `AppDelegate`. 
+
+```
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let incomingURL = userActivity.webpageURL
+        else {
+            // handle invalid user activity
+            return false
+        }
+
+        guard let linkType = Streem.sharedInstance.parseUniversalLink(incomingURL: incomingURL) else {
+            // handle invalid link
+            return false
+        }
+
+        switch linkType {
+        case .invitation(companyCode: let companyCode, invitationCode: let invitationCode):
+            // use the invitation code
+            return true
+        default:
+            // handle invalid link
+        }
+
+        return false
+    }
+```
+
 Once your app has an invitation code, make these three calls:
 
 * `login(with invitationCode:)` to obtain a **`StreemIdentity`** struct and retrieve the invitation details;
