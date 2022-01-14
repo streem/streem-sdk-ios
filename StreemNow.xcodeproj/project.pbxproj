@@ -235,6 +235,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${PODS_ROOT}/TwilioSyncClient/TwilioSyncClient.framework",
 				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemKernel/StreemKernel.framework/StreemKernel",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemKit/StreemKit.framework/StreemKit",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemWebRTC/StreemWebRTC.framework/StreemWebRTC",
 			);
@@ -244,6 +245,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioSyncClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKernel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemWebRTC.framework",
 			);
