@@ -4,5 +4,11 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:company-code.swac.sandbox.streem.cloud</string>
+		<string>applinks:company-code.cv.sandbox.streem.cloud</string>
+		<string>applinks:company-code.swaga.sandbox.streem.cloud</string>
+	</array>
 </dict>
 </plist>

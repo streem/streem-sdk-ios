@@ -1,4 +1,9 @@
-## 0.27.0 -
+### 0.28.0 - January 13, 2022
+
+-   Fixed a bug where the video was not rotating with the device
+-   Updated minimum Xcode version to 13.2.1
+
+### 0.27.0 - December 13, 2021
 
 -   iOS minimum version updated to 13.0
 -   Disabled mesh visualization and PiP
