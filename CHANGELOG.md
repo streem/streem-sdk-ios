@@ -1,3 +1,8 @@
+### 0.28.1 - January 18, 2022
+
+-   Updated TwilioSyncClient version to resolve connection issue
+-   **** Please remove `source https://github.com/twilio/cocoapod-specs` from your Podfile ****
+
 ### 0.28.0 - January 13, 2022
 
 -   Fixed a bug where the video was not rotating with the device
