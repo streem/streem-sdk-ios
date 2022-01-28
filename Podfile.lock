@@ -4,20 +4,20 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - StreemKernel (0.1.2):
+  - StreemKernel (0.1.4):
     - SwiftProtobuf (~> 1.7)
-  - StreemKit (0.28.1):
-    - StreemKernel (~> 0.1.2)
+  - StreemKit (0.28.2):
+    - StreemKernel (~> 0.1.4)
     - SwiftProtobuf (~> 1.7)
     - TwilioSyncClient (~> 1.1.0)
     - TwilioVideo (= 3.8)
   - SwiftProtobuf (1.18.0)
-  - TwilioSyncClient (1.1.0)
+  - TwilioSyncClient (1.1.1)
   - TwilioVideo (3.8.0)
 
 DEPENDENCIES:
   - AppAuth (~> 1.4)
-  - StreemKit (~> 0.28.1)
+  - StreemKit (~> 0.28.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -31,12 +31,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  StreemKernel: 1ca92b1afcf6b2eaead1056466f887b3db8272d8
-  StreemKit: fca2511f2c329880af9d561923322120f9d3ff54
+  StreemKernel: 58671b379beddceb9120fc73c883677e354f8826
+  StreemKit: d977ef8ce1e799431d298e9ff3749b28806e6e55
   SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
-  TwilioSyncClient: 4ecfe8f77eb7af8d827633e8d0fcbe4f1857df10
+  TwilioSyncClient: 604a04e86c1962cb2047f640e6ddaaebbe3ac568
   TwilioVideo: c13a51ceca375e91620eb7578d2573c90cf53b46
 
-PODFILE CHECKSUM: 7f02f0379e30e9aa2947b0e1728327706cc91d23
+PODFILE CHECKSUM: c2251bc781340ba32d0b35bd0bab3e280cf0815d
 
 COCOAPODS: 1.10.1
