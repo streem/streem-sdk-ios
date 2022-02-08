@@ -9,18 +9,20 @@
 
 _**StreemKit currently supports installation via Cocoapods.** Other integrations might be added in the future._
 
-Add the following  `source` lines to your `Podfile` for Streem and its dependencies:
+Add the following `source` line to your `Podfile` for Streem and its dependencies:
+
 ```
-    source 'https://github.com/twilio/cocoapod-specs'
     source 'https://github.com/CocoaPods/Specs.git'
 ```
 
 Then add the `StreemKit` dependency to your `target`:
+
 ```
     pod 'StreemKit', :source => 'https://github.com/streem/cocoapods'
 ```
 
 Load and run the `configure_streemkit.rb` script and function from within your `post_install` block:
+
 ```ruby
     post_install do |installer|
         ...
@@ -31,6 +33,7 @@ Load and run the `configure_streemkit.rb` script and function from within your `
 ```
 
 Tell CocoaPods to build your project:
+
 ```ruby
     pod install
 ```
@@ -41,27 +44,25 @@ Finally, in your code, import the framework in any source file where it is used:
     import StreemKit
 ```
 
-
 ### Changes to your `Info.plist` file
 
 You should provide appropriate strings for iOS to present to users the first time that StreemKit requests permission to use the camera, the microphone, and the GPS location. For example,
 
-- **`NSCameraUsageDescription`**</br>
-`This application is requesting permission to access your camera.`
+-   **`NSCameraUsageDescription`**</br>
+    `This application is requesting permission to access your camera.`
 
-- **`NSMicrophoneUsageDescription`**</br>
-`This application is requesting permission to access your microphone.`
+-   **`NSMicrophoneUsageDescription`**</br>
+    `This application is requesting permission to access your microphone.`
 
-- **`NSLocationWhenInUseUsageDescription`**</br>
-`Your location is being requested. We will always ask you first before we share your location with other users.`
-
+-   **`NSLocationWhenInUseUsageDescription`**</br>
+    `Your location is being requested. We will always ask you first before we share your location with other users.`
 
 ### Changes to your `AppDelegate` code
 
-Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize StreemKit with your Streem App ID and the Streem domain corresponding to your intended Streem environment (e.g., `sandbox` or `prod-us`):
+Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize StreemKit with your Streem App ID and the Streem domain corresponding to your intended Streem environment (e.g., `sandbox-us` or `prod-us`):
 
 ```swift
-    Streem.initialize(delegate: self, appId: "APP_ID", streemDomain: "sandbox.streem.cloud") {
+    Streem.initialize(delegate: self, appId: "APP_ID", streemDomain: "sandbox-us.streem.cloud") {
         // Your app might wish to set up default measurement units here,
         // by setting `Streem.sharedInstance.measurementUnitsToChooseFrom` and
         // `Streem.sharedInstance.measurementUnit`.
@@ -83,7 +84,7 @@ Implement the `StreemDelegate` methods -- these are optional, but usually you wi
     }
 ```
 
-Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:completionHandler:)` implementation,  call `Streem.setBackgroundURLSession(withIdentifier:, completionHandler:)`:
+Inside your `AppDelegate.application(_, handleEventsForBackgroundURLSession:completionHandler:)` implementation, call `Streem.setBackgroundURLSession(withIdentifier:, completionHandler:)`:
 
 ```swift
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {

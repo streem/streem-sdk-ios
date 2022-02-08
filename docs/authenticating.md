@@ -11,11 +11,11 @@ Users must authenticate their identity with Streem's server prior to starting a 
 
 User authentication is a three-step process:
 
-* Obtain a **Streem Token** representing the user. The ways your app can do this are discussed below.
+-   Obtain a **Streem Token** representing the user. The ways your app can do this are discussed below.
 
-* Include that **Streem Token** in a **`StreemIdentity`** struct.
+-   Include that **Streem Token** in a **`StreemIdentity`** struct.
 
-* Pass that **`StreemIdentity`** struct to StreemKit via the `identify(with identity:)` API.
+-   Pass that **`StreemIdentity`** struct to StreemKit via the `identify(with identity:)` API.
 
 Users can obtain a **Streem Token** by logging in. Alternatively, they can bypass explicitly logging in by accepting an **invitation** to a two-person Streem call.
 
@@ -25,11 +25,11 @@ An Expert can use Streem's website or mobile apps to create an **invitation** fo
 
 An invitation is represented by a 9-digit code, which can be transmitted to the Customer through SMS, email, or any other mechanism. Your app should allow a user to manually enter the code; in addition, your app can register for [universal links](company_app.md#note-on-universal-links) so that it will respond to a user tapping an invitation link received via SMS or email.
 
-To parse the invitation deep-link, use this method: `Streem.sharedInstance.parseUniversalLink(incomingURL: )` in `AppDelegate`. 
+To parse the invitation deep-link, use this method: `Streem.sharedInstance.parseUniversalLink(incomingURL: )` in `AppDelegate`.
 
-```
+```swift
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
+
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
               let incomingURL = userActivity.webpageURL
         else {
@@ -56,11 +56,11 @@ To parse the invitation deep-link, use this method: `Streem.sharedInstance.parse
 
 Once your app has an invitation code, make these three calls:
 
-* `login(with invitationCode:)` to obtain a **`StreemIdentity`** struct and retrieve the invitation details;
+-   `login(with invitationCode:)` to obtain a **`StreemIdentity`** struct and retrieve the invitation details;
 
-* `identify(with identity:)` to identify the user to Streem;
+-   `identify(with identity:)` to identify the user to Streem;
 
-* `startRemoteStreemWithUser()` to start the Streem call.
+-   `startRemoteStreemWithUser()` to start the Streem call.
 
 The whole flow looks like:
 
@@ -105,7 +105,7 @@ Otherwise -- particularly when you are just starting to integrate StreemKit and 
 
 If you are embedding StreemKit inside an app that already implements user authentication, then along with your normal authentication flow your server will use one of our [Server Side SDK's](company_app.md#server-side-sdks) to obtain a **Streem Token**.
 
-Your app will also need the ability to ask your server to *refresh* an expired **Streem Token**.
+Your app will also need the ability to ask your server to _refresh_ an expired **Streem Token**.
 
 ```swift
 let streemToken = yourServer.fetchStreemToken()
