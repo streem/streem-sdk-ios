@@ -1,3 +1,9 @@
+### 0.29.0 - February 10, 2022
+
+-   Updated Universal Link API to prevent a crashing error
+    -   `Streem.sharedInstance.parseUniversalLink(incomingURL)` changed to `Streem.parseUniversalLink(incomingURL)`
+    -   Updated URL Parsing documentation
+
 ### 0.28.1 - January 18, 2022
 
 -   Updated TwilioSyncClient version to resolve connection issue

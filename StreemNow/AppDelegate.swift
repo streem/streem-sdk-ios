@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
-        guard let linkType = Streem.sharedInstance.parseUniversalLink(incomingURL: incomingURL) else {
+        guard let linkType = Streem.parseUniversalLink(incomingURL: incomingURL) else {
             print("App opened without valid invite, details, nor share link")
             return false
         }
