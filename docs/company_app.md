@@ -40,7 +40,7 @@ If you are embedding StreemKit into an app that already has authentication, you 
 
 ### Parse Universal Links
 
-To parse the app universal links, use the following method: `Streem.sharedInstance.parseUniversalLink(incomingURL: )` in `AppDelegate`. 
+To parse the app universal links, use the following method: `Streem.parseUniversalLink(incomingURL: )` in `AppDelegate`. 
 
 ```
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -52,7 +52,7 @@ To parse the app universal links, use the following method: `Streem.sharedInstan
             return false
         }
         
-        guard let linkType = Streem.sharedInstance.parseUniversalLink(incomingURL: incomingURL) else {
+        guard let linkType = Streem.parseUniversalLink(incomingURL: incomingURL) else {
             // handle invalid link
             return false
         }
@@ -96,6 +96,8 @@ These are example of `.callLogEntry`, `.invitation`, and `.sharedCallLogEntry` l
 * https://company-code.streempro.app/mycalls/rm_5VWaUGNnAo6RI9hg8mTaB7
 * https://company-code.streem.us/i/728997568
 * https://company-code.streempro.app/share/api_61lWyqxvXiIoAKVzmp6k8/details/rm_62yXOL31mzf4okYRHlI5Cz
+
+* Note: to avoid crashes, make sure you handle the link in the completion handler of `Streem.initialize` to make sure the instance is initialized before you use other SDK methods. 
 
 &nbsp;
 
