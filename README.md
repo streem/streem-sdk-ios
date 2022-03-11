@@ -33,4 +33,6 @@ StreemNow is a small sample app that integrates `StreemKit`. Its features includ
 
 ### [The Post-Call Experience](docs/post-call.md)
 
+### [Virtual Shopping Experience (Vignette)](docs/vignette.md)
+
 ### [Known Issues](docs/known_issues.md)

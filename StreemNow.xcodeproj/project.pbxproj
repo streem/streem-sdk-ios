@@ -430,6 +430,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = StreemNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				MODULE_NAME = ExampleApp;
@@ -456,6 +457,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = StreemNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				MODULE_NAME = ExampleApp;

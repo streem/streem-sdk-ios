@@ -64,7 +64,7 @@ Once your app has an invitation code, make these three calls:
 
 -   `startRemoteStreemWithUser()` to start the Streem call.
 
-The whole flow looks like:
+<a name="invitation-flow" />The whole flow looks like:
 
 ```swift
     Streem.sharedInstance.login(with: invitationCode) { error, details, identity in

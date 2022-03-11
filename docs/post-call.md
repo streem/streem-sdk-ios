@@ -3,7 +3,7 @@
 &nbsp; &nbsp; &nbsp; &nbsp;
 [Home](../README.md)
 &nbsp; &nbsp; &nbsp; &nbsp;
-[Known Issues >](known_issues.md)
+[Virtual Shopping Experience (Vignette) >](vignette.md)
 
 ## The Post-Call Experience
 
@@ -146,4 +146,4 @@ If that returns `true`, you can launch the mesh scene-editing session:
 &nbsp; &nbsp; &nbsp; &nbsp;
 [Home](../README.md)
 &nbsp; &nbsp; &nbsp; &nbsp;
-[Known Issues >](known_issues.md)
+[Virtual Shopping Experience (Vignette) >](vignette.md)
