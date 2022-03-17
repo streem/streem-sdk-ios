@@ -12,7 +12,7 @@ Through some mechanism in your app, you determine that your logged-in user and a
 To make a call to user "tom" (see below on how to retrieve a remote user's id), do the following:
 
 ```swift
-    let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, companyCode: "acme-co", externalUserId: "tom")
+    let remoteUser = StreemRemoteUser(role: .REMOTE_PRO, streemUserId: "tom")
 
     Streem.sharedInstance.startRemoteStreemWithUser(
         remoteUser: remoteUser,
@@ -42,16 +42,16 @@ In general, when starting a remote Streem call you will want the `LOCAL_CUSTOMER
 ### Getting Remote User IDs
 
 In order to start a Streem call with a remote user, your app will need to supply that user's `remoteUserId`. There are two mechanisms available in StreemKit for retrieving a `remoteUserId`:
-* Fetch a list of recently logged-in users.
-* Via an [invitation](authenticating.md#invitations).
+* Choose from a list of recently logged-in users.
+* Respond to an invitation.
 
-In addition to these two methods, you can maintain your own list of `remoteUserIds` and supply them to your app however you choose.
+In addition to these two approaches, you can maintain your own list of `remoteUserIds` and supply them to your app however you choose.
 
-### Recently Logged-In Users
+#### Choose from a list of recently logged-in users.
 
-_This method can be helpful during app development. It is not intended for use in production._
+_This approach can be helpful during app development. It is not intended for use in production._
 
-By calling StreemKit's `getRecentlyIdentifiedUsers` method on the Streem `sharedInstance` you will receive a list of recently logged-in users for your company. You can use this method to filter only experts. You then give this method a callback where you select the remote user through some mechanism and start the Streem call.
+By calling StreemKit's `getRecentlyIdentifiedUsers` method on `Streem.sharedInstance` you will receive a list of recently logged-in users for your company, optionally filtered to only Experts. In the method's closure you then choose the desired remote user and start the Streem call.
 
 ```swift
     Streem.sharedInstance.getRecentlyIdentifiedUsers(onlyExperts: true) { [weak self] users in
@@ -67,6 +67,10 @@ By calling StreemKit's `getRecentlyIdentifiedUsers` method on the Streem `shared
                 // handle result of Streem call
         }
 ```
+
+#### Respond to an invitation
+
+Having received an invitation code from an Expert, follow the steps shown [here](authenticating.md#invitation-flow) to log in, identify, and start the Streem call.
 
 &nbsp;
 

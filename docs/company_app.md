@@ -40,23 +40,23 @@ If you are embedding StreemKit into an app that already has authentication, you 
 
 ### Parse Universal Links
 
-To parse the app universal links, use the following method: `Streem.parseUniversalLink(incomingURL: )` in `AppDelegate`. 
+To parse the app universal links, use the following method: `Streem.parseUniversalLink(incomingURL: )` in `AppDelegate`.
 
 ```
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
+
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
               let incomingURL = userActivity.webpageURL
         else {
             // handle invalid link
             return false
         }
-        
+
         guard let linkType = Streem.parseUniversalLink(incomingURL: incomingURL) else {
             // handle invalid link
             return false
         }
-        
+
         // handle valid link
         return false
     }
@@ -73,10 +73,10 @@ StreemKit recognizes 3 types of links shown below:
 ```
 
 * The `invitation` link is the link the customer uses to start a call with the expert. Refer to [User Authentication via Invitation](../authenticating.md) for more details.
-* The `sharedCallLogEntry` link is the link the expert uses to share the call-log-entry-details with someone with a ready-only access. 
-* The `callLogEntry` link is a link to a specific call-log-entry in the expert side. 
+* The `sharedCallLogEntry` link is the link the expert uses to share the call-log-entry-details with someone with a ready-only access.
+* The `callLogEntry` link is a link to a specific call-log-entry in the expert side.
 
-After parsing the link, `parseUniversalLink(incomingURL: )` will return one of with the types above if the link is valid and it could be handled as needed. 
+After parsing the link, `parseUniversalLink(incomingURL: )` will return one of with the types above if the link is valid and it could be handled as needed.
 
 ```
     switch linkType {
@@ -91,13 +91,13 @@ After parsing the link, `parseUniversalLink(incomingURL: )` will return one of w
     }
 ```
 
-These are example of `.callLogEntry`, `.invitation`, and `.sharedCallLogEntry` links respectively: 
+These are examples of `.callLogEntry`, `.invitation`, and `.sharedCallLogEntry` links respectively:
 
 * https://company-code.streempro.app/mycalls/rm_5VWaUGNnAo6RI9hg8mTaB7
 * https://company-code.streem.us/i/728997568
 * https://company-code.streempro.app/share/api_61lWyqxvXiIoAKVzmp6k8/details/rm_62yXOL31mzf4okYRHlI5Cz
 
-* Note: to avoid crashes, make sure you handle the link in the completion handler of `Streem.initialize` to make sure the instance is initialized before you use other SDK methods. 
+* Note: to avoid crashes, make sure you handle the link in the completion handler of `Streem.initialize` to make sure the instance is initialized before you use other SDK methods.
 
 &nbsp;
 
