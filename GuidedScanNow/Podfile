@@ -1,0 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/streem/cocoapods.git'
+
+use_frameworks!
+
+platform :ios, '14.0'
+
+target 'GuidedScanNow' do
+	pod 'StreemKernel', '~> 0.3.0-swift55', :source => 'https://github.com/streem/cocoapods'
+	pod 'StreemGuidedScanKit', '~> 0.6.0-swift55', :source => 'https://github.com/streem/cocoapods'
+	pod 'AppAuth', '~> 1.4'
+end
+
+post_install do |installer|
+	load './Pods/StreemGuidedScanKit/configure_guidedscankit.rb'
+	configure_guidedscankit(installer)
+4end
