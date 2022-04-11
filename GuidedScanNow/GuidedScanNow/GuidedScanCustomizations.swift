@@ -80,7 +80,8 @@ struct GuidedScanCustomizations {
                                                                           print("Oops")
                                                                       }),
                 colorConfig: customColors,
-                visibility: .always
+                drawerVisibility: .always,
+                buttonVisibility: .always
             )
         )
 
@@ -96,7 +97,9 @@ struct GuidedScanCustomizations {
                         print("Testing")
                     }),
                 colorConfig: customColors,
-                visibility: .always)
+                drawerVisibility: .always,
+                buttonVisibility: .fromScanList
+            )
         )
 
         buttons.append(
