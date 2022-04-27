@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icons8-mesh-80-slash.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
