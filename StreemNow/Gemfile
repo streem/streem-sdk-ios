@@ -7,7 +7,7 @@ ruby "2.6.5"
 
 source "https://rubygems.org"
 
-gem 'cocoapods', '~>1.10.1'
+gem 'cocoapods', '~>1.11'
 gem 'psych', '~>2.2.2'
 gem "fastlane", "~> 2.132"
 
