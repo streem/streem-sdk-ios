@@ -1,3 +1,16 @@
+### 0.31.0 - 5/11, 2022
+
+-   Stability improvements and bug fixes
+-   Updated pod versions
+
+### 0.30.1 - Apr 27, 2022
+
+-   Stability improvements 
+
+### 0.30.0 - March 11, 2022
+
+-   Stability improvements 
+    
 ### 0.29.0 - February 10, 2022
 
 -   Updated Universal Link API to prevent a crashing error
