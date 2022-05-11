@@ -1,7 +1,7 @@
 ### 0.31.0 - 5/11, 2022
 
+-   Stability improvements and bug fixes
 -   Updated pod versions
--   Bug fixes
 
 ### 0.30.1 - Apr 27, 2022
 
