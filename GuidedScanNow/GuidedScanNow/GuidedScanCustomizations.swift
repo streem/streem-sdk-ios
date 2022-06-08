@@ -98,8 +98,7 @@ struct GuidedScanCustomizations {
                     }),
                 colorConfig: customColors,
                 drawerVisibility: .always,
-                buttonVisibility: .fromScanList
-            )
+                buttonVisibility: .fromScanList)
         )
 
         buttons.append(
