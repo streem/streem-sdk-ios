@@ -1,6 +1,7 @@
 // Copyright © 2021 Streem, Inc. All rights reserved.
 
 import Foundation
+import AuthenticationServices
 import AppAuth
 import StreemGuidedScanKit
 
@@ -38,7 +39,8 @@ class OpenIDHelper {
         DispatchQueue.main.async {
             print("Initiating authorization request with scope: \(request.scope ?? "nil")")
             
-            appDelegate.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, presenting: presentingViewController) { authState, error in
+            let externalAgent = OIDExternalUserAgentASWebAuthenticationSession(with: presentingViewController)
+            appDelegate.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalAgent) { authState, error in
                 if let authState = authState {
                     print("Got authorization tokens.")
                     login(withAuthState: authState, completion: completion)
@@ -141,7 +143,8 @@ class OpenIDHelper {
     // MARK: - Logout
     
     static func logout(withCompanyCode companyCode: String, authState: OIDAuthState, appDelegate: AppDelegate, presentingViewController: UIViewController) {
-        guard let redirectUrl = URL(string: "pro.streem.sdk.GuidedScanNow:/oauth-callback") else { return }
+        // The value for the redirect URL doesn't seem to matter for logging out:
+        guard let redirectUrl = URL(string: "pro.streem.sdk.GuidedScanNow:/logoutcallback") else { return }
 
         // For GuidedScanNow, the app's server happens to be Streem's server.
         
@@ -149,33 +152,136 @@ class OpenIDHelper {
             guard error == nil,
                   let tokenEndpoint = tokenEndpoint,
                   let authorizationEndpoint = authorizationEndpoint,
-                  let logoutEndpoint = logoutEndpoint,
-                  let idToken = authState.lastTokenResponse?.idToken,
-                  let userAgent = OIDExternalUserAgentIOS(presenting: presentingViewController)
+                  let logoutEndpoint = logoutEndpoint
             else { return }
             
-            DispatchQueue.main.async {
-                print("Logging out via OpenID")
-                
-                // Based on https://medium.com/@dileesha/add-single-sign-on-sso-to-your-ios-application-with-wso2-identity-server-in-easy-steps-cbbb6ef8d08
-                // and https://github.com/openid/AppAuth-iOS/issues/284#issuecomment-633123609
-
-                let configuration = OIDServiceConfiguration(authorizationEndpoint: authorizationEndpoint, tokenEndpoint: tokenEndpoint, issuer: nil, registrationEndpoint: nil, endSessionEndpoint: logoutEndpoint)
-                
-                let logoutRequest = OIDEndSessionRequest(configuration: configuration,
-                                                         idTokenHint: idToken,
-                                                         postLogoutRedirectURL: redirectUrl,
-                                                         additionalParameters: nil)
-                
-                // Note: need to retain a strong reference to the returned object until we're done with its SFAuthenticationSession
-                appDelegate.currentAuthorizationFlow = OIDAuthorizationService.present(logoutRequest, externalUserAgent: userAgent) {
-                    authorizationState, error in
-                    print("OpenID logout: \(error?.localizedDescription ?? "SUCCESSFUL")")
-                    appDelegate.currentAuthorizationFlow?.cancel()
-                    appDelegate.currentAuthorizationFlow = nil
+            print("Logging out via OpenID")
+            
+            // If our existing idToken has expired, logging out will produce a user-facing `invalid_id_token_hint` error.
+            // So refresh our tokens before logging out.
+            authState.performAction(freshTokens: { accessToken, idToken, error in
+                guard error == nil, let idToken = idToken else {
+                    print("Unable to refresh tokens: \(error?.localizedDescription ?? "No idToken returned")")
+                    return
                 }
-            }
+                
+                DispatchQueue.main.async {
+                    // Based on https://medium.com/@dileesha/add-single-sign-on-sso-to-your-ios-application-with-wso2-identity-server-in-easy-steps-cbbb6ef8d08
+                    // and https://github.com/openid/AppAuth-iOS/issues/284#issuecomment-633123609
+                    
+                    let configuration = OIDServiceConfiguration(authorizationEndpoint: authorizationEndpoint, tokenEndpoint: tokenEndpoint, issuer: nil, registrationEndpoint: nil, endSessionEndpoint: logoutEndpoint)
+                    
+                    let logoutRequest = OIDEndSessionRequest(configuration: configuration,
+                                                             idTokenHint: idToken,
+                                                             postLogoutRedirectURL: redirectUrl,
+                                                             additionalParameters: nil)
+                    
+                    let userAgent = OIDExternalUserAgentASWebAuthenticationSession(with: presentingViewController)
+                    
+                    // Note: need to retain a strong reference to the returned object until we're done with its SFAuthenticationSession
+                    appDelegate.currentAuthorizationFlow = OIDAuthorizationService.present(logoutRequest, externalUserAgent: userAgent) {
+                        authorizationState, error in
+                        print("OpenID logout: \(error?.localizedDescription ?? "SUCCESSFUL")")
+                        appDelegate.currentAuthorizationFlow?.cancel()
+                        appDelegate.currentAuthorizationFlow = nil
+                    }
+                }
+            })
         }
     }
     
+}
+
+// MARK: - OIDExternalUserAgentASWebAuthenticationSession
+
+// Discussions:
+//    https://developer.okta.com/blog/2022/01/13/mobile-sso
+//    https://github.com/openid/AppAuth-iOS/issues/402
+// Code copied from:
+//    https://gist.github.com/Tak783/446b4921cf0894f031eacbd641122928
+
+class OIDExternalUserAgentASWebAuthenticationSession: NSObject, OIDExternalUserAgent {
+    private let presentingViewController: UIViewController
+    private var externalUserAgentFlowInProgress: Bool = false
+    private var authenticationViewController: ASWebAuthenticationSession?
+    
+    private weak var session: OIDExternalUserAgentSession?
+    
+    init(with presentingViewController: UIViewController) {
+        self.presentingViewController = presentingViewController
+        super.init()
+    }
+    
+    func present(_ request: OIDExternalUserAgentRequest, session: OIDExternalUserAgentSession) -> Bool {
+        if externalUserAgentFlowInProgress {
+            return false
+        }
+        guard let requestURL = request.externalUserAgentRequestURL() else {
+            return false
+        }
+        self.externalUserAgentFlowInProgress = true
+        self.session = session
+       
+        var openedUserAgent = false
+        
+        // ASWebAuthenticationSession doesn't work with guided access (Search web for "rdar://40809553")
+        // Make sure that the device is not in Guided Access mode "(Settings -> General -> Accessibility -> Enable Guided Access)"
+        if UIAccessibility.isGuidedAccessEnabled == false {
+            let redirectScheme = request.redirectScheme()
+            let authenticationViewController = ASWebAuthenticationSession(url: requestURL, callbackURLScheme: redirectScheme) { (callbackURL, error) in
+                self.authenticationViewController = nil
+                if let url = callbackURL {
+                    self.session?.resumeExternalUserAgentFlow(with: url)
+                } else {
+                    let webAuthenticationError = OIDErrorUtilities.error(with: OIDErrorCode.userCanceledAuthorizationFlow,
+                                                                         underlyingError: error,
+                                                                         description: nil)
+                    self.session?.failExternalUserAgentFlowWithError(webAuthenticationError)
+                }
+            }
+            authenticationViewController.presentationContextProvider = self
+            /// ** Key Line of code  -> `.prefersEphemeralWebBrowserSession`** allows for private browsing
+            authenticationViewController.prefersEphemeralWebBrowserSession = true
+            self.authenticationViewController = authenticationViewController
+            openedUserAgent = authenticationViewController.start()
+        } else {
+            let webAuthenticationError = OIDErrorUtilities.error(with: OIDErrorCode.safariOpenError,
+                                                                 underlyingError: NSError(domain: OIDGeneralErrorDomain,
+                                                                                          code:
+                                                                                            OIDErrorCodeOAuth.clientError.rawValue),
+                                                                 description: "Device is in Guided Access mode")
+            self.session?.failExternalUserAgentFlowWithError(webAuthenticationError)
+        }
+        return openedUserAgent
+    }
+    
+    func dismiss(animated: Bool, completion: @escaping () -> Void) {
+        // Ignore this call if there is no authorization flow in progress.
+        if externalUserAgentFlowInProgress == false {
+            completion()
+        }
+        cleanUp()
+        if authenticationViewController != nil {
+            authenticationViewController?.cancel()
+            completion()
+        } else {
+            completion()
+        }
+        return
+    }
+}
+
+extension OIDExternalUserAgentASWebAuthenticationSession {
+    /// Sets class variables to nil. Note 'weak references i.e. session are set to nil to avoid accidentally using them while not in an authorization flow.
+    func cleanUp() {
+        session = nil
+        authenticationViewController = nil
+        externalUserAgentFlowInProgress = false
+    }
+}
+
+extension OIDExternalUserAgentASWebAuthenticationSession: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return presentingViewController.view.window!
+    }
 }

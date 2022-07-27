@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func logout() {
         currentAuthorizationFlow?.cancel()
         currentAuthorizationFlow = nil
+        
+        Streem.sharedInstance.logout()
 
         if let currentUser = StreemInitializer.shared.currentUser,
            let companyCode = currentUser.companyCode,
