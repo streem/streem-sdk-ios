@@ -29,7 +29,6 @@ class ViewController: UIViewControllerSupport {
         else {
             let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             optionMenu.addAction(UIAlertAction(title: "Logout", style: .destructive) { alert in
-                Streem.sharedInstance.logout()
                 (UIApplication.shared.delegate as? AppDelegate)?.logout()
             })
             optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -46,6 +45,7 @@ class ViewController: UIViewControllerSupport {
         // Uncomment to demonstrate appearance customizations
 //        GuidedScanCustomizations.performCustomizationSetup()
 
+        StreemGuidedScan.shared.isPhotorealismEnabled = true
         StreemGuidedScan.shared.streemGuidedScanDelegate = self
         StreemGuidedScan.shared.openGuidedScanList(presenter: self, completion: {[weak self] success in
             guard !success else { return }
@@ -58,16 +58,20 @@ class ViewController: UIViewControllerSupport {
             presentAlert(message: "You must first login")
             return
         }
+        scanButton.isEnabled = false
 
         // Uncomment to demonstrate appearance customizations
 //        GuidedScanCustomizations.performCustomizationSetup()
-
+        
+        StreemGuidedScan.shared.isPhotorealismEnabled = true
         StreemGuidedScan.shared.streemGuidedScanDelegate = self
-        StreemGuidedScan.shared.startGuidedScan(presenter: self, didBegin: {[weak self] result in
+        StreemGuidedScan.shared.startGuidedScan(presenter: self, didBegin: { [weak self] result in
             if case let .failure(error) = result {
                 self?.presentAlert(message: "Failed to start guided scan experience.", error: error)
             }
-        }, didEnd: { result in
+            self?.scanButton.isEnabled = true
+        }, didEnd: { [weak self] result in
+            self?.scanButton.isEnabled = true
             switch result {
             case .canceled:
                 print("User canceled the scan")
@@ -109,7 +113,14 @@ extension ViewController: StreemInitializerDelegate {
 }
 
 extension ViewController: StreemGuidedScanDelegate {
-
+    func customLayoutEstimationContainerViewController(for scan: GuidedScan) -> UIViewController? {
+        return nil
+    }
+    
+    func layoutEstimationPromptSource() -> LayoutEstimationViewControllerPrompts? {
+        return nil
+    }
+    
     func guidedScanningDidEnd(result: GuidedScanResult) {
         switch result {
         case .success(let scanId):
