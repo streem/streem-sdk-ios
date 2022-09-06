@@ -64,6 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         currentAuthorizationFlow?.cancel()
         currentAuthorizationFlow = nil
 
+        Streem.sharedInstance.logout()
+
         if let currentUser = StreemInitializer.shared.currentUser,
            let companyCode = currentUser.companyCode,
            let authState = AuthPersister.retrieveAuth(),

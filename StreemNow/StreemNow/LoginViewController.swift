@@ -13,18 +13,18 @@ class LoginViewController : UIViewControllerSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        companyCodeField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        companyCodeField.addTarget(self, action: #selector(companyCodeChanged), for: .editingChanged)
         companyCodeField.text = defaults.string(forKey: "companyCode") ?? ""
 
-        submitButton.isEnabled = !(companyCodeField.text?.isEmpty ?? true)        
+        submitButton.isEnabled = !(companyCodeField.text?.isEmpty ?? true)
     }
 
     @IBAction func submitLogin(_ sender: Any) {
         let companyCode = companyCodeField.text!
-        
+
         dismissKeyboard()
         showActivityIndicator(true)
-        
+
         func showFailure() {
             DispatchQueue.main.async {
                 self.showActivityIndicator(false)
@@ -47,7 +47,7 @@ class LoginViewController : UIViewControllerSupport {
 
                     if success {
                         self.defaults.set(companyCode, forKey: "companyCode")
-                       
+
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
@@ -63,27 +63,27 @@ class LoginViewController : UIViewControllerSupport {
             }
         }
     }
-    
+
     private func loginToAppServer(withCompanyCode companyCode: String?, completion: @escaping (Bool, StreemIdentity?, String?) -> Void) {
         guard let companyCode = companyCode else {
             completion(false, nil, nil)
             return
         }
-        
+
         // For StreemNow, the app's server happens to be Streem's server.
         // So we will log the user into Streem's server, and obtain the resulting Streem Token from there.
-        
+
         Streem.sharedInstance.getOpenIdConfiguration(forCompanyCode: companyCode) { [weak self] error, clientId, tokenEndpoint, authorizationEndpoint, logoutEndpoint in
             guard let self = self else {
                 completion(false, nil, nil)
                 return
             }
-            
+
             if error == nil,
                let clientId = clientId, !clientId.isEmpty,
                let tokenEndpoint = tokenEndpoint,
                let authorizationEndpoint = authorizationEndpoint {
-                
+
                 print("Authorizing via OpenID")
                 OpenIDHelper.loginViaOpenId(withCompanyCode: companyCode,
                                              clientId: clientId,
@@ -98,8 +98,8 @@ class LoginViewController : UIViewControllerSupport {
             }
         }
     }
-    
-    @objc func editingChanged(_ textField: UITextField) {
+
+    @objc func companyCodeChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
                 textField.text = ""
@@ -114,8 +114,6 @@ class LoginViewController : UIViewControllerSupport {
     }
 
     private func updateSubmitButton() {
-        submitButton.isEnabled = [companyCodeField].reduce(true) {
-            ( $0 && ($1.isHidden || ($1.text != nil && !$1.text!.isEmpty)))
-        }
+        submitButton.isEnabled = companyCodeField.text != nil && !companyCodeField.text!.isEmpty
     }
 }

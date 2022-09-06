@@ -15,7 +15,7 @@ User authentication is a three-step process:
 
 -   Include that **Streem Token** in a **`StreemIdentity`** struct.
 
--   Pass that **`StreemIdentity`** struct to StreemKit via the `identify(with identity:)` API.
+-   Pass that **`StreemIdentity`** struct to StreemKit via the `identify(with identity:completion:)` API.
 
 Users can obtain a **Streem Token** by logging in. Alternatively, they can bypass explicitly logging in by accepting an **invitation** to a two-person Streem call.
 
@@ -25,7 +25,7 @@ An Expert can use Streem's website or mobile apps to create an **invitation** fo
 
 An invitation is represented by a 9-digit code, which can be transmitted to the Customer through SMS, email, or any other mechanism. Your app should allow a user to manually enter the code; in addition, your app can register for [universal links](company_app.md#note-on-universal-links) so that it will respond to a user tapping an invitation link received via SMS or email.
 
-To parse the invitation deep-link, use this method: `Streem.parseUniversalLink(incomingURL: )` in `AppDelegate`.
+To parse the invitation deep-link, use this method: `Streem.parseUniversalLink(incomingURL:)` in `AppDelegate`.
 
 ```swift
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -58,16 +58,16 @@ To parse the invitation deep-link, use this method: `Streem.parseUniversalLink(i
 
 Once your app has an invitation code, make these three calls:
 
--   `login(with invitationCode:)` to obtain a **`StreemIdentity`** struct and retrieve the invitation details;
+-   `login(with invitationCode:companyCode:isExpert:avatarUrl:completion:)` to obtain a **`StreemIdentity`** struct and retrieve the invitation details;
 
--   `identify(with identity:)` to identify the user to Streem;
+-   `identify(with identity:completion:)` to identify the user to Streem;
 
 -   `startRemoteStreemWithUser()` to start the Streem call.
 
 <a name="invitation-flow" />The whole flow looks like:
 
 ```swift
-    Streem.sharedInstance.login(with: invitationCode) { error, details, identity in
+    Streem.sharedInstance.login(with: invitationCode, companyCode: nil) { error, details, identity in
         guard error == nil, let details = details, let identity = identity else {
             // the invitation code was invalid
             return
@@ -116,6 +116,7 @@ let streemIdentity = StreemIdentity(token: streemToken,
                                     name: userName,
                                     avatarUrl: optionalUrlToUserAvatarImage,
                                     isExpert: isUserAnExpert,
+                                    companyCode: companyCode, // required only if app supports multiple companies
                                     tokenRefresher:  { didObtainFreshStreemToken in
                                         // StreemKit will call this closure whenever the
                                         // StreemToken expires.
@@ -138,7 +139,7 @@ While you are just starting to integrate StreemKit into your app, your server ma
 
 Our sample app, `StreemNow`, follows this approach. It uses the [**AppAuth**](https://appauth.io) library to handle the OpenID work; we have wrapped the relevant calls to AppAuth in a class named `OpenIDHelper`.
 
-StreemKit's `getOpenIdConfiguration(forCompanyCode: companyCode)` API provides your app with the endpoints necessary for OpenID sign-on.
+StreemKit's `getOpenIdConfiguration(forCompanyCode:completion:)` API provides your app with the endpoints necessary for OpenID sign-on.
 
 ```swift
 Streem.sharedInstance.getOpenIdConfiguration(forCompanyCode: companyCode) {
@@ -158,8 +159,8 @@ Streem.sharedInstance.getOpenIdConfiguration(forCompanyCode: companyCode) {
 Internally, `loginViaOpenId(…)` takes the **Access Token** obtained via OpenID and passes it to StreemKit in order to fetch a **Streem Token**:
 
 ```swift
-Streem.sharedInstance.streemToken(forAccessToken: accessToken) { error, streemToken in
-    guard error == nil, let streemToken = streemToken else {
+Streem.sharedInstance.streemToken(forAccessToken: accessToken, companyCode: companyCode) { streemToken in
+    guard let streemToken = streemToken else {
         // error exchanging Access Token for Streem Token
         return
     }

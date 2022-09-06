@@ -16,8 +16,8 @@ StreemNow is a small sample app that integrates `StreemKit`. Its features includ
 
 ### Requirements
 
-* Xcode 13.2.1 or newer
-* Cocoapods 1.10 or newer
+* Xcode 13.4 or newer
+* Cocoapods 1.11 or newer
 * ARKit-compatible device with iOS 11.0 or newer
   - Note: making a Streem call requires an actual device, rather than the Simulator.
 
