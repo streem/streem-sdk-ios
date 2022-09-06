@@ -28,7 +28,7 @@ We are working to get our transitive dependency list down in order to minimize t
 
 ### Laser/Draw functionality not available in non-AR sessions
 
-Currently if running the camera on a non-AR devices (such as iPhone 6 and earlier), our laser and draw tools do not properly render on the screen.
+If running the camera on a non-AR device (i.e., iPhone 6 or earlier), our laser and draw tools do not properly render on the screen.
 
 &nbsp;
 

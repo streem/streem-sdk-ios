@@ -16,7 +16,7 @@ class InvitationViewController: UIViewControllerSupport {
     override func viewWillDisappear(_ animated: Bool) {
         // Logout on going back
         if let nav = navigationController, nav.viewControllers.index(of: self) == nil {
-            Streem.sharedInstance.logout()
+            (UIApplication.shared.delegate as? AppDelegate)?.logout()
         }
         
         super.viewWillDisappear(animated)

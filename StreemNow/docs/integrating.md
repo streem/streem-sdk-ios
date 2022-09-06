@@ -59,10 +59,10 @@ You should provide appropriate strings for iOS to present to users the first tim
 
 ### Changes to your `AppDelegate` code
 
-Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize StreemKit with your Streem App ID and the Streem domain corresponding to your intended Streem environment (e.g., `sandbox-us` or `prod-us`):
+Inside your `AppDelegate.application(_, didFinishLaunchingWithOptions:)` implementation, initialize StreemKit with your Streem App ID and your intended Streem environment (e.g., `sandbox` or `prod`):
 
 ```swift
-    Streem.initialize(delegate: self, appId: "APP_ID", streemDomain: "sandbox-us.streem.cloud") {
+    Streem.initialize(delegate: self, appId: "APP_ID", streemEnvironment: "sandbox") {
         // Your app might wish to set up default measurement units here,
         // by setting `Streem.sharedInstance.measurementUnitsToChooseFrom` and
         // `Streem.sharedInstance.measurementUnit`.

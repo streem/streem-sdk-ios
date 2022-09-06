@@ -13,6 +13,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		68390BCF86FE33CB0577115C /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EC091E4475F1DBBEAC4FD9 /* Pods_StreemNow.framework */; };
 		6E07D67223D28B35004DA29B /* UIViewControllerSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E07D67123D28B35004DA29B /* UIViewControllerSupport.swift */; };
 		6E0C3DB42528089100773C78 /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C3DB02528089000773C78 /* InvitationViewController.swift */; };
 		6E0C3DB52528089100773C78 /* CallLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C3DB12528089000773C78 /* CallLogViewController.swift */; };
@@ -21,7 +22,6 @@
 		6E226A0A22F3BF0F008E0966 /* StreemInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E226A0922F3BF0F008E0966 /* StreemInitializer.swift */; };
 		A729BF0A261286650012CF07 /* OpenIdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729BF09261286650012CF07 /* OpenIdHelper.swift */; };
 		A729BF0E261287020012CF07 /* AuthPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729BF0D261287020012CF07 /* AuthPersister.swift */; };
-		F750DF6642314EA4EB9747B7 /* Pods_StreemNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBABBADF46DDA8CFE9EE9CB7 /* Pods_StreemNow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,9 +41,9 @@
 		2102683925BAD23500638666 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		2107C56A212F1F3500A7CA02 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		214CAA63214DE7C20048193F /* StreemNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StreemNow.entitlements; sourceTree = "<group>"; };
-		21B09B3450E156D336728127 /* Pods-StreemNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.debug.xcconfig"; path = "Target Support Files/Pods-StreemNow/Pods-StreemNow.debug.xcconfig"; sourceTree = "<group>"; };
 		21C46548216FB6E40075978A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21EB035021EFA2D200014F86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		26EC091E4475F1DBBEAC4FD9 /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		318A0A5726CC7D3B00E4426B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		5D2C85EF25EDC2B100C96F18 /* StreemKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = StreemKit.xcframework; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* StreemNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreemNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,10 +58,10 @@
 		6E0C3DB22528089100773C78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E0C3DB32528089100773C78 /* CallLogDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallLogDetailsViewController.swift; sourceTree = "<group>"; };
 		6E226A0922F3BF0F008E0966 /* StreemInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreemInitializer.swift; sourceTree = "<group>"; };
-		96C0920E9D2EB3D24EFB3EC6 /* Pods-StreemNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.release.xcconfig"; path = "Target Support Files/Pods-StreemNow/Pods-StreemNow.release.xcconfig"; sourceTree = "<group>"; };
 		A729BF09261286650012CF07 /* OpenIdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdHelper.swift; sourceTree = "<group>"; };
 		A729BF0D261287020012CF07 /* AuthPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPersister.swift; sourceTree = "<group>"; };
-		EBABBADF46DDA8CFE9EE9CB7 /* Pods_StreemNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreemNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB45E714E33BADFD0E8019E9 /* Pods-StreemNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.release.xcconfig"; path = "Target Support Files/Pods-StreemNow/Pods-StreemNow.release.xcconfig"; sourceTree = "<group>"; };
+		EF001FC7F7844985E0F6F40E /* Pods-StreemNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreemNow.debug.xcconfig"; path = "Target Support Files/Pods-StreemNow/Pods-StreemNow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F750DF6642314EA4EB9747B7 /* Pods_StreemNow.framework in Frameworks */,
+				68390BCF86FE33CB0577115C /* Pods_StreemNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			children = (
 				5D2C85EF25EDC2B100C96F18 /* StreemKit.xcframework */,
 				2107C56A212F1F3500A7CA02 /* CoreMedia.framework */,
-				EBABBADF46DDA8CFE9EE9CB7 /* Pods_StreemNow.framework */,
+				26EC091E4475F1DBBEAC4FD9 /* Pods_StreemNow.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 		F4E2A10D5C02F5BA7E339EFB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				21B09B3450E156D336728127 /* Pods-StreemNow.debug.xcconfig */,
-				96C0920E9D2EB3D24EFB3EC6 /* Pods-StreemNow.release.xcconfig */,
+				EF001FC7F7844985E0F6F40E /* Pods-StreemNow.debug.xcconfig */,
+				EB45E714E33BADFD0E8019E9 /* Pods-StreemNow.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,12 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "StreemNow" */;
 			buildPhases = (
-				1F5F37A942A2D040A61746B6 /* [CP] Check Pods Manifest.lock */,
+				A5F80255133624BDA20930C8 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				5D2C85F225EDC2B100C96F18 /* Embed Frameworks */,
-				0678637E43AC2B4681BC9C71 /* [CP] Embed Pods Frameworks */,
+				2D29FABB200E5BAAEB7FE466 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,7 +224,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0678637E43AC2B4681BC9C71 /* [CP] Embed Pods Frameworks */ = {
+		2D29FABB200E5BAAEB7FE466 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,28 +233,26 @@
 				"${PODS_ROOT}/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
-				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemKernel/StreemKernel.framework/StreemKernel",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemKit/StreemKit.framework/StreemKit",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StreemWebRTC/StreemWebRTC.framework/StreemWebRTC",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TwilioSyncClient/TwilioSyncClient.framework/TwilioSyncClient",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TwilioVideo/TwilioVideo.framework/TwilioVideo",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKernel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreemWebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioSyncClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StreemNow/Pods-StreemNow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1F5F37A942A2D040A61746B6 /* [CP] Check Pods Manifest.lock */ = {
+		A5F80255133624BDA20930C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,7 +418,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21B09B3450E156D336728127 /* Pods-StreemNow.debug.xcconfig */;
+			baseConfigurationReference = EF001FC7F7844985E0F6F40E /* Pods-StreemNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -430,6 +428,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = StreemNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				MODULE_NAME = ExampleApp;
@@ -446,7 +445,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96C0920E9D2EB3D24EFB3EC6 /* Pods-StreemNow.release.xcconfig */;
+			baseConfigurationReference = EB45E714E33BADFD0E8019E9 /* Pods-StreemNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -456,6 +455,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = StreemNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				MODULE_NAME = ExampleApp;

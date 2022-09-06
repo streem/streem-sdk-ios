@@ -1,7 +1,13 @@
-### 0.31.0 - 5/11, 2022
+### 0.32.0 - September 6, 2022
 
--   Stability improvements and bug fixes
+- Updated TwilioVideo to 5.0
+- Updated minimum Xcode to 13.4.1
+- Stability improvements and bug fixes
+
+### 0.31.0 - May 11, 2022
+
 -   Updated pod versions
+-   Bug fixes
 
 ### 0.30.1 - Apr 27, 2022
 
