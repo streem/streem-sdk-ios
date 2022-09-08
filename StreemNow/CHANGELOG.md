@@ -1,3 +1,7 @@
+### 0.32.1 - September 7, 2022
+
+- Stability improvements and bug fixes
+
 ### 0.32.0 - September 6, 2022
 
 - Updated TwilioVideo to 5.0
