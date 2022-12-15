@@ -1,3 +1,9 @@
+### 0.33.0 - December 14, 2022
+
+- Add ability to add integrationId when starting a Streem
+- Additional logging
+- Bug fixes
+
 ### 0.32.1 - September 7, 2022
 
 - Stability improvements and bug fixes

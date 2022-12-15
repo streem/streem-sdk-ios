@@ -19,13 +19,9 @@ If you would like to use universal links to handle Streem **invitation links**, 
 
 * You will then need to add the Associated Domains entitlement to your app with the following domains (replacing `<company_code>` with your own `company_code`):
 
-  - `<company_code>.swac.prod.streem.cloud`
   - `<company_code>.cv.prod.streem.cloud`
-  - `<company_code>.swac.prod-us.streem.cloud`
-  - `<company_code>.cv.prod-us.streem.cloud`
   - `<company_code>.streem.us`
   - and, if you will develop/test using the `sandbox` environment:
-    - `<company_code>.swac.sandbox.streem.cloud`
     - `<company_code>.cv.sandbox.streem.cloud`
 
 * For more details on adding this entitlement please see the "Add the Associated Domains Entitlement to Your App" section of this resource: https://developer.apple.com/documentation/safariservices/supporting_associated_domains.
