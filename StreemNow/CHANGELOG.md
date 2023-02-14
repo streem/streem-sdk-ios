@@ -1,3 +1,8 @@
+### 0.34.0 (2/13)
+
+- Added ability to set AppTheme
+- Added support for Expert Bios
+
 ### 0.33.0 - December 14, 2022
 
 - Add ability to add integrationId when starting a Streem
