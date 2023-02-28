@@ -149,7 +149,7 @@ struct GuidedScanCustomizations {
     }
 
     static private func generateCustomImageConfig() -> CustomImageConfig {
-        CustomImageConfig(with: UIImage(named: "test-mesh-icon"), layoutEstimationIcon: UIImage(named: "test-layout-icon"))
+        CustomImageConfig(meshIcon: UIImage(named: "test-mesh-icon"), layoutEstimationIcon: UIImage(named: "test-layout-icon"))
     }
 
     static private func generateCustomInstructionAnimationsConfig() -> CustomScanInstructionAnimationsConfig {

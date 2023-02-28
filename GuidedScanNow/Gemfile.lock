@@ -100,7 +100,7 @@ DEPENDENCIES
   cocoapods-check (~> 1.0)
 
 RUBY VERSION
-   ruby 2.6.5p296
+   ruby 2.6.9p207
 
 BUNDLED WITH
-   2.2.1
+   2.3.12

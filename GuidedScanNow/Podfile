@@ -6,7 +6,7 @@ use_frameworks!
 platform :ios, '14.0'
 
 target 'GuidedScanNow' do
-	pod 'StreemGuidedScanKit', '~> 0.7.1-swift55'
+	pod 'StreemGuidedScanKit', '0.8.0-swift55'
 	pod 'AppAuth', '~> 1.4'
 end
 
