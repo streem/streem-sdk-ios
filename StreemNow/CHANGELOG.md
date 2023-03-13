@@ -1,4 +1,9 @@
-### 0.34.0 (2/13)
+### 0.34.1 March 13, 2023
+- Added logs for call quality stats
+- Removed support for AR 
+- Various stability improvements and bug fixes
+
+### 0.34.0 February 13, 2023
 
 - Added ability to set AppTheme
 - Added support for Expert Bios
