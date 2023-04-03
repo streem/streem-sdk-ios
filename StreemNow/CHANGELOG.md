@@ -1,4 +1,14 @@
-### 0.34.0 (2/13)
+### 0.34.2 April 2, 2023
+- Upgrade to TwilioSyncClient 1.2.1
+- Confirm camera in Lobby screen before enabling Join Now button
+- Explicitly call Lobby camera before starting in-call camera
+
+### 0.34.1 March 13, 2023
+- Added logs for call quality stats
+- Removed support for AR 
+- Various stability improvements and bug fixes
+
+### 0.34.0 February 13, 2023
 
 - Added ability to set AppTheme
 - Added support for Expert Bios
