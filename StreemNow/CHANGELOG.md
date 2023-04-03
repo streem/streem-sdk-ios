@@ -1,3 +1,6 @@
+### 0.34.3 April 3, 2023
+- Fix crash on starting a call
+
 ### 0.34.2 April 2, 2023
 - Upgrade to TwilioSyncClient 1.2.1
 - Confirm camera in Lobby screen before enabling Join Now button
