@@ -1,3 +1,7 @@
+### 0.35.0 April 20, 2023
+- Update Twilio Video SDK from v5.0 to v5.5.0
+- Update Twilio Sync Client dependency from v1.2.1 to v2.0.0 
+
 ### 0.34.3 April 3, 2023
 - Fix crash on starting a call
 
