@@ -1,3 +1,12 @@
+### 0.36.0 June 21, 2023
+- Fix bug that added leading zeros back in on UUIDs for iOS
+- Turned off AR tracking
+- Update to logic for transitioning to in call to improve waiting experience for users
+- Added logs for each tap event
+
+### 0.35.1 May 1, 2023
+- Updated URL for accessing Streem REST API  
+
 ### 0.35.0 April 20, 2023
 - Update Twilio Video SDK from v5.0 to v5.5.0
 - Update Twilio Sync Client dependency from v1.2.1 to v2.0.0 
